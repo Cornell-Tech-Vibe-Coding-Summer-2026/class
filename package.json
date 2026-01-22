@@ -1,0 +1,37 @@
+{
+  "name": "class",
+  "version": "1.0.0",
+  "description": "Cornell-Tech-Vibe-Coding-Summer-2026",
+  "private": true,
+  "workspaces": [
+    "week1/*",
+    "week2/*",
+    "week3/*",
+    "extra/*"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:all": "npm run test --workspaces --if-present",
+    "test:7_13": "npm run test -w @class/7_13",
+    "test:7_14": "npm run test -w @class/7_14",
+    "test:7_15_16": "npm run test -w @class/7_15_16",
+    "test:7_20": "npm run test -w @class/7_20",
+    "test:7_21": "npm run test -w @class/7_21",
+    "test:7_22_23": "npm run test -w @class/7_22_23",
+    "test:7_27": "npm run test -w @class/7_27",
+    "test:7_28_30": "npm run test -w @class/7_28_30"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cornell-Tech-Vibe-Coding-Summer-2026/class.git"
+  },
+  "author": "Hauke Sandhaus and Jonathan Segal",
+  "type": "commonjs",
+  "homepage": "https://github.com/Cornell-Tech-Vibe-Coding-Summer-2026/class#readme"
+}
