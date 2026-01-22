@@ -1,4 +1,4 @@
-# **![Cornell Tech](https://ww2.nycourts.gov/sites/default/files/inline-images/Horiz%20Cornell%20%2B%20Jacobs%20-%20Black_0.png)**
+# **![Cornell Tech](assets/horizontal-black.svg)**
 
 # **COURSE PREFIX & COURSE NUMBER: Good Code, Good Vibes: Building Ethical Apps with AI**
 
