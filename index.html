@@ -99,32 +99,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>📚 Student Submissions</h1>
+        <h1 id="studentName">Student Submissions</h1>
         <div class="weeks" id="weeksContainer"></div>
     </div>
 
     <script>
-        const submissions = {
-            'Week 1': {
-                '7_13': 'July 13',
-                '7_14': 'July 14',
-                '7_15_16': 'July 15-16'
-            },
-            'Week 2': {
-                '7_20': 'July 20',
-                '7_21': 'July 21',
-                '7_22_23': 'July 22-23'
-            },
-            'Week 3': {
-                '7_27': 'July 27',
-                '7_28_30': 'July 28-30'
+        async function loadStudentName() {
+            try {
+                const response = await fetch('package.json');
+                const packageJson = await response.json();
+                const name = packageJson.name;
+                document.getElementById('studentName').textContent = `${name}'s Submissions`;
+            } catch (error) {
+                console.error('Failed to load student name:', error);
             }
+        }
+
+        const submissions = {
+            'Week 1': ['7_13', '7_14', '7_15_16'],
+            'Week 2': ['7_20', '7_21', '7_22_23'],
+            'Week 3': ['7_27', '7_28_30']
         };
 
-        function generateWeeksHTML() {
+        async function generateWeeksHTML() {
             const container = document.getElementById('weeksContainer');
             
-            Object.entries(submissions).forEach(([week, dates]) => {
+            for (const [week, folders] of Object.entries(submissions)) {
                 const weekDiv = document.createElement('div');
                 weekDiv.className = 'week';
                 
@@ -135,30 +135,67 @@
                 const assignmentsDiv = document.createElement('div');
                 assignmentsDiv.className = 'assignments';
                 
-                Object.entries(dates).forEach(([folder, label]) => {
-                    const link = document.createElement('a');
-                    link.href = `week1/${folder}/code_deliverable/`.replace('week1', week.toLowerCase().replace(' ', ''));
-                    link.className = 'assignment';
+                for (const folder of folders) {
+                    // Determine week folder name
+                    const weekFolder = week.toLowerCase().replace(' ', '');
+                    const packagePath = `${weekFolder}/${folder}/package.json`;
                     
-                    const dateSpan = document.createElement('div');
-                    dateSpan.className = 'date';
-                    dateSpan.textContent = label;
-                    
-                    const viewLink = document.createElement('div');
-                    viewLink.className = 'view-link';
-                    viewLink.textContent = '→ View Submission';
-                    
-                    link.appendChild(dateSpan);
-                    link.appendChild(viewLink);
-                    assignmentsDiv.appendChild(link);
-                });
+                    try {
+                        const response = await fetch(packagePath);
+                        const packageJson = await response.json();
+                        const name = packageJson.name || folder;
+                        const description = packageJson.description || '';
+                        
+                        const link = document.createElement('a');
+                        link.href = `${weekFolder}/${folder}/code_deliverable/`;
+                        link.className = 'assignment';
+                        
+                        const nameSpan = document.createElement('div');
+                        nameSpan.className = 'date';
+                        nameSpan.textContent = name;
+                        
+                        const descSpan = document.createElement('div');
+                        descSpan.style.fontSize = '0.9em';
+                        descSpan.style.color = '#666';
+                        descSpan.style.marginBottom = '10px';
+                        descSpan.textContent = description;
+                        
+                        const viewLink = document.createElement('div');
+                        viewLink.className = 'view-link';
+                        viewLink.textContent = '→ View Submission';
+                        
+                        link.appendChild(nameSpan);
+                        link.appendChild(descSpan);
+                        link.appendChild(viewLink);
+                        assignmentsDiv.appendChild(link);
+                    } catch (error) {
+                        console.error(`Failed to load ${packagePath}:`, error);
+                        // Fallback if package.json can't be loaded
+                        const link = document.createElement('a');
+                        link.href = `${weekFolder}/${folder}/code_deliverable/`;
+                        link.className = 'assignment';
+                        
+                        const nameSpan = document.createElement('div');
+                        nameSpan.className = 'date';
+                        nameSpan.textContent = folder;
+                        
+                        const viewLink = document.createElement('div');
+                        viewLink.className = 'view-link';
+                        viewLink.textContent = '→ View Submission';
+                        
+                        link.appendChild(nameSpan);
+                        link.appendChild(viewLink);
+                        assignmentsDiv.appendChild(link);
+                    }
+                }
                 
                 weekDiv.appendChild(weekTitle);
                 weekDiv.appendChild(assignmentsDiv);
                 container.appendChild(weekDiv);
-            });
+            }
         }
 
+        loadStudentName();
         generateWeeksHTML();
     </script>
 </body>
