@@ -28,8 +28,10 @@ jobs:
       #       expected-output: 3
       #       comparison-method: exact
       #       timeout: 10
-    - name: Autograding Reporter
-      uses: classroom-resources/autograding-grading-reporter@v1
-      if: always()
-      with:
-        runners: ''
+      
+      # Uncomment the following step when you add autograding tests above
+      # - name: Autograding Reporter
+      #   uses: classroom-resources/autograding-grading-reporter@v1
+      #   if: always()
+      #   with:
+      #     runners: test-id-1,test-id-2
