@@ -1,0 +1,11 @@
+{
+  "name": "@class/7_13",
+  "version": "1.0.0",
+  "description": "About Me Page - Week 1 Day 1",
+  "private": true,
+  "scripts": {
+    "test": "cd ../.. && jest tests/7_13"
+  },
+  "keywords": ["html", "css"],
+  "author": "Hauke Sandhaus and Jonathan Segal"
+}

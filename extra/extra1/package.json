@@ -1,0 +1,11 @@
+{
+  "name": "@class/extra1",
+  "version": "1.0.0",
+  "description": "Extra Credit Assignment 1",
+  "private": true,
+  "scripts": {
+    "test": "echo 'No tests configured for extra1'"
+  },
+  "keywords": [],
+  "author": "Hauke Sandhaus and Jonathan Segal"
+}

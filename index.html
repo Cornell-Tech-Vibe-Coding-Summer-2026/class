@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Submissions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .weeks {
+            display: grid;
+            gap: 30px;
+        }
+
+        .week {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .week-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .assignments {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .assignment {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .assignment:hover {
+            background: #e8e8ff;
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .date {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .view-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .view-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Student Submissions</h1>
+        <div class="weeks" id="weeksContainer"></div>
+    </div>
+
+    <script>
+        const submissions = {
+            'Week 1': {
+                '7_13': 'July 13',
+                '7_14': 'July 14',
+                '7_15_16': 'July 15-16'
+            },
+            'Week 2': {
+                '7_20': 'July 20',
+                '7_21': 'July 21',
+                '7_22_23': 'July 22-23'
+            },
+            'Week 3': {
+                '7_27': 'July 27',
+                '7_28_30': 'July 28-30'
+            }
+        };
+
+        function generateWeeksHTML() {
+            const container = document.getElementById('weeksContainer');
+            
+            Object.entries(submissions).forEach(([week, dates]) => {
+                const weekDiv = document.createElement('div');
+                weekDiv.className = 'week';
+                
+                const weekTitle = document.createElement('div');
+                weekTitle.className = 'week-title';
+                weekTitle.textContent = week;
+                
+                const assignmentsDiv = document.createElement('div');
+                assignmentsDiv.className = 'assignments';
+                
+                Object.entries(dates).forEach(([folder, label]) => {
+                    const link = document.createElement('a');
+                    link.href = `week1/${folder}/code_deliverable/`.replace('week1', week.toLowerCase().replace(' ', ''));
+                    link.className = 'assignment';
+                    
+                    const dateSpan = document.createElement('div');
+                    dateSpan.className = 'date';
+                    dateSpan.textContent = label;
+                    
+                    const viewLink = document.createElement('div');
+                    viewLink.className = 'view-link';
+                    viewLink.textContent = '→ View Submission';
+                    
+                    link.appendChild(dateSpan);
+                    link.appendChild(viewLink);
+                    assignmentsDiv.appendChild(link);
+                });
+                
+                weekDiv.appendChild(weekTitle);
+                weekDiv.appendChild(assignmentsDiv);
+                container.appendChild(weekDiv);
+            });
+        }
+
+        generateWeeksHTML();
+    </script>
+</body>
+</html>

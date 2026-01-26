@@ -1,0 +1,11 @@
+{
+  "name": "@class/7_20",
+  "version": "1.0.0",
+  "description": "Week 2 Day 1 - 7/20",
+  "private": true,
+  "scripts": {
+    "test": "cd ../.. && jest tests/7_20"
+  },
+  "keywords": [],
+  "author": "Hauke Sandhaus and Jonathan Segal"
+}
