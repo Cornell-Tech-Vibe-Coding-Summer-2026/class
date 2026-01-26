@@ -133,7 +133,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="studentName">📚 Student Submissions</h1>
+        <h1 id="studentName">Student Submissions</h1>
         <div class="weeks" id="weeksContainer"></div>
     </div>
 
@@ -151,7 +151,7 @@
                 const packageJson = await response.json();
                 const name = packageJson.name;
                 console.log('Loaded name:', name);
-                document.getElementById('studentName').textContent = `📚 ${name}'s Submissions`;
+                document.getElementById('studentName').textContent = `${name}'s Submissions`;
             } catch (error) {
                 console.error('Failed to load student name:', error);
             }
