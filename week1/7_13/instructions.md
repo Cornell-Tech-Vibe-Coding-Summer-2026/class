@@ -33,7 +33,7 @@ Once your page is ready, you need to make it live:
 
 ## Reflection
 
-After completing your page, reflect on the process in your `README.md` or a dedicated reflection file:
+After completing your page, reflect on the process in your `deliverable_1.md` file:
 1. How did vibe coding change your approach to building a website compared to traditional coding?
 2. What "structural elements" did you borrow from elsewhere? Did you feel a need to attribute them?
 3. What was the most surprising thing you learned about the AI tool's capabilities or limitations?
