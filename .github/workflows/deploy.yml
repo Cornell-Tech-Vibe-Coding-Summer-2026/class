@@ -3,44 +3,68 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
 
 permissions:
-  contents: write
+  contents: read
   pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-    - name: Build React apps (if any)
-      run: |
-        # Find all code_deliverable folders with package.json
-        for folder in $(find . -path "*/code_deliverable/package.json" | sed 's|/package.json||'); do
-          echo "Found React app in $folder"
-          cd "$folder"
-          npm install
-          npm run build
-          # Replace the folder root with the built assets so the link
-          # to /weekX/YY/code_deliverable/ serves the React app
-          rm -f index.html
-          cp -r build/* .
-          cd - > /dev/null
-        done
+      - name: Build React apps (auto-detect) and prepare folders
+        run: |
+          set -e
+          # Iterate all code_deliverable directories
+          while IFS= read -r -d '' folder; do
+            echo "Processing $folder"
+            if [ -f "$folder/package.json" ]; then
+              if grep -q '"react"' "$folder/package.json" || grep -q '"react-scripts"' "$folder/package.json"; then
+                echo "Detected React app in $folder"
+                pushd "$folder"
+                npm ci || npm install
+                # Ensure relative asset paths when served from a subfolder
+                PUBLIC_URL=. npm run build
+                # Serve the built app at the folder root
+                rm -f index.html || true
+                cp -r build/* .
+                popd
+              else
+                echo "package.json present but React not detected; leaving static files as-is in $folder"
+              fi
+            else
+              echo "Static site detected (no package.json) in $folder; no build needed"
+            fi
+          done < <(find . -type d -path '*/code_deliverable' -print0)
 
-    - name: Deploy to GitHub Pages
-      if: github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
-        cname: false
+          echo "Listing 7_14 code_deliverable contents after build:"
+          ls -la week1/7_14/code_deliverable || true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
