@@ -440,6 +440,46 @@ footer p {
     color: var(--primary);
 }
 
+/* Academic Profiles */
+.academic-profiles {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.academic-profiles h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.profile-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.profile-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-link:hover {
+    color: #a5b4fc;
+    transform: translateX(5px);
+}
+
+.profile-link::before {
+    content: '→';
+    font-size: 1.1rem;
+}
+
 @media (max-width: 992px) {
     .vibe-layout {
         flex-direction: column;
