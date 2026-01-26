@@ -24,6 +24,9 @@
     "test:7_27": "npm run test -w @class/7_27",
     "test:7_28_30": "npm run test -w @class/7_28_30"
   },
+  "dependencies": {
+    "csv-writer": "^1.6.0"
+  },
   "devDependencies": {
     "jest": "^29.7.0"
   },
