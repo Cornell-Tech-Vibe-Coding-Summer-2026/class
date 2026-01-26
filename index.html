@@ -106,10 +106,14 @@
     <script>
         async function loadStudentName() {
             try {
-                const response = await fetch('package.json');
+                const response = await fetch('./package.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const packageJson = await response.json();
                 const name = packageJson.name;
-                document.getElementById('studentName').textContent = `${name}'s Submissions`;
+                console.log('Loaded name:', name);
+                document.getElementById('studentName').textContent = `📚 ${name}'s Submissions`;
             } catch (error) {
                 console.error('Failed to load student name:', error);
             }
