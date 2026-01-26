@@ -30,6 +30,10 @@ jobs:
           cd "$folder"
           npm install
           npm run build
+          # Replace the folder root with the built assets so the link
+          # to /weekX/YY/code_deliverable/ serves the React app
+          rm -f index.html
+          cp -r build/* .
           cd - > /dev/null
         done
 
