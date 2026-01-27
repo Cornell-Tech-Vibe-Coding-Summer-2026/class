@@ -16,9 +16,13 @@ Use of other tools may be appropriate, but need to be configured using rules, to
 
 ### The Task
 Create a website that tells us who you are. It must include:
+- **Name**: Your actual name, preferred name, and pronounciation. Pronouns if needed. 
+- **Photo**: How can we recognize you? A photo of yourself or visual description. 
 - **Bio**: A brief introduction to yourself.
 - **Hobbies**: What do you do for fun?
 - **Professional Section**: Your skills, interests, or career goals.
+
+Most importantly work on the website long enough to actually create something you are proud of. Something that truly and authentically reflects you. 
 
 ### Inspiration & "Stealing"
 We encourage you to look for inspiration online. Check out sites like [Awwwards](https://www.awwwards.com) for award-winning designs. 
