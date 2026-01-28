@@ -79,7 +79,10 @@ canvas {
   gap: 2rem;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links button {
+  background: none;
+  border: none;
   color: #888;
   text-decoration: none;
   font-size: 0.9rem;
@@ -87,9 +90,12 @@ canvas {
   letter-spacing: 1px;
   transition: color 0.3s ease;
   pointer-events: auto;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links button:hover {
   color: #fff;
 }
 
@@ -105,23 +111,23 @@ canvas {
 
 /* Section backgrounds */
 .section-about {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(10, 10, 10, 0.95) 50%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
 }
 
 .section-scholar {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(10, 10, 10, 0.95) 50%);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
 }
 
 .section-research {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(10, 10, 10, 0.95) 50%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, transparent 60%);
 }
 
 .section-projects {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(10, 10, 10, 0.95) 50%);
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.12) 0%, transparent 60%);
 }
 
 .section-connect {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(10, 10, 10, 0.95) 50%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
 }
 
 /* Section Content */

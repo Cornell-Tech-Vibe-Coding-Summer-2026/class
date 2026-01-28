@@ -1,3 +1,22 @@
+## [Local Time: 2026-01-28 16:30:00]
+
+**User Prompt**:
+> I like this direction! The buttons dont scroll to the sections yet. There seems to be some black overlay in front of everything. Stack of paper needs to be around 5x bigger.
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-28 16:30:00
+- **Annotations**: Bug fixes for navigation and visibility.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Added `onClick` handlers to nav links with `scrollIntoView({ behavior: 'smooth' })`.
+- Changed section background gradients from opaque black fade to transparent fade.
+- Increased Paper Stack scale from 3 to 15.
+
+---
 ## [Local Time: 2026-01-28 16:15:00]
 
 **User Prompt**:

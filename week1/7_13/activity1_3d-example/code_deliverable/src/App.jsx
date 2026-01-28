@@ -1,4 +1,4 @@
-import { useRef, useMemo, Suspense } from 'react'
+import { useRef, useMemo, Suspense, createContext, useContext } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Float,
@@ -12,6 +12,9 @@ import {
 } from '@react-three/drei'
 import * as THREE from 'three'
 import './index.css'
+
+// Context to share scroll control
+const ScrollContext = createContext(null)
 
 // --- Model Loader ---
 function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
@@ -53,24 +56,24 @@ function PageModel({ index, totalPages, children, basePosition = [2, 0, 0] }) {
     const distance = offset - pageCenter
 
     // Strict visibility: only show when very close to center
-    const isActive = Math.abs(distance) < pageSize * 0.8
+    const isActive = Math.abs(distance) < pageSize * 0.7
 
     // Spring-like animation targets
     if (isActive) {
       targetScale.current = 1
-      targetY.current = -distance * 8
+      targetY.current = -distance * 6
     } else {
       targetScale.current = 0
-      targetY.current = distance > 0 ? -5 : 5
+      targetY.current = distance > 0 ? -4 : 4
     }
 
     // Smooth interpolation (spring effect)
     const currentScale = ref.current.scale.x
-    const newScale = THREE.MathUtils.lerp(currentScale, targetScale.current, 0.08)
+    const newScale = THREE.MathUtils.lerp(currentScale, targetScale.current, 0.1)
     ref.current.scale.setScalar(Math.max(0.001, newScale))
 
     const currentY = ref.current.position.y
-    ref.current.position.y = THREE.MathUtils.lerp(currentY, targetY.current + basePosition[1], 0.08)
+    ref.current.position.y = THREE.MathUtils.lerp(currentY, targetY.current + basePosition[1], 0.1)
     ref.current.position.x = basePosition[0]
     ref.current.position.z = basePosition[2]
 
@@ -109,7 +112,7 @@ function Models() {
 
       {/* Scholar - Paper Stack */}
       <PageModel index={1} totalPages={totalPages} basePosition={[2, 0, 0]}>
-        <Model url="/3D_files/Large Stack of Paper.glb" scale={3} />
+        <Model url="/3D_files/Large Stack of Paper.glb" scale={15} />
       </PageModel>
 
       {/* Research - Van */}
@@ -130,6 +133,128 @@ function Models() {
   )
 }
 
+// Navigation component that can scroll
+function Navigation() {
+  const scroll = useScroll()
+
+  const scrollToPage = (pageIndex) => {
+    const totalPages = 5
+    const targetOffset = pageIndex / totalPages
+    // Animate scroll to target
+    if (scroll.el) {
+      const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
+      scroll.el.scrollTo({
+        top: targetOffset * scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  return (
+    <nav className="main-nav">
+      <div className="nav-logo">HAUKE_S.</div>
+      <div className="nav-links">
+        <button onClick={() => scrollToPage(0)}>About</button>
+        <button onClick={() => scrollToPage(1)}>Scholar</button>
+        <button onClick={() => scrollToPage(2)}>Research</button>
+        <button onClick={() => scrollToPage(3)}>Projects</button>
+        <button onClick={() => scrollToPage(4)}>Connect</button>
+      </div>
+    </nav>
+  )
+}
+
+function HtmlContent() {
+  return (
+    <>
+      <Navigation />
+
+      {/* Section 1: About */}
+      <section id="about" className="section section-about">
+        <div className="section-content">
+          <span className="section-tag">Welcome</span>
+          <h1>Hauke Sandhaus</h1>
+          <p className="lead">UX Technologist & Ph.D. Candidate at Cornell Tech</p>
+          <p>I design and research human-computer interactions that are ethical, inclusive, and delightful. My work spans autonomous vehicles, urban systems, and the ethics of persuasive technology.</p>
+          <div className="link-buttons">
+            <a href="https://www.instagram.com/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn instagram">
+              <span>📸</span> Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Scholar */}
+      <section id="scholar" className="section section-scholar">
+        <div className="section-content">
+          <span className="section-tag">Research</span>
+          <h2>Academic Work</h2>
+          <p className="lead">Publications, talks, and academic contributions.</p>
+          <p>My research has been published in top HCI venues including CHI, DIS, and AutoUI. I explore topics ranging from wizard-of-oz prototyping for autonomous vehicles to the ethics of dark patterns in UI design.</p>
+          <div className="link-buttons">
+            <a href="https://scholar.google.com/citations?user=fZzd8BMAAAAJ" target="_blank" rel="noopener noreferrer" className="link-btn scholar">
+              <span>🎓</span> Google Scholar
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Research */}
+      <section id="research" className="section section-research">
+        <div className="section-content">
+          <span className="section-tag">Focus Area</span>
+          <h2>Autonomous Mobility</h2>
+          <p className="lead">The Wizard Cab Project</p>
+          <p>I investigate how passengers interact with self-driving vehicles. Using wizard-of-oz methods, I simulate future transport scenarios to understand trust, safety, and the human experience of giving up control.</p>
+          <div className="link-buttons">
+            <a href="https://www.autoui.org/" target="_blank" rel="noopener noreferrer" className="link-btn research">
+              <span>🚗</span> AutoUI Conference
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Projects */}
+      <section id="projects" className="section section-projects">
+        <div className="section-content">
+          <span className="section-tag">Portfolio</span>
+          <h2>Design & Code</h2>
+          <p className="lead">Selected projects and experiments.</p>
+          <p>From interactive data visualizations to experimental interfaces, my portfolio showcases the intersection of design thinking and technical implementation.</p>
+          <div className="link-buttons">
+            <a href="https://hauke.haus" target="_blank" rel="noopener noreferrer" className="link-btn portfolio">
+              <span>🌐</span> Portfolio Website
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Connect */}
+      <section id="connect" className="section section-connect">
+        <div className="section-content">
+          <span className="section-tag">Let's Talk</span>
+          <h2>Connect With Me</h2>
+          <p className="lead">Open to collaborations, speaking, and new ideas.</p>
+          <p>Whether you're interested in research collaborations, speaking engagements, or just want to chat about the future of human-computer interaction, I'd love to hear from you.</p>
+          <div className="link-buttons">
+            <a href="https://www.linkedin.com/in/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn linkedin">
+              <span>💼</span> LinkedIn
+            </a>
+            <a href="mailto:hs786@cornell.edu" className="link-btn email">
+              <span>✉️</span> Email
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="site-footer">
+        <p>Built with React Three Fiber & Vibe Coding ✨</p>
+      </footer>
+    </>
+  )
+}
+
 function Scene() {
   return (
     <>
@@ -137,105 +262,12 @@ function Scene() {
       <directionalLight position={[10, 10, 10]} intensity={2.5} />
       <pointLight position={[-10, 5, -5]} intensity={1.5} color="#0088ff" />
 
-      <ScrollControls pages={5} damping={0.25} snap>
+      <ScrollControls pages={5} damping={0.15}>
         <Suspense fallback={<Loader />}>
           <Models />
 
           <Scroll html style={{ width: '100%' }}>
-            {/* Navigation */}
-            <nav className="main-nav">
-              <div className="nav-logo">HAUKE_S.</div>
-              <div className="nav-links">
-                <a href="#about">About</a>
-                <a href="#scholar">Scholar</a>
-                <a href="#research">Research</a>
-                <a href="#projects">Projects</a>
-                <a href="#connect">Connect</a>
-              </div>
-            </nav>
-
-            {/* Section 1: About */}
-            <section id="about" className="section section-about">
-              <div className="section-content">
-                <span className="section-tag">Welcome</span>
-                <h1>Hauke Sandhaus</h1>
-                <p className="lead">UX Technologist & Ph.D. Candidate at Cornell Tech</p>
-                <p>I design and research human-computer interactions that are ethical, inclusive, and delightful. My work spans autonomous vehicles, urban systems, and the ethics of persuasive technology.</p>
-                <div className="link-buttons">
-                  <a href="https://www.instagram.com/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn instagram">
-                    <span>📸</span> Instagram
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 2: Scholar */}
-            <section id="scholar" className="section section-scholar">
-              <div className="section-content">
-                <span className="section-tag">Research</span>
-                <h2>Academic Work</h2>
-                <p className="lead">Publications, talks, and academic contributions.</p>
-                <p>My research has been published in top HCI venues including CHI, DIS, and AutoUI. I explore topics ranging from wizard-of-oz prototyping for autonomous vehicles to the ethics of dark patterns in UI design.</p>
-                <div className="link-buttons">
-                  <a href="https://scholar.google.com/citations?user=fZzd8BMAAAAJ" target="_blank" rel="noopener noreferrer" className="link-btn scholar">
-                    <span>🎓</span> Google Scholar
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 3: Research */}
-            <section id="research" className="section section-research">
-              <div className="section-content">
-                <span className="section-tag">Focus Area</span>
-                <h2>Autonomous Mobility</h2>
-                <p className="lead">The Wizard Cab Project</p>
-                <p>I investigate how passengers interact with self-driving vehicles. Using wizard-of-oz methods, I simulate future transport scenarios to understand trust, safety, and the human experience of giving up control.</p>
-                <div className="link-buttons">
-                  <a href="https://www.autoui.org/" target="_blank" rel="noopener noreferrer" className="link-btn research">
-                    <span>🚗</span> AutoUI Conference
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 4: Projects */}
-            <section id="projects" className="section section-projects">
-              <div className="section-content">
-                <span className="section-tag">Portfolio</span>
-                <h2>Design & Code</h2>
-                <p className="lead">Selected projects and experiments.</p>
-                <p>From interactive data visualizations to experimental interfaces, my portfolio showcases the intersection of design thinking and technical implementation.</p>
-                <div className="link-buttons">
-                  <a href="https://hauke.haus" target="_blank" rel="noopener noreferrer" className="link-btn portfolio">
-                    <span>🌐</span> Portfolio Website
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 5: Connect */}
-            <section id="connect" className="section section-connect">
-              <div className="section-content">
-                <span className="section-tag">Let's Talk</span>
-                <h2>Connect With Me</h2>
-                <p className="lead">Open to collaborations, speaking, and new ideas.</p>
-                <p>Whether you're interested in research collaborations, speaking engagements, or just want to chat about the future of human-computer interaction, I'd love to hear from you.</p>
-                <div className="link-buttons">
-                  <a href="https://www.linkedin.com/in/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn linkedin">
-                    <span>💼</span> LinkedIn
-                  </a>
-                  <a href="mailto:hs786@cornell.edu" className="link-btn email">
-                    <span>✉️</span> Email
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Footer */}
-            <footer className="site-footer">
-              <p>Built with React Three Fiber & Vibe Coding ✨</p>
-            </footer>
+            <HtmlContent />
           </Scroll>
         </Suspense>
       </ScrollControls>
