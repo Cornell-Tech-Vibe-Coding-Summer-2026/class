@@ -1,14 +1,20 @@
-import { useRef, useMemo, Suspense } from 'react'
-import { useFrame } from '@react-three/fiber'
+import { useRef, useMemo, Suspense, useState, useEffect, createContext, useContext } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
-  GlobalCanvas,
-  SmoothScrollbar,
-  UseCanvas,
-  ScrollScene
-} from '@14islands/r3f-scroll-rig'
-import { Float, Environment, Center, useGLTF } from '@react-three/drei'
+  Float,
+  Environment,
+  ScrollControls,
+  Scroll,
+  useScroll,
+  useGLTF,
+  Html,
+  Center
+} from '@react-three/drei'
 import * as THREE from 'three'
 import './index.css'
+
+// Context for scroll control
+const ScrollToContext = createContext(null)
 
 // --- Model Loader ---
 function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
@@ -18,10 +24,10 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
 
   useFrame((state) => {
     if (ref.current) {
-      const x = state.mouse.x * 0.2
-      const y = state.mouse.y * 0.1
-      ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotation[1] + x, 0.03)
-      ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, rotation[0] - y * 0.3, 0.03)
+      const x = state.mouse.x * 0.15
+      const y = state.mouse.y * 0.08
+      ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotation[1] + x, 0.02)
+      ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, rotation[0] - y * 0.2, 0.02)
     }
   })
 
@@ -34,179 +40,238 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
   )
 }
 
-// --- Scroll-synced 3D Component ---
-function ScrollModel({ track, url, scale, position, rotation }) {
+// --- Floating Model - only ONE visible at a time ---
+function FloatingModel({ index, totalSections, url, scale, basePosition, rotation = [0, 0, 0] }) {
+  const scroll = useScroll()
+  const ref = useRef()
+  const currentScale = useRef(0)
+  const currentY = useRef(0)
+
+  useFrame(() => {
+    if (!ref.current) return
+
+    const offset = scroll.offset
+    const sectionSize = 1 / totalSections
+
+    // Calculate which section is currently active (0, 1, 2, 3, 4)
+    const activeSection = Math.round(offset * (totalSections - 1))
+    const isActive = index === activeSection
+
+    // Distance from ideal position
+    const idealOffset = index / (totalSections - 1)
+    const distance = offset - idealOffset
+
+    // Target values
+    let targetScale = isActive ? 1 : 0
+    let targetY = isActive ? 0 : (distance > 0 ? -5 : 5)
+
+    // Spring interpolation
+    currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.08)
+    currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.08)
+
+    ref.current.scale.setScalar(Math.max(0.001, currentScale.current))
+    ref.current.position.set(basePosition[0], currentY.current + basePosition[1], basePosition[2])
+    ref.current.visible = currentScale.current > 0.02
+  })
+
   return (
-    <UseCanvas>
-      <ScrollScene track={track}>
-        {({ scale: sceneScale, scrollState }) => (
-          <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.2}>
-            <Model
-              url={url}
-              scale={scale}
-              position={position}
-              rotation={rotation}
-            />
-          </Float>
-        )}
-      </ScrollScene>
-    </UseCanvas>
+    <group ref={ref}>
+      <Float speed={1.2} rotationIntensity={0.08} floatIntensity={0.15}>
+        <Model url={url} scale={scale} rotation={rotation} />
+      </Float>
+    </group>
   )
 }
 
-// --- Section Component ---
-function Section({ id, className, tag, title, lead, description, links, modelUrl, modelScale, modelPosition, modelRotation }) {
-  const trackRef = useRef()
-
-  return (
-    <section id={id} className={`section ${className}`}>
-      <div ref={trackRef} className="section-track">
-        {/* This div is tracked for 3D positioning */}
-      </div>
-
-      <div className="section-content">
-        <span className="section-tag">{tag}</span>
-        {id === 'about' ? <h1>{title}</h1> : <h2>{title}</h2>}
-        <p className="lead">{lead}</p>
-        <p>{description}</p>
-        <div className="link-buttons">
-          {links.map((link, i) => (
-            <a key={i} href={link.href} target="_blank" rel="noopener noreferrer" className={`link-btn ${link.style}`}>
-              <span>{link.icon}</span> {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* 3D Model synced to this section */}
-      <ScrollModel
-        track={trackRef}
-        url={modelUrl}
-        scale={modelScale}
-        position={modelPosition}
-        rotation={modelRotation}
-      />
-    </section>
-  )
-}
-
-// --- Main App ---
-function App() {
-  const sections = [
-    {
-      id: 'about',
-      className: 'section-about',
-      tag: 'Welcome',
-      title: 'Hauke Sandhaus',
-      lead: 'UX Technologist & Ph.D. Candidate at Cornell Tech',
-      description: 'I design and research human-computer interactions that are ethical, inclusive, and delightful. My work spans autonomous vehicles, urban systems, and the ethics of persuasive technology.',
-      links: [{ href: 'https://www.instagram.com/haukesandhaus/', icon: '📸', label: 'Instagram', style: 'instagram' }],
-      modelUrl: '/3D_files/hauke_avatar.glb',
-      modelScale: 2,
-      modelPosition: [0, -1, 0],
-      modelRotation: [0, 0, 0]
-    },
-    {
-      id: 'scholar',
-      className: 'section-scholar',
-      tag: 'Research',
-      title: 'Academic Work',
-      lead: 'Publications, talks, and academic contributions.',
-      description: 'My research has been published in top HCI venues including CHI, DIS, and AutoUI. I explore topics ranging from wizard-of-oz prototyping for autonomous vehicles to the ethics of dark patterns in UI design.',
-      links: [{ href: 'https://scholar.google.com/citations?user=fZzd8BMAAAAJ', icon: '🎓', label: 'Google Scholar', style: 'scholar' }],
-      modelUrl: '/3D_files/Large Stack of Paper.glb',
-      modelScale: 15,
-      modelPosition: [0, 0, 0],
-      modelRotation: [0, 0, 0]
-    },
-    {
-      id: 'research',
-      className: 'section-research',
-      tag: 'Focus Area',
-      title: 'Autonomous Mobility',
-      lead: 'The Wizard Cab Project',
-      description: 'I investigate how passengers interact with self-driving vehicles. Using wizard-of-oz methods, I simulate future transport scenarios to understand trust, safety, and the human experience of giving up control.',
-      links: [{ href: 'https://www.autoui.org/', icon: '🚗', label: 'AutoUI Conference', style: 'research' }],
-      modelUrl: '/3D_files/Van.glb',
-      modelScale: 0.2,
-      modelPosition: [0, -0.5, 0],
-      modelRotation: [0, Math.PI / 5, 0]
-    },
-    {
-      id: 'projects',
-      className: 'section-projects',
-      tag: 'Portfolio',
-      title: 'Design & Code',
-      lead: 'Selected projects and experiments.',
-      description: 'From interactive data visualizations to experimental interfaces, my portfolio showcases the intersection of design thinking and technical implementation.',
-      links: [{ href: 'https://hauke.haus', icon: '🌐', label: 'Portfolio Website', style: 'portfolio' }],
-      modelUrl: '/3D_files/school desk.glb',
-      modelScale: 2.5,
-      modelPosition: [0, 0, 0],
-      modelRotation: [0, 0, 0]
-    },
-    {
-      id: 'connect',
-      className: 'section-connect',
-      tag: "Let's Talk",
-      title: 'Connect With Me',
-      lead: 'Open to collaborations, speaking, and new ideas.',
-      description: "Whether you're interested in research collaborations, speaking engagements, or just want to chat about the future of human-computer interaction, I'd love to hear from you.",
-      links: [
-        { href: 'https://www.linkedin.com/in/haukesandhaus/', icon: '💼', label: 'LinkedIn', style: 'linkedin' },
-        { href: 'mailto:hs786@cornell.edu', icon: '✉️', label: 'Email', style: 'email' }
-      ],
-      modelUrl: '/3D_files/Statue.glb',
-      modelScale: 2.3,
-      modelPosition: [0, 0, 0],
-      modelRotation: [0, 0, 0]
-    }
-  ]
-
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+// --- All Models ---
+function Models() {
+  const totalSections = 5
 
   return (
     <>
-      {/* Global 3D Canvas - stays mounted across the page */}
-      <GlobalCanvas style={{ zIndex: 0 }}>
-        <ambientLight intensity={2} />
-        <directionalLight position={[10, 10, 10]} intensity={2.5} />
-        <pointLight position={[-10, 5, -5]} intensity={1.5} color="#0088ff" />
-        <Suspense fallback={null}>
-          <Environment preset="city" />
-        </Suspense>
-      </GlobalCanvas>
-
-      {/* Smooth scrollbar for buttery scroll */}
-      <SmoothScrollbar />
-
-      {/* HTML Content */}
-      <div className="page-content">
-        {/* Navigation */}
-        <nav className="main-nav">
-          <div className="nav-logo">HAUKE_S.</div>
-          <div className="nav-links">
-            <button onClick={() => scrollToSection('about')}>About</button>
-            <button onClick={() => scrollToSection('scholar')}>Scholar</button>
-            <button onClick={() => scrollToSection('research')}>Research</button>
-            <button onClick={() => scrollToSection('projects')}>Projects</button>
-            <button onClick={() => scrollToSection('connect')}>Connect</button>
-          </div>
-        </nav>
-
-        {/* Sections */}
-        {sections.map((section) => (
-          <Section key={section.id} {...section} />
-        ))}
-
-        {/* Footer */}
-        <footer className="site-footer">
-          <p>Built with React Three Fiber & Vibe Coding ✨</p>
-        </footer>
-      </div>
+      <FloatingModel index={0} totalSections={totalSections} url="/3D_files/hauke_avatar.glb" scale={2.5} basePosition={[2, -0.5, 0]} />
+      <FloatingModel index={1} totalSections={totalSections} url="/3D_files/Large Stack of Paper.glb" scale={20} basePosition={[2.5, 0, 0]} />
+      <FloatingModel index={2} totalSections={totalSections} url="/3D_files/Van.glb" scale={0.25} basePosition={[2.5, 0, -1]} rotation={[0, Math.PI / 5, 0]} />
+      <FloatingModel index={3} totalSections={totalSections} url="/3D_files/school desk.glb" scale={3} basePosition={[2, 0.5, 0]} />
+      <FloatingModel index={4} totalSections={totalSections} url="/3D_files/Statue.glb" scale={2.8} basePosition={[2, 0, 0]} />
     </>
+  )
+}
+
+// --- Scroll Control Provider ---
+function ScrollProvider({ children }) {
+  const scroll = useScroll()
+
+  const scrollToSection = (index) => {
+    const totalSections = 5
+    const targetOffset = index / (totalSections - 1)
+    if (scroll.el) {
+      const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
+      scroll.el.scrollTo({
+        top: targetOffset * scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  return (
+    <ScrollToContext.Provider value={scrollToSection}>
+      {children}
+    </ScrollToContext.Provider>
+  )
+}
+
+// --- Navigation inside scroll ---
+function Navigation() {
+  const scrollToSection = useContext(ScrollToContext)
+
+  return (
+    <nav className="main-nav">
+      <div className="nav-logo">HAUKE_S.</div>
+      <div className="nav-links">
+        <button onClick={() => scrollToSection(0)}>About</button>
+        <button onClick={() => scrollToSection(1)}>Scholar</button>
+        <button onClick={() => scrollToSection(2)}>Research</button>
+        <button onClick={() => scrollToSection(3)}>Projects</button>
+        <button onClick={() => scrollToSection(4)}>Connect</button>
+      </div>
+    </nav>
+  )
+}
+
+// --- HTML Content ---
+function HtmlContent() {
+  return (
+    <ScrollProvider>
+      {/* Fixed Navigation */}
+      <div className="nav-wrapper">
+        <Navigation />
+      </div>
+
+      {/* Section 1: About */}
+      <section className="section section-about">
+        <div className="section-content">
+          <span className="section-tag">Welcome</span>
+          <h1>Hauke Sandhaus</h1>
+          <p className="lead">UX Technologist & Ph.D. Candidate at Cornell Tech</p>
+          <p>I design and research human-computer interactions that are ethical, inclusive, and delightful. My work spans autonomous vehicles, urban systems, and the ethics of persuasive technology.</p>
+          <div className="link-buttons">
+            <a href="https://www.instagram.com/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn instagram">
+              <span>📸</span> Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Scholar */}
+      <section className="section section-scholar">
+        <div className="section-content">
+          <span className="section-tag">Research</span>
+          <h2>Academic Work</h2>
+          <p className="lead">Publications, talks, and academic contributions.</p>
+          <p>My research has been published in top HCI venues including CHI, DIS, and AutoUI. I explore topics from wizard-of-oz prototyping to the ethics of dark patterns.</p>
+          <div className="link-buttons">
+            <a href="https://scholar.google.com/citations?user=fZzd8BMAAAAJ" target="_blank" rel="noopener noreferrer" className="link-btn scholar">
+              <span>🎓</span> Google Scholar
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Research */}
+      <section className="section section-research">
+        <div className="section-content">
+          <span className="section-tag">Focus Area</span>
+          <h2>Autonomous Mobility</h2>
+          <p className="lead">The Wizard Cab Project</p>
+          <p>I investigate how passengers interact with self-driving vehicles using wizard-of-oz methods to understand trust and the human experience.</p>
+          <div className="link-buttons">
+            <a href="https://www.autoui.org/" target="_blank" rel="noopener noreferrer" className="link-btn research">
+              <span>🚗</span> AutoUI Conference
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Projects */}
+      <section className="section section-projects">
+        <div className="section-content">
+          <span className="section-tag">Portfolio</span>
+          <h2>Design & Code</h2>
+          <p className="lead">Selected projects and experiments.</p>
+          <p>Interactive data visualizations and experimental interfaces at the intersection of design thinking and technical implementation.</p>
+          <div className="link-buttons">
+            <a href="https://hauke.haus" target="_blank" rel="noopener noreferrer" className="link-btn portfolio">
+              <span>🌐</span> Portfolio Website
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Connect */}
+      <section className="section section-connect">
+        <div className="section-content">
+          <span className="section-tag">Let's Talk</span>
+          <h2>Connect With Me</h2>
+          <p className="lead">Open to collaborations and new ideas.</p>
+          <p>Interested in research collaborations, speaking engagements, or just a chat about human-computer interaction? Reach out!</p>
+          <div className="link-buttons">
+            <a href="https://www.linkedin.com/in/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn linkedin">
+              <span>💼</span> LinkedIn
+            </a>
+            <a href="mailto:hs786@cornell.edu" className="link-btn email">
+              <span>✉️</span> Email
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="site-footer">
+        <p>Built with React Three Fiber & Vibe Coding ✨</p>
+      </footer>
+    </ScrollProvider>
+  )
+}
+
+// --- Loader ---
+function Loader() {
+  return (
+    <Html center>
+      <div style={{ color: '#6366f1', fontSize: '1.2rem' }}>Loading...</div>
+    </Html>
+  )
+}
+
+// --- Scene ---
+function Scene() {
+  return (
+    <>
+      <ambientLight intensity={2.5} />
+      <directionalLight position={[10, 10, 10]} intensity={3} />
+      <pointLight position={[-10, 5, -5]} intensity={2} color="#0088ff" />
+
+      <ScrollControls pages={5} damping={0.15}>
+        <Suspense fallback={<Loader />}>
+          <Models />
+          <Scroll html style={{ width: '100%' }}>
+            <HtmlContent />
+          </Scroll>
+        </Suspense>
+      </ScrollControls>
+
+      <Environment preset="city" />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <div className="app-container">
+      <Canvas shadows camera={{ position: [0, 0, 8], fov: 40 }}>
+        <Scene />
+      </Canvas>
+    </div>
   )
 }
 
