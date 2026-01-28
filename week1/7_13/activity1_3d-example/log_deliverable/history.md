@@ -1,3 +1,28 @@
+## [Local Time: 2026-01-28 17:20:00]
+
+**User Prompt**:
+> Is maybe https://github.com/14islands/r3f-scroll-rig and the sticky scroll scene a solution?
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-28 17:20:00
+- **Annotations**: User suggested switching to r3f-scroll-rig library for better scroll-DOM sync.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+- `code_deliverable/package.json`
+
+**Action Summary**:
+- Installed `@14islands/r3f-scroll-rig` package.
+- Complete architectural rewrite using:
+  - `GlobalCanvas` - persistent 3D canvas layer
+  - `SmoothScrollbar` - Lenis-powered smooth scroll
+  - `UseCanvas` + `ScrollScene` - DOM-tracked 3D scenes
+- Each section now has a "track" div that the 3D model follows.
+- Native scrollIntoView works for navigation.
+- Removed drei's ScrollControls entirely.
+
+---
 ## [Local Time: 2026-01-28 16:30:00]
 
 **User Prompt**:
