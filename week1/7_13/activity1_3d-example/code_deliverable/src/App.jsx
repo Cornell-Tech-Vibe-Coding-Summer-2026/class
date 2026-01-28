@@ -1,11 +1,8 @@
-import { useRef, useMemo, Suspense, useState } from 'react'
+import { useRef, useMemo, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Float,
-  OrbitControls,
   Environment,
-  Text,
-  ContactShadows,
   ScrollControls,
   Scroll,
   useScroll,
@@ -13,51 +10,21 @@ import {
   Html,
   Center
 } from '@react-three/drei'
-import { useControls, Leva } from 'leva'
 import * as THREE from 'three'
 import './index.css'
 
-// --- Custom Shaders ---
-
-const RainbowShader = {
-  uniforms: {
-    uTime: { value: 0 },
-  },
-  vertexShader: `
-    varying vec2 vUv;
-    void main() {
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  fragmentShader: `
-    uniform float uTime;
-    varying vec2 vUv;
-    
-    vec3 hsv2rgb(vec3 c) {
-      vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
-      vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
-      return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), vUv.y);
-    }
-
-    void main() {
-      float hue = vUv.x + uTime * 0.2;
-      vec3 color = hsv2rgb(vec3(hue, 0.8, 1.0));
-      gl_FragColor = vec4(color, 1.0);
-    }
-  `
-}
-
-// --- Component for Loading GLB Models ---
-
-function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0], animate = true }) {
+// --- Model Loader ---
+function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
   const { scene } = useGLTF(url)
   const clonedScene = useMemo(() => scene.clone(), [scene])
   const ref = useRef()
 
   useFrame((state) => {
-    if (animate && ref.current) {
-      ref.current.rotation.y = state.clock.getElapsedTime() * 0.3
+    if (ref.current) {
+      const x = state.mouse.x * 0.25
+      const y = state.mouse.y * 0.15
+      ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotation[1] + x, 0.03)
+      ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, rotation[0] - y * 0.3, 0.03)
     }
   })
 
@@ -70,187 +37,218 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0], ani
   )
 }
 
-function ScrollProgress() {
-  const scroll = useScroll()
-  const [page, setPage] = useState(1)
-  useFrame(() => {
-    const p = Math.min(6, Math.floor(scroll.offset * 6) + 1)
-    if (p !== page) setPage(p)
-  })
-  return <span>{page}</span>
-}
-
-function ExpertiseShape({ index, children, title, description }) {
+// --- Page Model with Spring-like Visibility ---
+function PageModel({ index, totalPages, children, basePosition = [2, 0, 0] }) {
   const scroll = useScroll()
   const ref = useRef()
-  const modelRef = useRef()
+  const targetScale = useRef(0)
+  const targetY = useRef(0)
 
   useFrame(() => {
-    // Range logic: 0 at start of index, 1 at end of index
-    const r = scroll.range(index / 6, 1 / 6)
-    // Pass through: moves through the viewport
-    ref.current.position.y = (0.5 - r) * 15
-    const s = 1 // Constant scale for debugging
-    ref.current.scale.setScalar(s)
+    if (!ref.current) return
 
-    if (modelRef.current) {
-      modelRef.current.rotation.y = r * Math.PI * 4 // Spin faster
+    const offset = scroll.offset
+    const pageSize = 1 / totalPages
+    const pageCenter = (index + 0.5) * pageSize
+    const distance = offset - pageCenter
+
+    // Strict visibility: only show when very close to center
+    const isActive = Math.abs(distance) < pageSize * 0.8
+
+    // Spring-like animation targets
+    if (isActive) {
+      targetScale.current = 1
+      targetY.current = -distance * 8
+    } else {
+      targetScale.current = 0
+      targetY.current = distance > 0 ? -5 : 5
     }
+
+    // Smooth interpolation (spring effect)
+    const currentScale = ref.current.scale.x
+    const newScale = THREE.MathUtils.lerp(currentScale, targetScale.current, 0.08)
+    ref.current.scale.setScalar(Math.max(0.001, newScale))
+
+    const currentY = ref.current.position.y
+    ref.current.position.y = THREE.MathUtils.lerp(currentY, targetY.current + basePosition[1], 0.08)
+    ref.current.position.x = basePosition[0]
+    ref.current.position.z = basePosition[2]
+
+    // Hide completely when scaled down
+    ref.current.visible = newScale > 0.01
   })
 
   return (
     <group ref={ref}>
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-        <group ref={modelRef}>
-          {children}
-        </group>
+      <Float speed={1.2} rotationIntensity={0.08} floatIntensity={0.15}>
+        {children}
       </Float>
-      <Text
-        position={[0, -3, 0]}
-        fontSize={0.5}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        maxWidth={4}
-        textAlign="center"
-      >
-        {title}
-      </Text>
     </group>
   )
 }
 
+// --- Loader ---
 function Loader() {
   return (
     <Html center>
-      <div className="vibe-badge" style={{ whiteSpace: 'nowrap' }}>Loading 3D Vibe...</div>
+      <div className="loader">Loading...</div>
     </Html>
   )
 }
 
-function Scene() {
-  const { avatarScale, avatarPos, avatarVisible } = useControls('Avatar', {
-    avatarScale: { value: 4, min: 0.01, max: 10, step: 0.01 },
-    avatarPos: { value: [0, -0.5, 0], step: 0.1 },
-    avatarVisible: true
-  })
-
-  const { vanScale, vanRot, vanVisible } = useControls('Mobility', {
-    vanScale: { value: 3.5, min: 0.01, max: 10, step: 0.01 },
-    vanRot: { value: [0, Math.PI / 4, 0], step: 0.1 },
-    vanVisible: true
-  })
-
-  const { libScale, libPos, libVisible } = useControls('NYC', {
-    libScale: { value: 10, min: 0.01, max: 50, step: 0.01 },
-    libPos: { value: [0, -2, 0], step: 0.1 },
-    libVisible: true
-  })
-
-  const { flagScale, flagPos, flagVisible, pretzelScale, pretzelPos, pretzelVisible } = useControls('Germany', {
-    flagScale: { value: 3.5, min: 0.001, max: 10, step: 0.001 },
-    flagPos: { value: [-1.5, 0, 0], step: 0.1 },
-    flagVisible: true,
-    pretzelScale: { value: 4, min: 0.001, max: 10, step: 0.001 },
-    pretzelPos: { value: [1.5, 0, 0], step: 0.1 },
-    pretzelVisible: true
-  })
-
-  const { statueScale, statuePos, statueVisible } = useControls('Ethics', {
-    statueScale: { value: 4.5, min: 0.01, max: 15, step: 0.01 },
-    statuePos: { value: [0, -1, 0], step: 0.1 },
-    statueVisible: true
-  })
-
-  const { deskScale, deskPos, deskVisible, tableScale, tablePos, tableVisible } = useControls('Teaching', {
-    deskScale: { value: 3, min: 0.01, max: 10, step: 0.01 },
-    deskPos: { value: [-1.5, 0, 0], step: 0.1 },
-    deskVisible: true,
-    tableScale: { value: 2, min: 0.01, max: 10, step: 0.01 },
-    tablePos: { value: [1.5, 0, 0], step: 0.1 },
-    tableVisible: true
-  })
+// --- All 3D Models ---
+function Models() {
+  const totalPages = 5
 
   return (
     <>
-      <ambientLight intensity={3} />
-      <directionalLight position={[10, 10, 10]} intensity={4} castShadow />
-      <pointLight position={[-10, 5, -5]} intensity={3} color="#0088ff" />
-      <spotLight position={[0, 10, 10]} intensity={5} penumbra={1} distance={40} angle={Math.PI / 4} />
+      {/* About - Avatar */}
+      <PageModel index={0} totalPages={totalPages} basePosition={[1.4, -2.4, 0.4]}>
+        <Model url="/3D_files/hauke_avatar.glb" scale={2} />
+      </PageModel>
 
-      <ScrollControls pages={6} damping={0.2}>
+      {/* Scholar - Paper Stack */}
+      <PageModel index={1} totalPages={totalPages} basePosition={[2, 0, 0]}>
+        <Model url="/3D_files/Large Stack of Paper.glb" scale={3} />
+      </PageModel>
+
+      {/* Research - Van */}
+      <PageModel index={2} totalPages={totalPages} basePosition={[2.5, -0.6, -2.6]}>
+        <Model url="/3D_files/Van.glb" scale={0.2} rotation={[0, Math.PI / 5, 0]} />
+      </PageModel>
+
+      {/* Projects - Desk */}
+      <PageModel index={3} totalPages={totalPages} basePosition={[1.9, 1.7, 0]}>
+        <Model url="/3D_files/school desk.glb" scale={2.5} />
+      </PageModel>
+
+      {/* Connect - Statue */}
+      <PageModel index={4} totalPages={totalPages} basePosition={[1.5, 0.5, 1.9]}>
+        <Model url="/3D_files/Statue.glb" scale={2.3} />
+      </PageModel>
+    </>
+  )
+}
+
+function Scene() {
+  return (
+    <>
+      <ambientLight intensity={2} />
+      <directionalLight position={[10, 10, 10]} intensity={2.5} />
+      <pointLight position={[-10, 5, -5]} intensity={1.5} color="#0088ff" />
+
+      <ScrollControls pages={5} damping={0.25} snap>
         <Suspense fallback={<Loader />}>
-          <Scroll>
-            {/* 1. INTRODUCTION: Avatar */}
-            <ExpertiseShape index={0} title="Hauke Sandhaus" description="UX Technologist & Ph.D. Candidate">
-              {avatarVisible && <Model url="/3D_files/hauke_avatar.glb" scale={avatarScale} position={avatarPos} />}
-            </ExpertiseShape>
+          <Models />
 
-            {/* 2. MOBILITY: Van */}
-            <ExpertiseShape index={1} title="Autonomous Mobility" description="Wizard Cab Research">
-              {vanVisible && <Model url="/3D_files/Van.glb" scale={vanScale} rotation={vanRot} />}
-            </ExpertiseShape>
+          <Scroll html style={{ width: '100%' }}>
+            {/* Navigation */}
+            <nav className="main-nav">
+              <div className="nav-logo">HAUKE_S.</div>
+              <div className="nav-links">
+                <a href="#about">About</a>
+                <a href="#scholar">Scholar</a>
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#connect">Connect</a>
+              </div>
+            </nav>
 
-            {/* 3. NYC: Lady Liberty */}
-            <ExpertiseShape index={2} title="NYC / Cornell Tech" description="Urban Systems & HCI">
-              {libVisible && <Model url="/3D_files/Lady Liberty.glb" scale={libScale} position={libPos} />}
-            </ExpertiseShape>
-
-            {/* 4. GERMANY: Flag & Pretzel */}
-            <ExpertiseShape index={3} title="Culture & Roots" description="Berlin & Beyond">
-              <group>
-                {flagVisible && <Model url="/3D_files/German Flag.glb" scale={flagScale} position={flagPos} />}
-                {pretzelVisible && <Model url="/3D_files/Pretzel.glb" scale={pretzelScale} position={pretzelPos} />}
-              </group>
-            </ExpertiseShape>
-
-            {/* 5. ETHICS: Statue */}
-            <ExpertiseShape index={4} title="Manipulation Ethics" description="UX Manipulation & Autonomy">
-              {statueVisible && <Model url="/3D_files/Statue.glb" scale={statueScale} position={statuePos} />}
-            </ExpertiseShape>
-
-            {/* 6. TEACHING: Classroom / Desk */}
-            <ExpertiseShape index={5} title="Teaching & Vibe Coding" description="Sharing the future">
-              <group>
-                {deskVisible && <Model url="/3D_files/school desk.glb" scale={deskScale} position={deskPos} />}
-                {tableVisible && <Model url="/3D_files/Drafting Table.glb" scale={tableScale} position={tablePos} />}
-              </group>
-            </ExpertiseShape>
-          </Scroll>
-
-          <Scroll html>
-            <div className="overlay">
-              <div className="header">
-                <div className="title-group">
-                  <h1 style={{ pointerEvents: 'auto', cursor: 'pointer' }}>HAUKE_S.</h1>
-                  <p>Scroll to travel through my 3D expertise</p>
+            {/* Section 1: About */}
+            <section id="about" className="section section-about">
+              <div className="section-content">
+                <span className="section-tag">Welcome</span>
+                <h1>Hauke Sandhaus</h1>
+                <p className="lead">UX Technologist & Ph.D. Candidate at Cornell Tech</p>
+                <p>I design and research human-computer interactions that are ethical, inclusive, and delightful. My work spans autonomous vehicles, urban systems, and the ethics of persuasive technology.</p>
+                <div className="link-buttons">
+                  <a href="https://www.instagram.com/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn instagram">
+                    <span>📸</span> Instagram
+                  </a>
                 </div>
-                <nav className="nav-links">
-                  <a href="https://hauke.haus" target="_blank">Portfolio</a>
-                  <a href="https://scholar.google.com/citations?user=fZzd8BMAAAAJ" target="_blank">Scholar</a>
-                  <a href="https://haukesand.github.io/assets/pdf/CV_Sandhaus.pdf" target="_blank">CV</a>
-                </nav>
               </div>
-              <div className="footer">
-                <div className="vibe-badge">VIBE CODING 3D SHOWCASE</div>
-                <div className="instructions">Wheel down to explore the models</div>
+            </section>
+
+            {/* Section 2: Scholar */}
+            <section id="scholar" className="section section-scholar">
+              <div className="section-content">
+                <span className="section-tag">Research</span>
+                <h2>Academic Work</h2>
+                <p className="lead">Publications, talks, and academic contributions.</p>
+                <p>My research has been published in top HCI venues including CHI, DIS, and AutoUI. I explore topics ranging from wizard-of-oz prototyping for autonomous vehicles to the ethics of dark patterns in UI design.</p>
+                <div className="link-buttons">
+                  <a href="https://scholar.google.com/citations?user=fZzd8BMAAAAJ" target="_blank" rel="noopener noreferrer" className="link-btn scholar">
+                    <span>🎓</span> Google Scholar
+                  </a>
+                </div>
               </div>
-            </div>
+            </section>
+
+            {/* Section 3: Research */}
+            <section id="research" className="section section-research">
+              <div className="section-content">
+                <span className="section-tag">Focus Area</span>
+                <h2>Autonomous Mobility</h2>
+                <p className="lead">The Wizard Cab Project</p>
+                <p>I investigate how passengers interact with self-driving vehicles. Using wizard-of-oz methods, I simulate future transport scenarios to understand trust, safety, and the human experience of giving up control.</p>
+                <div className="link-buttons">
+                  <a href="https://www.autoui.org/" target="_blank" rel="noopener noreferrer" className="link-btn research">
+                    <span>🚗</span> AutoUI Conference
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: Projects */}
+            <section id="projects" className="section section-projects">
+              <div className="section-content">
+                <span className="section-tag">Portfolio</span>
+                <h2>Design & Code</h2>
+                <p className="lead">Selected projects and experiments.</p>
+                <p>From interactive data visualizations to experimental interfaces, my portfolio showcases the intersection of design thinking and technical implementation.</p>
+                <div className="link-buttons">
+                  <a href="https://hauke.haus" target="_blank" rel="noopener noreferrer" className="link-btn portfolio">
+                    <span>🌐</span> Portfolio Website
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            {/* Section 5: Connect */}
+            <section id="connect" className="section section-connect">
+              <div className="section-content">
+                <span className="section-tag">Let's Talk</span>
+                <h2>Connect With Me</h2>
+                <p className="lead">Open to collaborations, speaking, and new ideas.</p>
+                <p>Whether you're interested in research collaborations, speaking engagements, or just want to chat about the future of human-computer interaction, I'd love to hear from you.</p>
+                <div className="link-buttons">
+                  <a href="https://www.linkedin.com/in/haukesandhaus/" target="_blank" rel="noopener noreferrer" className="link-btn linkedin">
+                    <span>💼</span> LinkedIn
+                  </a>
+                  <a href="mailto:hs786@cornell.edu" className="link-btn email">
+                    <span>✉️</span> Email
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="site-footer">
+              <p>Built with React Three Fiber & Vibe Coding ✨</p>
+            </footer>
           </Scroll>
         </Suspense>
       </ScrollControls>
 
       <Environment preset="city" />
-      <ContactShadows position={[0, -2.5, 0]} opacity={0.4} scale={20} blur={2.5} far={4} />
     </>
   )
 }
 
 function App() {
-  console.log("App Mounting...");
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#050505' }}>
-      <Canvas shadows camera={{ position: [0, 0, 10], fov: 35 }}>
+    <div className="app-container">
+      <Canvas shadows camera={{ position: [0, 0, 8], fov: 40 }}>
         <Scene />
       </Canvas>
     </div>
