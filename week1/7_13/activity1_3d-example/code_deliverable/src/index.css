@@ -219,54 +219,53 @@ canvas {
 }
 
 .link-btn.instagram {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  background: #181f2a;
   color: white;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .link-btn.scholar {
-  background: #4285f4;
+  background: #043226;
+  /* Even darker green */
   color: white;
 }
 
 .link-btn.research {
-  background: rgba(245, 158, 11, 0.2);
-  color: #f59e0b;
-  border-color: rgba(245, 158, 11, 0.3);
+  background: #c89a9c;
+  color: #1a1a1a;
 }
 
 .link-btn.figma {
-  background: rgba(162, 89, 255, 0.2);
-  color: #a259ff;
-  border-color: rgba(162, 89, 255, 0.3);
+  background: #715566;
+  /* Muted plum that blends with Piggy pink */
+  color: white;
 }
 
 .link-btn.portfolio {
-  background: rgba(236, 72, 153, 0.2);
-  color: #ec4899;
-  border-color: rgba(236, 72, 153, 0.3);
+  background: #b9c3c8;
+  color: #1a1a1a;
 }
 
 .link-btn.cv {
-  background: rgba(16, 185, 129, 0.2);
-  color: #10b981;
-  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #eeeeee;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .link-btn.teaching {
-  background: rgba(236, 72, 153, 0.2);
-  color: #ec4899;
-  border-color: rgba(236, 72, 153, 0.3);
+  background: #4ea5b3;
+  color: white;
 }
 
 .link-btn.linkedin {
-  background: #0077b5;
+  background: #2d3648;
+  /* Matching the Connect theme */
   color: white;
 }
 
 .link-btn.email {
-  background: rgba(99, 102, 241, 0.2);
-  color: #6366f1;
-  border-color: rgba(99, 102, 241, 0.3);
+  background: #6366f1;
+  color: white;
 }
 
 .link-btn:hover {

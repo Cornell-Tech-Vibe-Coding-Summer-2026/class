@@ -367,12 +367,12 @@ function BackgroundGlow() {
   const meshRef = useRef()
 
   const colors = [
-    '#0f172a', // About - Slate 900 (very dark)
-    '#064e3b', // Scholar - Emerald 900
-    '#451a03', // Research - Orange 900
-    '#172554', // Industry - Blue 900
-    '#4a044e', // Teaching - Fuchsia 900
-    '#1e1b4b'  // Connect - Indigo 900
+    '#181f2a', // About - Avatar eye color
+    '#064e3b', // Scholar - Dark Emerald (darker green)
+    '#c89a9c', // Research - Piggy bank color
+    '#b9c3c8', // Industry - Car color
+    '#4ea5b3', // Teaching - Drafting table color
+    '#2d3648'  // Connect - Balanced dark slate
   ]
 
   useFrame((state) => {
@@ -410,12 +410,12 @@ function DynamicLighting() {
   const lightRef = useRef()
 
   const colors = [
-    '#4f46e5', // About - Indigo (lighter point light)
-    '#10b981', // Scholar - Emerald
-    '#f59e0b', // Research - Gold
-    '#3b82f6', // Industry - Blue
-    '#d946ef', // Teaching - Fuchsia
-    '#8b5cf6'  // Connect - Violet
+    '#181f2a', // About
+    '#064e3b', // Scholar (Dark green)
+    '#c89a9c', // Research (Piggy)
+    '#b9c3c8', // Industry (Car)
+    '#4ea5b3', // Teaching (Table)
+    '#6366f1'  // Connect (Indigo)
   ]
 
   useFrame(() => {

@@ -1,3 +1,48 @@
+## [Local Time: 2026-01-30 02:30:00]
+
+**User Prompt**:
+> Match remaining secondary buttons to the new palette. Darken scholar green and harmonize Instagram/Figma colors.
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-30 02:30:00
+- **Annotations**: Brand and theme consistency refinement.
+
+**Input Files**:
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Darkened `.scholar` button to `#043226` for a deeper academic green.
+- Grounded the `.instagram` button with the Avatar eye color (`#181f2a`), removing the loud gradient.
+- Harmonized the `.figma` button with a muted plum (`#715566`) that complements the Research/Piggy section.
+- Updated `.linkedin` to match the Connect section's slate theme (`#2d3648`).
+- Unified all button backgrounds to be solid and grounded in the site's dark aesthetic.
+
+---
+
+## [Local Time: 2026-01-30 02:25:00]
+
+**User Prompt**:
+> Use specific color inspiration for backgrounds: Avatar eye (24, 31, 42), Piggy bank (200, 154, 156), Car (185, 195, 200), Table (78, 165, 179). Darken scholar green and unify button colors.
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-30 02:25:00
+- **Annotations**: Color palette refinement based on asset extraction.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Updated `BackgroundGlow` and `DynamicLighting` palettes using the user's provided RGB inspirations.
+- Unified and refined button colors in `index.css`:
+    - `.scholar`: Darkened to `#064e3b`.
+    - `.research`: Switched to Piggy bank pinkish tone (`#c89a9c`).
+    - `.portfolio`: Switched to Car grey-blue tone (`#b9c3c8`).
+    - `.teaching`: Switched to Drafting table teal tone (`#4ea5b3`).
+- Cleaned up button styles for better consistency across sections.
+
+---
+
 ## [Local Time: 2026-01-30 02:10:00]
 
 **User Prompt**:
