@@ -115,14 +115,70 @@ function Models() {
   )
 }
 
-// --- Auto-Snap Controller (handles both slow scroll and nav clicks) ---
+// --- Auto-Snap Controller with swipe direction detection ---
 function AutoSnap() {
   const scroll = useScroll()
   const totalSections = 6
   const lastOffset = useRef(0)
   const scrollStoppedTime = useRef(0)
   const isSnapping = useRef(false)
+  const touchStartY = useRef(0)
+  const touchStartOffset = useRef(0)
 
+  // Track touch start position
+  useEffect(() => {
+    if (!scroll.el) return
+
+    const handleTouchStart = (e) => {
+      touchStartY.current = e.touches[0].clientY
+      touchStartOffset.current = scroll.offset
+    }
+
+    const handleTouchEnd = (e) => {
+      if (isSnapping.current) return
+
+      const touchEndY = e.changedTouches[0].clientY
+      const swipeDistance = touchStartY.current - touchEndY // positive = swipe up (next section)
+      const currentOffset = scroll.offset
+      const currentSection = Math.round(touchStartOffset.current * (totalSections - 1))
+
+      let targetSection = currentSection
+
+      // If swiped more than 30px, go to next/prev section
+      if (swipeDistance > 30) {
+        targetSection = Math.min(currentSection + 1, totalSections - 1)
+      } else if (swipeDistance < -30) {
+        targetSection = Math.max(currentSection - 1, 0)
+      } else {
+        // Small swipe - snap to nearest
+        targetSection = Math.round(currentOffset * (totalSections - 1))
+      }
+
+      const targetOffset = targetSection / (totalSections - 1)
+
+      if (Math.abs(currentOffset - targetOffset) > 0.005) {
+        isSnapping.current = true
+        const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
+        scroll.el.scrollTo({
+          top: targetOffset * scrollHeight,
+          behavior: 'smooth'
+        })
+        setTimeout(() => {
+          isSnapping.current = false
+          lastOffset.current = targetOffset
+        }, 400)
+      }
+    }
+
+    scroll.el.addEventListener('touchstart', handleTouchStart, { passive: true })
+    scroll.el.addEventListener('touchend', handleTouchEnd, { passive: true })
+    return () => {
+      scroll.el.removeEventListener('touchstart', handleTouchStart)
+      scroll.el.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [scroll.el, scroll.offset])
+
+  // Desktop: snap after scroll stops
   useFrame((state, delta) => {
     if (!scroll.el || isSnapping.current) return
 
@@ -136,14 +192,12 @@ function AutoSnap() {
     } else {
       scrollStoppedTime.current += delta
 
-      // After 100ms of no scrolling, snap to nearest
-      if (scrollStoppedTime.current > 0.1) {
-        // Calculate nearest section from current position
+      // After 150ms of no scrolling, snap to nearest (desktop only)
+      if (scrollStoppedTime.current > 0.15) {
         const exactSection = currentOffset * (totalSections - 1)
         const nearestSection = Math.round(exactSection)
         const targetOffset = nearestSection / (totalSections - 1)
 
-        // Only snap if not already at target
         if (Math.abs(currentOffset - targetOffset) > 0.008) {
           isSnapping.current = true
           const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
@@ -164,6 +218,8 @@ function AutoSnap() {
 
   return null
 }
+
+
 
 
 
