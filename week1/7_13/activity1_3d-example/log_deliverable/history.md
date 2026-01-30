@@ -1,4 +1,27 @@
-## [Local Time: 2026-01-30 00:25:00]
+## [Local Time: 2026-01-30 01:15:00]
+
+**User Prompt**:
+> Mobile improvements: Safari bottom bar visibility, TikTok-style instant snap scrolling, remove accelerometer (didn't work).
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-30 01:15:00
+- **Annotations**: Mobile UX polish and performance.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Added Safari safe area insets (`env(safe-area-inset-bottom)`) so buttons aren't hidden by Safari's bottom bar
+- Removed accelerometer/device orientation code (iOS requires explicit permission popup)
+- Made scrolling TikTok-style snappy:
+  - Reduced `damping` from 0.1 to 0.05
+  - Reduced snap delay from 100ms to 50ms
+  - Changed snap from `behavior: 'smooth'` to `behavior: 'instant'`
+- Synced 3D/CSS breakpoints to both use 768px
+
+---
+
 
 **User Prompt**:
 > Major content restructure: Change title to hauke.haus, update all links, add dissertation section with Piggy Bank model, add teaching section, update industry section for VW Future Center, etc.

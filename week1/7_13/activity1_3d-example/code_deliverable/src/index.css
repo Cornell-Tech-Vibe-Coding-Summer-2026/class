@@ -22,7 +22,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   overflow: hidden;
+  /* Support for Safari safe areas */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 #root {
@@ -91,6 +94,29 @@ canvas {
 .nav-links a:hover,
 .nav-links button:hover {
   color: #fff;
+}
+
+/* Hamburger button - hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 /* Sections */
@@ -291,35 +317,59 @@ canvas {
   .main-nav {
     padding: 0.75rem 1rem;
     flex-direction: row;
-    gap: 0.5rem;
+    justify-content: space-between;
   }
 
   .nav-logo {
     font-size: 1.2rem;
   }
 
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide nav links by default, show when open */
   .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 10, 15, 0.98);
+    padding: 1rem;
     gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 
   .nav-links button {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    width: 100%;
   }
 
   .section {
-    padding: 5rem 1rem 2rem 1rem;
-    align-items: flex-start;
+    padding: 4rem 1rem 1.5rem 1rem;
+    align-items: flex-end;
+    /* Content at bottom */
+    justify-content: flex-end;
+    /* Push content down */
   }
 
   .section-content {
     margin-left: 0;
-    margin-top: 1rem;
-    padding: 1.5rem;
+    margin-top: auto;
+    padding: 1.25rem;
+    padding-bottom: calc(1.25rem + 100px);
+    /* Extra padding for Safari bottom bar */
     max-width: 100%;
-    background: rgba(15, 15, 20, 0.9);
+    background: rgba(15, 15, 20, 0.95);
+    border-radius: 16px 16px 0 0;
   }
 
   .section h1 {

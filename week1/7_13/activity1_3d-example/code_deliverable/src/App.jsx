@@ -1,4 +1,4 @@
-import { useRef, useMemo, Suspense } from 'react'
+import { useRef, useMemo, Suspense, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
   Float,
@@ -13,7 +13,6 @@ import {
 import * as THREE from 'three'
 import './index.css'
 
-
 // --- Model Loader ---
 function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
   const { scene } = useGLTF(url)
@@ -22,6 +21,7 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
 
   useFrame((state) => {
     if (ref.current) {
+      // Mouse-based rotation (works on desktop, touch devices get slight movement)
       const x = state.mouse.x * 0.15
       const y = state.mouse.y * 0.08
       ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotation[1] + x, 0.1)
@@ -41,7 +41,7 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
 // --- Floating Model - only ONE visible at a time ---
 function FloatingModel({ index, totalSections, url, scale, basePosition, rotation = [0, 0, 0] }) {
   const scroll = useScroll()
-  const { viewport } = useThree()
+  const { size } = useThree()
   const ref = useRef()
   const currentScale = useRef(0)
   const currentY = useRef(0)
@@ -62,12 +62,25 @@ function FloatingModel({ index, totalSections, url, scale, basePosition, rotatio
     currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.12)
     currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.12)
 
-    // Responsive positioning: move models center on narrow/portrait screens
-    const isMobile = viewport.width < 8 // Roughly corresponds to portrait mode
-    const xOffset = isMobile ? 0.5 : basePosition[0] // Slightly right of center on mobile
+    // Responsive positioning - synced with CSS 768px breakpoint
+    const isMobile = size.width < 768
 
-    ref.current.scale.setScalar(Math.max(0.001, currentScale.current))
-    ref.current.position.set(xOffset, currentY.current + basePosition[1], basePosition[2])
+
+    let xOffset, yOffset, mobileScale
+    if (isMobile) {
+      // MOBILE: Models at top center, smaller
+      xOffset = 0
+      yOffset = 1 // Position in upper-middle area
+      mobileScale = 0.7 // Scale down for mobile
+    } else {
+      // DESKTOP: Models on right side
+      xOffset = basePosition[0]
+      yOffset = basePosition[1]
+      mobileScale = 1
+    }
+
+    ref.current.scale.setScalar(Math.max(0.001, currentScale.current * mobileScale))
+    ref.current.position.set(xOffset, currentY.current + yOffset, basePosition[2])
     ref.current.visible = currentScale.current > 0.02
   })
 
@@ -102,7 +115,7 @@ function Models() {
   )
 }
 
-// --- Auto-Snap Controller (in 3D context) ---
+// --- Auto-Snap Controller (TikTok-style instant snap) ---
 function AutoSnap() {
   const scroll = useScroll()
   const totalSections = 6
@@ -114,34 +127,32 @@ function AutoSnap() {
     if (!scroll.el || isSnapping.current) return
 
     const currentOffset = scroll.offset
-    const isScrolling = Math.abs(currentOffset - lastOffset.current) > 0.0001
+    const isScrolling = Math.abs(currentOffset - lastOffset.current) > 0.001
 
     if (isScrolling) {
-      // User is actively scrolling, reset timer
       scrollStoppedTime.current = 0
       lastOffset.current = currentOffset
     } else {
-      // Scroll has stopped, accumulate time
       scrollStoppedTime.current += delta
 
-      // After 100ms of no scrolling, snap to nearest section
-      if (scrollStoppedTime.current > 0.1) {
+      // Super fast snap - 50ms after scroll stops
+      if (scrollStoppedTime.current > 0.05) {
         const nearestSection = Math.round(currentOffset * (totalSections - 1))
         const targetOffset = nearestSection / (totalSections - 1)
 
-        // Only snap if not already at target
-        if (Math.abs(currentOffset - targetOffset) > 0.015) {
+        if (Math.abs(currentOffset - targetOffset) > 0.01) {
           isSnapping.current = true
           const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
+          // INSTANT snap - no smooth behavior
           scroll.el.scrollTo({
             top: targetOffset * scrollHeight,
-            behavior: 'smooth'
+            behavior: 'instant'
           })
-          // Reset after snap animation
+          // Quick reset
           setTimeout(() => {
             isSnapping.current = false
             scrollStoppedTime.current = 0
-          }, 600)
+          }, 100)
         }
         scrollStoppedTime.current = 0
       }
@@ -150,6 +161,7 @@ function AutoSnap() {
 
   return null
 }
+
 
 
 
@@ -294,7 +306,7 @@ function Scene() {
       <directionalLight position={[10, 10, 10]} intensity={3} />
       <pointLight position={[-10, 5, -5]} intensity={2} color="#0088ff" />
 
-      <ScrollControls pages={6} damping={0.1}>
+      <ScrollControls pages={6} damping={0.05}>
         <Suspense fallback={<Loader />}>
           <Models />
           <AutoSnap />
@@ -319,6 +331,8 @@ function ScrollRefCapture() {
 
 // Fixed navigation outside Canvas
 function FixedNavigation() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const scrollToSection = (index) => {
     const totalSections = 6
     const targetOffset = index / (totalSections - 1)
@@ -329,13 +343,23 @@ function FixedNavigation() {
         behavior: 'smooth'
       })
     }
+    setMenuOpen(false) // Close menu after navigation
   }
 
   return (
     <div className="nav-wrapper">
       <nav className="main-nav">
         <div className="nav-logo">hauke.haus</div>
-        <div className="nav-links">
+
+        {/* Hamburger button (mobile only) */}
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Nav links */}
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           <button onClick={() => scrollToSection(0)}>About</button>
           <button onClick={() => scrollToSection(1)}>Scholar</button>
           <button onClick={() => scrollToSection(2)}>Research</button>
@@ -344,6 +368,74 @@ function FixedNavigation() {
           <button onClick={() => scrollToSection(5)}>Connect</button>
         </div>
       </nav>
+    </div>
+  )
+}
+
+// Mobile navigation arrows component
+function MobileNavArrows() {
+  const [currentSection, setCurrentSection] = useState(0)
+  const totalSections = 6
+
+  const goToSection = (index) => {
+    const clampedIndex = Math.max(0, Math.min(totalSections - 1, index))
+    setCurrentSection(clampedIndex)
+
+    const targetOffset = clampedIndex / (totalSections - 1)
+    if (globalScrollEl) {
+      const scrollHeight = globalScrollEl.scrollHeight - globalScrollEl.clientHeight
+      globalScrollEl.scrollTo({
+        top: targetOffset * scrollHeight,
+        behavior: 'instant'
+      })
+    }
+  }
+
+  const goNext = () => goToSection(currentSection + 1)
+  const goPrev = () => goToSection(currentSection - 1)
+
+  // Update current section based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (globalScrollEl) {
+        const scrollHeight = globalScrollEl.scrollHeight - globalScrollEl.clientHeight
+        const offset = globalScrollEl.scrollTop / scrollHeight
+        const section = Math.round(offset * (totalSections - 1))
+        setCurrentSection(section)
+      }
+    }
+
+    const interval = setInterval(handleScroll, 100)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="mobile-nav-arrows">
+      <button
+        className="nav-arrow nav-arrow-up"
+        onClick={goPrev}
+        disabled={currentSection === 0}
+        aria-label="Previous section"
+      >
+        ▲
+      </button>
+      <div className="section-dots">
+        {[...Array(totalSections)].map((_, i) => (
+          <span
+            key={i}
+            className={`dot ${i === currentSection ? 'active' : ''}`}
+            onClick={() => goToSection(i)}
+          />
+        ))}
+      </div>
+      <button
+        className="nav-arrow nav-arrow-down"
+        onClick={goNext}
+        disabled={currentSection === totalSections - 1}
+        aria-label="Next section"
+      >
+        ▼
+      </button>
     </div>
   )
 }
