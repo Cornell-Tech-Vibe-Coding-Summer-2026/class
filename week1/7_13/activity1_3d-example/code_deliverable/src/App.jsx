@@ -1,5 +1,5 @@
-import { useRef, useMemo, Suspense, createContext, useContext } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { useRef, useMemo, Suspense } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
   Float,
   Environment,
@@ -13,8 +13,6 @@ import {
 import * as THREE from 'three'
 import './index.css'
 
-// Context for scroll control
-const ScrollToContext = createContext(null)
 
 // --- Model Loader ---
 function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
@@ -26,8 +24,8 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
     if (ref.current) {
       const x = state.mouse.x * 0.15
       const y = state.mouse.y * 0.08
-      ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotation[1] + x, 0.02)
-      ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, rotation[0] - y * 0.2, 0.02)
+      ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, rotation[1] + x, 0.1)
+      ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, rotation[0] - y * 0.2, 0.1)
     }
   })
 
@@ -43,6 +41,7 @@ function Model({ url, scale = 1, position = [0, 0, 0], rotation = [0, 0, 0] }) {
 // --- Floating Model - only ONE visible at a time ---
 function FloatingModel({ index, totalSections, url, scale, basePosition, rotation = [0, 0, 0] }) {
   const scroll = useScroll()
+  const { viewport } = useThree()
   const ref = useRef()
   const currentScale = useRef(0)
   const currentY = useRef(0)
@@ -59,11 +58,16 @@ function FloatingModel({ index, totalSections, url, scale, basePosition, rotatio
     let targetScale = isActive ? 1 : 0
     let targetY = isActive ? 0 : (distance > 0 ? -5 : 5)
 
-    currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.08)
-    currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.08)
+    // Model animations (0.12 - balanced speed)
+    currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.12)
+    currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.12)
+
+    // Responsive positioning: move models center on narrow/portrait screens
+    const isMobile = viewport.width < 8 // Roughly corresponds to portrait mode
+    const xOffset = isMobile ? 0.5 : basePosition[0] // Slightly right of center on mobile
 
     ref.current.scale.setScalar(Math.max(0.001, currentScale.current))
-    ref.current.position.set(basePosition[0], currentY.current + basePosition[1], basePosition[2])
+    ref.current.position.set(xOffset, currentY.current + basePosition[1], basePosition[2])
     ref.current.visible = currentScale.current > 0.02
   })
 
@@ -83,15 +87,15 @@ function Models() {
   return (
     <>
       {/* About - Avatar */}
-      <FloatingModel index={0} totalSections={totalSections} url="/3D_files/hauke_avatar.glb" scale={2.5} basePosition={[2, -0.5, 0]} />
+      <FloatingModel index={0} totalSections={totalSections} url="/3D_files/hauke_avatar.glb" scale={2.5} basePosition={[2, -0.5, 0]} rotation={[0, Math.PI / -8, 0]} />
       {/* Scholar - Paper Stack */}
-      <FloatingModel index={1} totalSections={totalSections} url="/3D_files/Large Stack of Paper.glb" scale={20} basePosition={[2.5, 0, 0]} />
+      <FloatingModel index={1} totalSections={totalSections} url="/3D_files/Large Stack of Paper.glb" scale={20} basePosition={[1.5, -0.3, -0.5]} />
       {/* Dissertation - Piggy Bank */}
       <FloatingModel index={2} totalSections={totalSections} url="/3D_files/Piggy bank.glb" scale={3} basePosition={[2, 0, 0]} />
       {/* Industry - Van */}
       <FloatingModel index={3} totalSections={totalSections} url="/3D_files/Van.glb" scale={0.25} basePosition={[2.5, 0, -1]} rotation={[0, Math.PI / 5, 0]} />
       {/* Teaching - Desk */}
-      <FloatingModel index={4} totalSections={totalSections} url="/3D_files/school desk.glb" scale={3} basePosition={[2, 0.5, 0]} />
+      <FloatingModel index={4} totalSections={totalSections} url="/3D_files/school desk.glb" scale={3} basePosition={[1.5, 0.0, 0]} />
       {/* Connect - Statue */}
       <FloatingModel index={5} totalSections={totalSections} url="/3D_files/Statue.glb" scale={2.8} basePosition={[2, 0, 0]} />
     </>
@@ -120,8 +124,8 @@ function AutoSnap() {
       // Scroll has stopped, accumulate time
       scrollStoppedTime.current += delta
 
-      // After 200ms of no scrolling, snap to nearest section
-      if (scrollStoppedTime.current > 0.2) {
+      // After 100ms of no scrolling, snap to nearest section
+      if (scrollStoppedTime.current > 0.1) {
         const nearestSection = Math.round(currentOffset * (totalSections - 1))
         const targetOffset = nearestSection / (totalSections - 1)
 
@@ -147,56 +151,12 @@ function AutoSnap() {
   return null
 }
 
-// --- Scroll Control Provider (for navigation) ---
-function ScrollProvider({ children }) {
-  const scroll = useScroll()
-  const totalSections = 6
 
-  const scrollToSection = (index) => {
-    const targetOffset = index / (totalSections - 1)
-    if (scroll.el) {
-      const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
-      scroll.el.scrollTo({
-        top: targetOffset * scrollHeight,
-        behavior: 'smooth'
-      })
-    }
-  }
 
-  return (
-    <ScrollToContext.Provider value={scrollToSection}>
-      {children}
-    </ScrollToContext.Provider>
-  )
-}
-
-// --- Navigation ---
-function Navigation() {
-  const scrollToSection = useContext(ScrollToContext)
-
-  return (
-    <nav className="main-nav">
-      <div className="nav-logo">hauke.haus</div>
-      <div className="nav-links">
-        <button onClick={() => scrollToSection(0)}>About</button>
-        <button onClick={() => scrollToSection(1)}>Scholar</button>
-        <button onClick={() => scrollToSection(2)}>Research</button>
-        <button onClick={() => scrollToSection(3)}>Industry</button>
-        <button onClick={() => scrollToSection(4)}>Teaching</button>
-        <button onClick={() => scrollToSection(5)}>Connect</button>
-      </div>
-    </nav>
-  )
-}
-
-// --- HTML Content ---
+// --- HTML Content (without nav - nav is now fixed outside) ---
 function HtmlContent() {
   return (
-    <ScrollProvider>
-      <div className="nav-wrapper">
-        <Navigation />
-      </div>
-
+    <>
       {/* Section 1: About */}
       <section className="section section-about">
         <div className="section-content">
@@ -309,7 +269,8 @@ function HtmlContent() {
       <footer className="site-footer">
         <p>Built with React Three Fiber & Vibe Coding ✨</p>
       </footer>
-    </ScrollProvider>
+    </>
+
   )
 }
 
@@ -322,6 +283,9 @@ function Loader() {
   )
 }
 
+// Store scroll ref globally so nav can access it
+let globalScrollEl = null
+
 // --- Scene ---
 function Scene() {
   return (
@@ -330,10 +294,11 @@ function Scene() {
       <directionalLight position={[10, 10, 10]} intensity={3} />
       <pointLight position={[-10, 5, -5]} intensity={2} color="#0088ff" />
 
-      <ScrollControls pages={6} damping={0.15}>
+      <ScrollControls pages={6} damping={0.1}>
         <Suspense fallback={<Loader />}>
           <Models />
           <AutoSnap />
+          <ScrollRefCapture />
           <Scroll html style={{ width: '100%' }}>
             <HtmlContent />
           </Scroll>
@@ -345,9 +310,48 @@ function Scene() {
   )
 }
 
+// Capture scroll ref for external navigation
+function ScrollRefCapture() {
+  const scroll = useScroll()
+  globalScrollEl = scroll.el
+  return null
+}
+
+// Fixed navigation outside Canvas
+function FixedNavigation() {
+  const scrollToSection = (index) => {
+    const totalSections = 6
+    const targetOffset = index / (totalSections - 1)
+    if (globalScrollEl) {
+      const scrollHeight = globalScrollEl.scrollHeight - globalScrollEl.clientHeight
+      globalScrollEl.scrollTo({
+        top: targetOffset * scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  return (
+    <div className="nav-wrapper">
+      <nav className="main-nav">
+        <div className="nav-logo">hauke.haus</div>
+        <div className="nav-links">
+          <button onClick={() => scrollToSection(0)}>About</button>
+          <button onClick={() => scrollToSection(1)}>Scholar</button>
+          <button onClick={() => scrollToSection(2)}>Research</button>
+          <button onClick={() => scrollToSection(3)}>Industry</button>
+          <button onClick={() => scrollToSection(4)}>Teaching</button>
+          <button onClick={() => scrollToSection(5)}>Connect</button>
+        </div>
+      </nav>
+    </div>
+  )
+}
+
 function App() {
   return (
     <div className="app-container">
+      <FixedNavigation />
       <Canvas shadows camera={{ position: [0, 0, 8], fov: 40 }}>
         <Scene />
       </Canvas>
