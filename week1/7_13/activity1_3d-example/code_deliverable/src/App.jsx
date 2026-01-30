@@ -58,9 +58,9 @@ function FloatingModel({ index, totalSections, url, scale, basePosition, rotatio
     let targetScale = isActive ? 1 : 0
     let targetY = isActive ? 0 : (distance > 0 ? -5 : 5)
 
-    // Model animations (0.12 - balanced speed)
-    currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.12)
-    currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.12)
+    // Model animations (0.08 - smoother speed)
+    currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.08)
+    currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.08)
 
     // Responsive positioning - synced with CSS 768px breakpoint
     const isMobile = size.width < 768
@@ -115,7 +115,7 @@ function Models() {
   )
 }
 
-// --- Auto-Snap Controller (TikTok-style instant snap) ---
+// --- Auto-Snap Controller (handles both slow scroll and nav clicks) ---
 function AutoSnap() {
   const scroll = useScroll()
   const totalSections = 6
@@ -127,7 +127,8 @@ function AutoSnap() {
     if (!scroll.el || isSnapping.current) return
 
     const currentOffset = scroll.offset
-    const isScrolling = Math.abs(currentOffset - lastOffset.current) > 0.001
+    const scrollDelta = currentOffset - lastOffset.current
+    const isScrolling = Math.abs(scrollDelta) > 0.0003
 
     if (isScrolling) {
       scrollStoppedTime.current = 0
@@ -135,24 +136,26 @@ function AutoSnap() {
     } else {
       scrollStoppedTime.current += delta
 
-      // Super fast snap - 50ms after scroll stops
-      if (scrollStoppedTime.current > 0.05) {
-        const nearestSection = Math.round(currentOffset * (totalSections - 1))
+      // After 100ms of no scrolling, snap to nearest
+      if (scrollStoppedTime.current > 0.1) {
+        // Calculate nearest section from current position
+        const exactSection = currentOffset * (totalSections - 1)
+        const nearestSection = Math.round(exactSection)
         const targetOffset = nearestSection / (totalSections - 1)
 
-        if (Math.abs(currentOffset - targetOffset) > 0.01) {
+        // Only snap if not already at target
+        if (Math.abs(currentOffset - targetOffset) > 0.008) {
           isSnapping.current = true
           const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
-          // INSTANT snap - no smooth behavior
           scroll.el.scrollTo({
             top: targetOffset * scrollHeight,
-            behavior: 'instant'
+            behavior: 'smooth'
           })
-          // Quick reset
           setTimeout(() => {
             isSnapping.current = false
             scrollStoppedTime.current = 0
-          }, 100)
+            lastOffset.current = targetOffset
+          }, 400)
         }
         scrollStoppedTime.current = 0
       }
@@ -161,6 +164,7 @@ function AutoSnap() {
 
   return null
 }
+
 
 
 
@@ -306,7 +310,7 @@ function Scene() {
       <directionalLight position={[10, 10, 10]} intensity={3} />
       <pointLight position={[-10, 5, -5]} intensity={2} color="#0088ff" />
 
-      <ScrollControls pages={6} damping={0.05}>
+      <ScrollControls pages={6} damping={0.08}>
         <Suspense fallback={<Loader />}>
           <Models />
           <AutoSnap />
