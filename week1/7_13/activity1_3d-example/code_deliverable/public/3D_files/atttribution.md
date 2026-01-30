@@ -14,6 +14,8 @@ Drafting Table by Joshua Johanson [CC-BY] via Poly Pizza
 
 Small Stack of Paper by Jarlan Perez [CC-BY] via Poly Pizza
 
+Small Stack of Paper by Jarlan Perez [CC-BY] via Poly Pizza
+
 school desk by Jonathan Granskog [CC-BY] via Poly Pizza
 
 Piggy bank by Poly by Google [CC-BY] via Poly Pizza

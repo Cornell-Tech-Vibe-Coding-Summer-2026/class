@@ -104,13 +104,13 @@ function Models() {
       {/* About - Avatar */}
       <FloatingModel index={0} totalSections={totalSections} url="/3D_files/hauke_avatar.glb" scale={2.5} basePosition={[2, -0.5, 0]} rotation={[0, Math.PI / -8, 0]} />
       {/* Scholar - Paper Stack */}
-      <FloatingModel index={1} totalSections={totalSections} url="/3D_files/Large Stack of Paper.glb" scale={20} basePosition={[1.5, -0.3, -0.5]} />
+      <FloatingModel index={1} totalSections={totalSections} url="/3D_files/Small Stack of Paper.glb" scale={20} basePosition={[1.8, 0, 2]} rotation={[Math.PI / 5, Math.PI / 5, 0]} />
       {/* Dissertation - Piggy Bank */}
       <FloatingModel index={2} totalSections={totalSections} url="/3D_files/Piggy bank.glb" scale={3} basePosition={[2, 0, 0]} />
       {/* Industry - Van */}
       <FloatingModel index={3} totalSections={totalSections} url="/3D_files/Van.glb" scale={0.25} basePosition={[2.5, 0, -1]} rotation={[0, Math.PI / 5, 0]} />
       {/* Teaching - Desk */}
-      <FloatingModel index={4} totalSections={totalSections} url="/3D_files/school desk.glb" scale={3} basePosition={[1.5, 0.0, 0]} />
+      <FloatingModel index={4} totalSections={totalSections} url="/3D_files/school desk.glb" scale={3} basePosition={[1.5, 0.0, -1.5]} rotation={[Math.PI / 12, Math.PI / 7.5, 0]}  />
       {/* Connect - Statue */}
       <FloatingModel index={5} totalSections={totalSections} url="/3D_files/Statue.glb" scale={2.8} basePosition={[2, 0, 0]} />
     </>
