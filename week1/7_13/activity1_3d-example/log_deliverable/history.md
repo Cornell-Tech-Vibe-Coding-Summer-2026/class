@@ -1,3 +1,31 @@
+## [Local Time: 2026-01-30 00:25:00]
+
+**User Prompt**:
+> Major content restructure: Change title to hauke.haus, update all links, add dissertation section with Piggy Bank model, add teaching section, update industry section for VW Future Center, etc.
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-30 00:25:00
+- **Annotations**: Major content and structure update with 6 sections.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Changed logo from "HAUKE_S." to "hauke.haus"
+- Restructured to 6 sections:
+  1. **About** - Avatar, Instagram (hauke.haus)
+  2. **Scholar** - Paper Stack, Google Scholar + Academic Portfolio
+  3. **Research** - Piggy Bank (NEW), Ethical Design dissertation focus, UEEQ, Bright Patterns
+  4. **Industry** - Van, VW Future Center experience, old portfolio, CV
+  5. **Teaching** - Desk, Vibe coding & AI co-design, ACM paper
+  6. **Connect** - Statue, LinkedIn, Email (updated)
+- Added Piggy Bank model for ethical design section
+- Updated all links per user request
+- Added new CSS button styles (figma, cv, teaching)
+- Updated section backgrounds
+
+---
 ## [Local Time: 2026-01-28 17:20:00]
 
 **User Prompt**:

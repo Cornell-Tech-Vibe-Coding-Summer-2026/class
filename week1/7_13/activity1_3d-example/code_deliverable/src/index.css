@@ -116,12 +116,16 @@ canvas {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
 }
 
-.section-projects {
+.section-industry {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+}
+
+.section-teaching {
   background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, transparent 60%);
 }
 
 .section-connect {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 60%);
 }
 
 /* Section Content */
@@ -229,7 +233,25 @@ canvas {
   border-color: rgba(245, 158, 11, 0.3);
 }
 
+.link-btn.figma {
+  background: rgba(162, 89, 255, 0.2);
+  color: #a259ff;
+  border-color: rgba(162, 89, 255, 0.3);
+}
+
 .link-btn.portfolio {
+  background: rgba(236, 72, 153, 0.2);
+  color: #ec4899;
+  border-color: rgba(236, 72, 153, 0.3);
+}
+
+.link-btn.cv {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.link-btn.teaching {
   background: rgba(236, 72, 153, 0.2);
   color: #ec4899;
   border-color: rgba(236, 72, 153, 0.3);
