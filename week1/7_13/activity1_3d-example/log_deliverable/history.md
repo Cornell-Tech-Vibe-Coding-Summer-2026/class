@@ -1,4 +1,48 @@
-## [Local Time: 2026-01-30 01:15:00]
+## [Local Time: 2026-01-30 02:10:00]
+
+**User Prompt**:
+> Soften 3D colors (they were too extreme), move footer back out from Connect card, remove "About" from nav and link logo to About instead.
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-30 02:10:00
+- **Annotations**: Aesthetic refinement, nav simplification.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Muted 3D background colors to Slate 900 / Emerald 900 / etc for better compatibility with dark cards.
+- Restored site-level footer outside the Connect card and added `pages={6.2}` to scroll controls for space.
+- Simplified navigation: removed "About" button and made "hauke.haus" logo a link to the top section.
+- Added hover states for the logo and nav links.
+- Updated snapping logic to account for the new 6.2 page total.
+
+---
+
+## [Local Time: 2026-01-30 01:55:00]
+
+**User Prompt**:
+> Mobile layout fixes (models top, cards bottom), reversed 3D scroll direction for consistency, and dynamic section-based lighting.
+
+**Metadata & Annotations**:
+- **Time**: 2026-01-30 01:55:00
+- **Annotations**: UX polish, improved scroll consistency, and dynamic 3D lighting.
+
+**Input Files**:
+- `code_deliverable/src/App.jsx`
+- `code_deliverable/src/index.css`
+
+**Action Summary**:
+- Implemented `DynamicLighting` component that lerps point light colors based on `scroll.offset`.
+- Reversed 3D model scroll direction on mobile so it matches HTML card direction (both move up on scroll down).
+- Swapped mobile layout: models at top, content cards at bottom.
+- Added Poly Pizza attribution to site footer.
+- Improved navbar transparency and blur for a better "glass" feel.
+- Made content cards more transparent (0.5 - 0.6 opacity) and glassy.
+
+---
+
 
 **User Prompt**:
 > Mobile improvements: Safari bottom bar visibility, TikTok-style instant snap scrolling, remove accelerometer (didn't work).

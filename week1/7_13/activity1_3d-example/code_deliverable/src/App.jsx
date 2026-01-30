@@ -8,7 +8,8 @@ import {
   useScroll,
   useGLTF,
   Html,
-  Center
+  Center,
+  MeshDistortMaterial
 } from '@react-three/drei'
 import * as THREE from 'three'
 import './index.css'
@@ -55,22 +56,23 @@ function FloatingModel({ index, totalSections, url, scale, basePosition, rotatio
     const idealOffset = index / (totalSections - 1)
     const distance = offset - idealOffset
 
+    // Responsive positioning - synced with CSS 768px breakpoint
+    const isMobile = size.width < 768
+
     let targetScale = isActive ? 1 : 0
-    let targetY = isActive ? 0 : (distance > 0 ? -5 : 5)
+    // On mobile, reverse direction so models move same way as cards
+    let targetY = isActive ? 0 : (distance > 0 ? (isMobile ? 5 : -5) : (isMobile ? -5 : 5))
 
     // Model animations (0.08 - smoother speed)
     currentScale.current = THREE.MathUtils.lerp(currentScale.current, targetScale, 0.08)
     currentY.current = THREE.MathUtils.lerp(currentY.current, targetY, 0.08)
 
-    // Responsive positioning - synced with CSS 768px breakpoint
-    const isMobile = size.width < 768
-
 
     let xOffset, yOffset, mobileScale
     if (isMobile) {
-      // MOBILE: Models at top center, smaller
+      // MOBILE: Models at TOP center, smaller
       xOffset = 0
-      yOffset = 1 // Position in upper-middle area
+      yOffset = 1 // Position in upper area
       mobileScale = 0.7 // Scale down for mobile
     } else {
       // DESKTOP: Models on right side
@@ -154,7 +156,7 @@ function AutoSnap() {
         targetSection = Math.round(currentOffset * (totalSections - 1))
       }
 
-      const targetOffset = targetSection / (totalSections - 1)
+      const targetOffset = targetSection / 5.2 // pages (6.2) - 1
 
       if (Math.abs(currentOffset - targetOffset) > 0.005) {
         isSnapping.current = true
@@ -194,9 +196,12 @@ function AutoSnap() {
 
       // After 150ms of no scrolling, snap to nearest (desktop only)
       if (scrollStoppedTime.current > 0.15) {
-        const exactSection = currentOffset * (totalSections - 1)
+        // Don't snap if looking at footer
+        if (currentOffset > 0.98) return
+
+        const exactSection = currentOffset * 5.2
         const nearestSection = Math.round(exactSection)
-        const targetOffset = nearestSection / (totalSections - 1)
+        const targetOffset = nearestSection / 5.2
 
         if (Math.abs(currentOffset - targetOffset) > 0.008) {
           isSnapping.current = true
@@ -334,15 +339,16 @@ function HtmlContent() {
               <span>✉️</span> Email
             </a>
           </div>
+
         </div>
       </section>
 
       {/* Footer */}
       <footer className="site-footer">
         <p>Built with React Three Fiber & Vibe Coding ✨</p>
+        <p className="attribution">3D models CC-BY via <a href="https://poly.pizza" target="_blank" rel="noopener noreferrer">Poly Pizza</a></p>
       </footer>
     </>
-
   )
 }
 
@@ -355,6 +361,86 @@ function Loader() {
   )
 }
 
+// --- Background Glow in 3D Space (replaces HTML overlays) ---
+function BackgroundGlow() {
+  const scroll = useScroll()
+  const meshRef = useRef()
+
+  const colors = [
+    '#0f172a', // About - Slate 900 (very dark)
+    '#064e3b', // Scholar - Emerald 900
+    '#451a03', // Research - Orange 900
+    '#172554', // Industry - Blue 900
+    '#4a044e', // Teaching - Fuchsia 900
+    '#1e1b4b'  // Connect - Indigo 900
+  ]
+
+  useFrame((state) => {
+    if (!meshRef.current) return
+    const offset = scroll.offset
+    const total = colors.length - 1
+    const p = offset * total
+    const i = Math.floor(p)
+    const nextI = Math.min(i + 1, total)
+    const ratio = p - i
+
+    // Interpolate color
+    const colorA = new THREE.Color(colors[i])
+    const colorB = new THREE.Color(colors[nextI])
+    meshRef.current.material.color.lerpColors(colorA, colorB, ratio)
+  })
+
+  return (
+    <mesh ref={meshRef} position={[0, 0, -5]} scale={[25, 15, 1]}>
+      <planeGeometry args={[1, 1, 32, 32]} />
+      <MeshDistortMaterial
+        transparent
+        opacity={0.4}
+        speed={1.5}
+        distort={0.4}
+        radius={1}
+      />
+    </mesh>
+  )
+}
+
+// --- Dynamic Lighting based on scroll ---
+function DynamicLighting() {
+  const scroll = useScroll()
+  const lightRef = useRef()
+
+  const colors = [
+    '#4f46e5', // About - Indigo (lighter point light)
+    '#10b981', // Scholar - Emerald
+    '#f59e0b', // Research - Gold
+    '#3b82f6', // Industry - Blue
+    '#d946ef', // Teaching - Fuchsia
+    '#8b5cf6'  // Connect - Violet
+  ]
+
+  useFrame(() => {
+    if (!lightRef.current) return
+    const offset = scroll.offset
+    const total = colors.length - 1
+    const p = offset * total
+    const i = Math.floor(p)
+    const nextI = Math.min(i + 1, total)
+    const ratio = p - i
+
+    // Interpolate color
+    const colorA = new THREE.Color(colors[i])
+    const colorB = new THREE.Color(colors[nextI])
+    lightRef.current.color.lerpColors(colorA, colorB, ratio)
+  })
+
+  return (
+    <>
+      <pointLight ref={lightRef} position={[-5, 5, 2]} intensity={5} distance={20} />
+      <pointLight position={[5, -5, -2]} intensity={1} color="#ffffff" />
+    </>
+  )
+}
+
 // Store scroll ref globally so nav can access it
 let globalScrollEl = null
 
@@ -362,12 +448,13 @@ let globalScrollEl = null
 function Scene() {
   return (
     <>
-      <ambientLight intensity={2.5} />
-      <directionalLight position={[10, 10, 10]} intensity={3} />
-      <pointLight position={[-10, 5, -5]} intensity={2} color="#0088ff" />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[10, 10, 10]} intensity={2} />
 
-      <ScrollControls pages={6} damping={0.08}>
+      <ScrollControls pages={6.2} damping={0.08}>
         <Suspense fallback={<Loader />}>
+          <BackgroundGlow />
+          <DynamicLighting />
           <Models />
           <AutoSnap />
           <ScrollRefCapture />
@@ -394,8 +481,7 @@ function FixedNavigation() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const scrollToSection = (index) => {
-    const totalSections = 6
-    const targetOffset = index / (totalSections - 1)
+    const targetOffset = index / 5.2 // pages (6.2) - 1
     if (globalScrollEl) {
       const scrollHeight = globalScrollEl.scrollHeight - globalScrollEl.clientHeight
       globalScrollEl.scrollTo({
@@ -409,7 +495,7 @@ function FixedNavigation() {
   return (
     <div className="nav-wrapper">
       <nav className="main-nav">
-        <div className="nav-logo">hauke.haus</div>
+        <div className="nav-logo" onClick={() => scrollToSection(0)} style={{ cursor: 'pointer' }}>hauke.haus</div>
 
         {/* Hamburger button (mobile only) */}
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
@@ -420,7 +506,6 @@ function FixedNavigation() {
 
         {/* Nav links */}
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          <button onClick={() => scrollToSection(0)}>About</button>
           <button onClick={() => scrollToSection(1)}>Scholar</button>
           <button onClick={() => scrollToSection(2)}>Research</button>
           <button onClick={() => scrollToSection(3)}>Industry</button>
