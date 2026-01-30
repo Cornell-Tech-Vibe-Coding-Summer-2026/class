@@ -98,12 +98,61 @@ function Models() {
   )
 }
 
-// --- Scroll Control Provider ---
+// --- Auto-Snap Controller (in 3D context) ---
+function AutoSnap() {
+  const scroll = useScroll()
+  const totalSections = 6
+  const lastOffset = useRef(0)
+  const scrollStoppedTime = useRef(0)
+  const isSnapping = useRef(false)
+
+  useFrame((state, delta) => {
+    if (!scroll.el || isSnapping.current) return
+
+    const currentOffset = scroll.offset
+    const isScrolling = Math.abs(currentOffset - lastOffset.current) > 0.0001
+
+    if (isScrolling) {
+      // User is actively scrolling, reset timer
+      scrollStoppedTime.current = 0
+      lastOffset.current = currentOffset
+    } else {
+      // Scroll has stopped, accumulate time
+      scrollStoppedTime.current += delta
+
+      // After 200ms of no scrolling, snap to nearest section
+      if (scrollStoppedTime.current > 0.2) {
+        const nearestSection = Math.round(currentOffset * (totalSections - 1))
+        const targetOffset = nearestSection / (totalSections - 1)
+
+        // Only snap if not already at target
+        if (Math.abs(currentOffset - targetOffset) > 0.015) {
+          isSnapping.current = true
+          const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
+          scroll.el.scrollTo({
+            top: targetOffset * scrollHeight,
+            behavior: 'smooth'
+          })
+          // Reset after snap animation
+          setTimeout(() => {
+            isSnapping.current = false
+            scrollStoppedTime.current = 0
+          }, 600)
+        }
+        scrollStoppedTime.current = 0
+      }
+    }
+  })
+
+  return null
+}
+
+// --- Scroll Control Provider (for navigation) ---
 function ScrollProvider({ children }) {
   const scroll = useScroll()
+  const totalSections = 6
 
   const scrollToSection = (index) => {
-    const totalSections = 6
     const targetOffset = index / (totalSections - 1)
     if (scroll.el) {
       const scrollHeight = scroll.el.scrollHeight - scroll.el.clientHeight
@@ -284,6 +333,7 @@ function Scene() {
       <ScrollControls pages={6} damping={0.15}>
         <Suspense fallback={<Loader />}>
           <Models />
+          <AutoSnap />
           <Scroll html style={{ width: '100%' }}>
             <HtmlContent />
           </Scroll>
