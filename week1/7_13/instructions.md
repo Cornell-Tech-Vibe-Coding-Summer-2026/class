@@ -27,7 +27,10 @@
 | Cursor — *18+* | `.cursor/rules/vibe-trace.mdc` |
 | Windsurf | `.windsurf/rules/vibe-trace.md` |
 
-All of these tell the AI the same thing: whenever it edits your `code_deliverable/`, log the prompt to `log_deliverable/history.md`. Web-only tools (v0, Rork, Bolt) can't read these files — if you use one, paste your prompt history into `log_deliverable/history.md` yourself. See [AGENTS.md](../../AGENTS.md) for the full rule.
+All of these enforce the same rule — the **Vibe-Trace**: whenever your AI edits your `code_deliverable/`, it must add an entry to `log_deliverable/history.md` recording your prompt and what changed. This is **graded**. The full rule is in [`AGENTS.md`](../../AGENTS.md) — open it once so you know what your tool is supposed to do; it's not optional reading.
+
+> [!IMPORTANT]
+> **Check that `history.md` is actually filling up as you work.** Agents forget — GitHub Copilot in particular tends to stop logging after a long chat. If new entries stop appearing, tell it *"log that to history.md,"* or paste the entry in yourself. Don't worry if a timestamp is off — the prompt and what changed are what matter. Web-only tools (v0, Rork, Bolt) can't write files at all, so log by hand if you use one.
 
 ### Folder Structure
 

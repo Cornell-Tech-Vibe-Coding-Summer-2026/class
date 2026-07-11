@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "python3 -m http.server 8000",
+    "dev": "npx --yes http-server . -p 8000 -c-1",
     "serve": "npm run dev",
     "open": "open http://localhost:8000",
     "build:pages": "bash scripts/build-pages-artifact.sh",

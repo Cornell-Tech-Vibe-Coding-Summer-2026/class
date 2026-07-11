@@ -133,7 +133,7 @@ Use [`vibe-report-template.md`](vibe-report-template.md) (in this folder). Requi
 Graded against the [In-Class Activity Rubric](../../planning/activity_rubric.md) (40% Completion, 30% AI-Use Documentation, 30% Reflection Quality).
 
 ### Deliverables
-- `code_deliverable/` — hosted tool (link in `code_deliverable/README.md` or as the deployed URL)
+- `code_deliverable/` — the hosted tool. The **deployed public URL alone is enough** — paste it in your Canvas submission and `vibe-report.md`. A `code_deliverable/README.md` is **optional**; if you add one, keep it to a line or two (what the tool is, the live link, and the data sources you cited).
 - `log_deliverable/` — prompts and tool transcripts
 - `vibe-report.md`
 

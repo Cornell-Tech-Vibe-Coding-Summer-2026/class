@@ -58,6 +58,9 @@ Run this sequence in each tool (same wording as much as possible):
 
 Save transcripts/screenshots and outputs for each step.
 
+> [!IMPORTANT]
+> **What to save (keep it simple):** Give each tool **one subfolder** in `code_deliverable/` (e.g. `code_deliverable/copilot/`, `code_deliverable/cursor/`, `code_deliverable/claude/`). You do **not** need a separate saved file for every one of the 4 prompts — just keep the **final evolved code** for each tool in its subfolder (the 4 prompts iterate on the *same* project, so it's one project per tool). Capture the intermediate steps as transcripts/screenshots in `log_deliverable/` instead. Then list every tool's output in `code_deliverable/index.html` (a starter index is provided). Three tools is enough — don't add more if time is short.
+
 ---
 
 ## Deliverables
@@ -84,7 +87,7 @@ In `log_deliverable/`, include:
 ### 3) Code artifacts
 In `code_deliverable/`, include:
 - The generated implementations from each tool (organized in subfolders by tool)
-- Short README explaining how to run each version
+- Each tool's output listed in `code_deliverable/index.html` (a starter index is provided) — that's how we find them, so you don't need a separate README. A one-line note per tool inside `index.html` (or a short `README.md`) on how to open each version is welcome but optional.
 
 ---
 

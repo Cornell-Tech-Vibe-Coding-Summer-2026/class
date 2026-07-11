@@ -67,8 +67,7 @@ npm run build:pages
 Preview the result:
 
 ```bash
-cd _site
-python3 -m http.server 8001
+npx --yes http-server _site -p 8001 -c-1
 ```
 
 Open:

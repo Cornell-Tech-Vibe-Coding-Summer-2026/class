@@ -94,6 +94,10 @@ npm run dev
 
 ## 6. Check the deploy artifact locally
 
+This step is **optional** — pushing to GitHub already builds and deploys your site. It
+also needs a `bash` shell: on macOS/Linux it just works; on **Windows use Git Bash**
+(installed with Git) rather than PowerShell.
+
 The GitHub Pages workflow uses the same build command:
 
 ```bash
@@ -103,8 +107,7 @@ npm run build:pages
 That creates `_site/`, the folder GitHub Pages deploys. You can preview it with:
 
 ```bash
-cd _site
-python3 -m http.server 8001
+npx --yes http-server _site -p 8001 -c-1
 ```
 
 Then open:

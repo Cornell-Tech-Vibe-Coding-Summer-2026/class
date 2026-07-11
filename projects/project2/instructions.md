@@ -19,14 +19,14 @@ Your team must be able to answer three questions clearly:
 > Value ≠ topic. "A recycling app" is a topic. "Helps a renter with no car find the
 > *nearest* drop-off so sustainability isn't gated on privilege" is a value made concrete.
 
-This project is **user-tested in Week 3** — build something a classmate can actually try.
+Build something a classmate can actually try — and get quick, informal feedback before you ship. (The full, structured user testing happens on your **final** project in Week 3, not on Project 2.)
 
 ## Deliverables
 Inside `projects/project2/`:
 1. **Hosted app** — source in `code_deliverable/`, live link in your report.
 2. **AI interaction log** — `log_deliverable/history.md`.
 3. **Project report** — `project-report.md` from [the template](../project-report-template.md), with the **human-written ethical reflection** naming the value, the user, and the tensions.
-4. **User-test writeup** — `user-test.md` from [the template](../user-test-template.md), completed after the Week 3 sessions.
+4. **Quick test note** — before the deadline, have 1–2 classmates try it; note what you watched and what you changed, right in your project report. (The full `user-test.md` writeup belongs to the **final** project, which you formally test in Week 3 — don't wait for those sessions for Project 2.)
 
 Graded against the [Project Rubric](../rubric.md).
 

@@ -31,11 +31,13 @@ log the interaction to the sibling `log_deliverable/history.md` (e.g.
 ---
 ```
 
-This is a graded course requirement: document the "vibe" of the process, every turn
-that touches a `code_deliverable/`.
+This is a graded course requirement: document the "vibe" of the process, on **every**
+turn that touches a `code_deliverable/` — including deep into a long chat. Do not stop
+logging as the conversation grows; if you realize you skipped a turn, add it now.
 
 > Note: Copilot's autocomplete (grey-text) suggestions cannot write log files. Use
 > **Copilot Chat / agent mode** for changes you need logged, or add the entry yourself.
+> If asked to "log that to history.md," re-read this rule and append the missing entries.
 
 ## Working style
 - Simple, readable, well-commented code the student can explain.

@@ -57,6 +57,9 @@ About communicating *non-technical* concepts.
 
 ## Apply the Research
 
+> [!TIP]
+> There is no new artifact to build here — you're stress-testing the prompts from **The Lab** above. Part A and Part B produce *evidence*, not a new app: log every experimental prompt (and its one-variable change) as rows in `log_deliverable/prompt-log.md`, and write up what you found in the **Johnny findings** and **Toolkit effect** sections of `vibe-report.md`. Keep any notably different code versions in `code_deliverable/` so you can point to them.
+
 ### Part A — "Why Johnny Can't Prompt" failure modes
 As you work, watch for the traps the paper documents, and deliberately test them:
 1. **Social pitfall:** write one prompt with *no* politeness ("please/thank you") — imperative verbs only. Did "rude but direct" beat "polite but vague"?
