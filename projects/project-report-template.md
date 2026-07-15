@@ -31,28 +31,29 @@ the process, not just the product.
 
 [Your plan and vision...]
 
-## 🧪 Prototype → Test → Re-scope Loops
+## 🧪 The Fake-It Loop & Re-scope
 <!--
-Required for Project 1 (minimum two loops; the first happened in class).
+Required for Project 1 (the one quick loop from class — no re-test needed).
 For Project 2 and the Final, summarize your testing here and link the full
 user-test.md writeup instead.
 
-Per loop, keep it concrete — what people DID, not what they said they liked:
+Keep it concrete — what people DID, not what they said they liked:
 -->
 
-### Loop 1 (in class)
-- **What was real (AI-built):** [the parts you made interactive]
+- **What was real (AI-built):** [the parts you made interactive quickly]
 - **What was acted (Wizard of Oz):** [who played the app, and how]
 - **Who tested & what they did:** [observations — hesitations, questions, wrong turns]
 - **Are we making the right thing?** [what the test revealed]
-- **Redefinition & new scope:** [how the problem statement and build plan changed]
+- **Redefinition & final scope:** [how the problem statement and build plan changed]
 
-### Loop 2
-- **What was real (AI-built):** [ ]
-- **What was acted (Wizard of Oz):** [ ]
-- **Who tested & what they did:** [ ]
-- **Are we making the right thing?** [ ]
-- **Redefinition & final scope:** [ ]
+## 🏗️ The Focused Build
+<!-- How did the team split the work after re-scoping? How did you co-design WITH the AI, not just generate code? -->
+
+- **Who designed:** [ ]
+- **Who orchestrated the AI:** [ ]
+- **Who architected the code:** [ ]
+- **How roles rotated / overlapped:** [ ]
+- **Co-designing with AI:** [where did the AI act as a design collaborator — proposing directions, challenging your scope — vs. just producing code you specified?]
 
 ## 👣 Process & Explorations
 <!-- The journey: versions, pathways you explored, ideas dropped, happy accidents, dead-ends, how the plan changed. Who drove which parts? -->
