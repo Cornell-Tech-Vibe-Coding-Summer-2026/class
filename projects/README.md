@@ -14,24 +14,24 @@ separate from the daily in-class activities (which live in `week1/`, `week2/`,
 ## How teams work
 
 - **Team size:** 3–4 students. You keep the same team for all three projects unless instructors say otherwise.
-- **One team repo:** Pick one member's fork (or a shared team repo) as the team's working repo. Everyone commits there so the AI-interaction log and git history reflect the whole team's work.
+- **One team repo:** Each project has a GitHub Classroom **team assignment** (accept link in the project's instructions) — one member creates the team, the others join. Everyone commits there so the AI-interaction log and git history reflect the whole team's work.
 - **Everyone codes:** This is vibe coding — rotate who drives the AI. The prompt log should show more than one person's voice.
 - **Hosting:** GitHub Pages for static apps; Vercel for framework apps (React/Vue/Next). Put the live link in your report.
 
 ## What every project deliverable contains
 
-Each `projectN/` folder mirrors the activity structure so the automated site and
-the Vibe-Trace logging keep working:
+Your team repo comes pre-seeded with this structure at the repo root (so the
+Vibe-Trace logging and Pages deploy work out of the box):
 
 ```text
-projectN/
-├── instructions.md          # the brief (read this first)
-├── deadline.json            # due date
-├── code_deliverable/        # your hosted app source
-├── log_deliverable/         # history.md — AI interaction log (Vibe-Trace)
-├── project-report.md        # your reflection (copy from ../project-report-template.md)
-└── user-test.md             # user-testing writeup (copy from ../user-test-template.md)
+code_deliverable/        # your hosted app source
+log_deliverable/         # history.md — AI interaction log (Vibe-Trace)
+project-report.md        # your team report (template pre-filled — includes user testing + individual reflections)
+deadline.json            # due date
 ```
+
+The brief for each project (`instructions.md`) renders on the course site — link
+in the table above.
 
 The **Final Project** also has a `presentation/` folder for slides or a demo video.
 

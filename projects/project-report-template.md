@@ -1,14 +1,25 @@
 # Project Report: [Project Name]
 
-**Team:** [Names]
 **Project:** [Project 1 / Project 2 / Final]
 **Live link:** [https://...]
 
+## 👥 Team
+
+<!-- EVERY team member must be listed. -->
+
+| Name | GitHub handle |
+| :--- | :--- |
+| [Name 1] | [@handle] |
+| [Name 2] | [@handle] |
+| [Name 3] | [@handle] |
+| [Name 4 — remove row if team of 3] | [@handle] |
+
 <!--
-This is a GROUP report. Write it together. Besides the required sections, add
-anything that helps a reader who never saw your demo understand what you built and
-why. Your documentation and reflection matter as much as the code — this class is
-about the process, not just the product.
+This is a GROUP report. Write it together (except the individual reflections at
+the end — those are personal). Besides the required sections, add anything that
+helps a reader who never saw your demo understand what you built and why. Your
+documentation and reflection matter as much as the code — this class is about
+the process, not just the product.
 -->
 
 ## 📸 Showcase
@@ -19,6 +30,29 @@ about the process, not just the product.
 <!-- What were you aiming for before you coded? The problem, the intended user, the feeling. Moodboards/sketches welcome. Why is this worth building? (Rubric: Good Vibes) -->
 
 [Your plan and vision...]
+
+## 🧪 Prototype → Test → Re-scope Loops
+<!--
+Required for Project 1 (minimum two loops; the first happened in class).
+For Project 2 and the Final, summarize your testing here and link the full
+user-test.md writeup instead.
+
+Per loop, keep it concrete — what people DID, not what they said they liked:
+-->
+
+### Loop 1 (in class)
+- **What was real (AI-built):** [the parts you made interactive]
+- **What was acted (Wizard of Oz):** [who played the app, and how]
+- **Who tested & what they did:** [observations — hesitations, questions, wrong turns]
+- **Are we making the right thing?** [what the test revealed]
+- **Redefinition & new scope:** [how the problem statement and build plan changed]
+
+### Loop 2
+- **What was real (AI-built):** [ ]
+- **What was acted (Wizard of Oz):** [ ]
+- **Who tested & what they did:** [ ]
+- **Are we making the right thing?** [ ]
+- **Redefinition & final scope:** [ ]
 
 ## 👣 Process & Explorations
 <!-- The journey: versions, pathways you explored, ideas dropped, happy accidents, dead-ends, how the plan changed. Who drove which parts? -->
@@ -37,9 +71,28 @@ Rubric: Deep Ethical Reflection (25%). Answer specifically:
 
 [Your reflection...]
 
-## 🧪 User Testing
-<!-- Required for Project 2 and the Final. Summarize here and link the full writeup. -->
-See [user-test.md](user-test.md).
+## 🧍 Individual Reflections
+<!--
+REQUIRED — one block per team member, written personally by that member
+(human-written; AI writing impermissible except grammar-checking).
+A few honest sentences each beat a page of filler.
+-->
+
+### [Name 1]
+- **Collaborating with my human teammates:** [What did you contribute? Where did the team push back on you, or you on them? What would you do differently as a teammate next project?]
+- **Collaborating with AI:** [How did working through AI change your role? When did you trust it, when did you override it, and who was really steering?]
+
+### [Name 2]
+- **Collaborating with my human teammates:** [ ]
+- **Collaborating with AI:** [ ]
+
+### [Name 3]
+- **Collaborating with my human teammates:** [ ]
+- **Collaborating with AI:** [ ]
+
+### [Name 4 — remove if team of 3]
+- **Collaborating with my human teammates:** [ ]
+- **Collaborating with AI:** [ ]
 
 ## 📜 AI Usage Trace
 <!-- Mandatory. Link the team's local log and any external AI tools used. -->
