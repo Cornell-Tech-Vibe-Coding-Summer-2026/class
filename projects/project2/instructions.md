@@ -22,13 +22,15 @@ Your team must be able to answer three questions clearly:
 Build something a classmate can actually try — and get quick, informal feedback before you ship. (The full, structured user testing happens on your **final** project in Week 3, not on Project 2.)
 
 ## Deliverables
-Inside `projects/project2/`:
+**Accept the team assignment first:** [https://classroom.github.com/a/RkRB5iqO](https://classroom.github.com/a/RkRB5iqO) —
+one member creates the team, the others join. The repo comes pre-seeded (structure,
+report template, Vibe-Trace configs, Pages deploy), everything at the repo root:
 1. **Hosted app** — source in `code_deliverable/`, live link in your report.
 2. **AI interaction log** — `log_deliverable/history.md`.
-3. **Project report** — `project-report.md` from [the template](../project-report-template.md), with the **human-written ethical reflection** naming the value, the user, and the tensions.
+3. **Project report** — fill in the provided `project-report.md`, with the **human-written ethical reflection** naming the value, the user, and the tensions.
 4. **Quick test note** — before the deadline, have 1–2 classmates try it; note what you watched and what you changed, right in your project report. (The full `user-test.md` writeup belongs to the **final** project, which you formally test in Week 3 — don't wait for those sessions for Project 2.)
 
 Graded against the [Project Rubric](../rubric.md).
 
 ## Host & Submit
-Host via GitHub Pages (static) or Vercel (frameworks), and put the live link in your report. Commit and push your `projects/project2/` folder in the team GitHub Classroom repo before the deadline in `deadline.json`. Submit whatever the Canvas project page asks for, usually the live link and/or a zip snapshot; we grade against the team repo's commit history and your live link.
+Host via GitHub Pages (static) or Vercel (frameworks), and put the live link in your report. Commit and push to the team GitHub Classroom repo before the deadline in `deadline.json`. Submit whatever the Canvas project page asks for, usually the live link and/or a zip snapshot; we grade against the team repo's commit history and your live link.

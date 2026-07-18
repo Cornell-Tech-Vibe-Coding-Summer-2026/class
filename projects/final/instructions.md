@@ -18,11 +18,14 @@ classmates. It must:
 - **Have a life after class.** Who keeps using or maintaining it? Give a credible answer.
 
 ## Deliverables
-Inside `projects/final/`:
+**Accept the team assignment first:** [https://classroom.github.com/a/VTWqWkXg](https://classroom.github.com/a/VTWqWkXg) —
+one member creates the team, the others join. The repo comes pre-seeded (structure,
+report + user-test templates, `presentation/` folder, Vibe-Trace configs, Pages
+deploy), everything at the repo root:
 1. **Hosted app** — source in `code_deliverable/`, live link in your report.
 2. **AI interaction log** — `log_deliverable/history.md`.
-3. **Project report** — `project-report.md` from [the template](../project-report-template.md), with the **human-written ethical reflection** and your Values-at-Play analysis.
-4. **User-test writeup** — `user-test.md` from [the template](../user-test-template.md): your own round of testing (not just the Week 3 in-class swap).
+3. **Project report** — fill in the provided `project-report.md`, with the **human-written ethical reflection** and your Values-at-Play analysis.
+4. **User-test writeup** — fill in the provided `user-test.md`: your own round of testing (not just the Week 3 in-class swap).
 5. **Presentation** — slides and/or a demo video in `presentation/`, delivered Thu, Jul 30.
 
 Graded against the [Project Rubric](../rubric.md) (25%) plus a separate Final
@@ -36,4 +39,4 @@ Each team shows, in a tight slot:
 - **Afterlife** — who keeps using/maintaining it, and how.
 
 ## Host & Submit
-Host via GitHub Pages (static) or Vercel (frameworks), and put the live link in your report. Commit and push your `projects/final/` folder in the team GitHub Classroom repo before presentations. Submit whatever the Canvas final-project page asks for, usually the live link and/or a zip snapshot. Demo from the hosted link, not localhost, and keep a screen-recording backup in `presentation/` in case Wi-Fi fails.
+Host via GitHub Pages (static) or Vercel (frameworks), and put the live link in your report. Commit and push to the team GitHub Classroom repo before presentations. Submit whatever the Canvas final-project page asks for, usually the live link and/or a zip snapshot. Demo from the hosted link, not localhost, and keep a screen-recording backup in `presentation/` in case Wi-Fi fails.
