@@ -37,11 +37,12 @@ We are deliberately **not** running the full Values at Play discovery canvas tod
 
 **Build a small tool that helps someone make a more moral decision or behave more morally.** The user can be you, a friend, a fictional persona, or a class of people. The tool can be a calculator, a comparison, a checker, a nudge, a journaling prompt, a quiz, a what-if simulator — whatever fits the value you're arguing for.
 
-Three loose rules:
+Four loose rules:
 
 1. **The tool argues for something.** It pushes the user toward a specific behaviour or framing. Name it explicitly in the UI (a "what this tool argues" line, a recommended action, a values statement — whatever works). If you don't know what your tool argues for, you don't have a tool yet.
-2. **The artifact is small on purpose.** A single page or screen, built and hosted in one session. The point is the *value clarification* you do while building, not the polish.
-3. **If your tool relies on numbers, cite them on the page.** Methodology is part of the design surface. Numbers without sources visible to the user are not numbers — they're vibes pretending to be numbers.
+2. **Write your value-centered prompt *before* you run it.** Put the first prompt in your `vibe-report.md` verbatim, *then* run it. The prompt must carry the value explicitly — not *"make a habit tracker"* but *"make a habit tracker that treats a missed day with kindness, never guilt."* Afterwards, compare: did the artifact carry your value, or the tool's defaults? (This is a small preview of the full plan→run→verify loop we run in Week 3.)
+3. **The artifact is small on purpose.** A single page or screen, built and hosted in one session. The point is the *value clarification* you do while building, not the polish.
+4. **If your tool relies on numbers, cite them on the page.** Methodology is part of the design surface. Numbers without sources visible to the user are not numbers — they're vibes pretending to be numbers.
 
 There is **no required topic**. Some directions students have taken or could take:
 
@@ -125,10 +126,11 @@ If your tool argues about something *outside* the topics above (kindness, attent
 Use [`vibe-report-template.md`](vibe-report-template.md) (in this folder). Required sections:
 
 1. **The Value Your Tool Argues For** — one or two sentences naming what your tool pushes the user toward, and why that value over a competing one.
-2. **Sources & Methodology** — link every source you cited. Note any that you struggled to find, and what you fell back to. If you used a number that didn't come from the recommended sources, justify it.
-3. **The Output** — what does the tool actually show the user? A screenshot or short flow.
-4. **Did Knowing Change Anything?** — honest reflection on whether building/using the tool shifted your behavior in the day or two since, and which value tradeoff (if any) is now more salient.
-5. **AI Usage Trace** — link `log_deliverable/history.md`.
+2. **Your Planned Prompt** — the value-centered first prompt you wrote *before* running it (verbatim), and one or two sentences on what happened: did the artifact carry your value, or the tool's defaults?
+3. **Sources & Methodology** — link every source you cited. Note any that you struggled to find, and what you fell back to. If you used a number that didn't come from the recommended sources, justify it.
+4. **The Output** — what does the tool actually show the user? A screenshot or short flow.
+5. **Did Knowing Change Anything?** — honest reflection on whether building/using the tool shifted your behavior in the day or two since, and which value tradeoff (if any) is now more salient.
+6. **AI Usage Trace** — link `log_deliverable/history.md`.
 
 Graded against the [In-Class Activity Rubric](../../planning/activity_rubric.md) (40% Completion, 30% AI-Use Documentation, 30% Reflection Quality).
 

@@ -26,6 +26,17 @@ Why this value over a competing one? What did you NOT prioritize?
 **Competing values you didn't prioritize:**
 [e.g., "I prioritized honesty over kindness. A friend giving warm reassurance is a different tool."]
 
+## ✍️ Your Planned Prompt
+<!--
+The value-centered FIRST prompt you wrote before running it — verbatim. The prompt
+should carry the value explicitly: not "make a habit tracker" but "make a habit
+tracker that treats a missed day with kindness, never guilt."
+-->
+
+> [Your planned prompt, verbatim, written before you ran it.]
+
+**What happened:** [1–2 sentences — did the artifact carry your value, or the tool's defaults? What did you have to push back on?]
+
 ## 🛠 The Output
 <!--
 What does the tool actually show the user? Walk through one realistic interaction in 3–5 sentences or a short numbered flow. Use a screenshot if it helps.

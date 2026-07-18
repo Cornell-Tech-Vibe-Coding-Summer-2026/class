@@ -4,38 +4,55 @@ Yesterday you tested whether people *can use* your project. Today you test the h
 thing: whether it actually **does the right thing** — whether it delivers the value you
 claim, for the person you claim to serve. Then you iterate one last time before the final.
 
+Today runs the full [Values at Play](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
+loop you saw teased in Week 2 — **Discovery → Implementation → Verification** —
+translated into the vibe-coding workflow as three phases: **Plan → Run → Verify.**
+
 ## Pre-Class Setup
 - Bring your final project **with yesterday's usability fixes**, plus the notes in your `user-test.md`.
 - Be ready for new rotations — you'll test other teams' projects again.
 
-## Name the value (a light values check)
-No heavy framework today — just answer three questions as a team, one or two sentences
-each. (This is the lightweight version of the [Values at Play](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link) discovery idea.)
+## Phase 1 — Plan (`planning.md`, BEFORE anyone prompts)
 
-1. **What value** does this project serve? (privacy · accessibility · sustainability · fairness · dignity · honesty · care …)
-2. **For whom** — who specifically benefits, and who might be excluded or harmed?
-3. **How would you know** it's working — what would a user *do* or *feel* if it delivers?
+Copy [`planning-template.md`](planning-template.md) to `planning.md` and fill in
+parts 1 and 2 as a team, **before running anything**:
 
-## Test the value, not just the clicks
-Rotate testers between teams again. This round, the tester and observer probe the
-**value**, not usability:
+1. **The values check** (Discovery), one or two sentences each:
+   - **What value** does this project serve? (privacy · accessibility · sustainability · fairness · dignity · honesty · care …)
+   - **For whom** — who specifically benefits, and who might be excluded or harmed?
+   - **How would you know** it's working — what would a user *do* or *feel* if it delivers?
+2. **The prompts you will run — verbatim** (Implementation). Each planned prompt must
+   carry the value explicitly: not *"improve the form"* but *"make the form usable by
+   screen-reader users: semantic labels, focus order, errors read aloud."*
+
+> **Why write prompts first?** Because afterwards, your `history.md` shows what you
+> *actually* ran. The gap between plan and log — and between plan and artifact — is
+> where the AI's default values bent yours. Writing first is what makes that visible.
+
+## Phase 2 — Run (execute, then test the value)
+
+Run your planned prompts, as written. Then rotate testers between teams — this round
+probes the **value**, not usability:
 - Does the tool actually move the user toward the value? (Does the sustainability tool change a choice? Does the accessible design actually include *this* person?)
 - Ask the user: *did it feel like it was on your side?* Where did it nudge you somewhere you didn't want to go?
 - Note anyone it would exclude, mislead, or quietly harm — even people who never use it directly.
 
 > **Usable vs. right.** A project can be perfectly usable and still do the wrong thing. The gap between *"they could use it"* and *"it served them well"* is today's whole point.
 
-## Then iterate
-Find the biggest gap between what you **claim** and what testers **experienced**, and
-change the project to close it. Commit it. This is your last structured feedback before
-the final — spend it well.
+## Phase 3 — Verify (close the claim-vs-reality gap)
+
+Fill in part 3 of `planning.md`: what testing revealed, where reality diverged from
+your plan, the values tension you found (**dissolve / compromise / trade-off** — name
+the cost), and then **close the biggest gap with one commit**. This is your last
+structured feedback before the final — spend it well.
 
 ## Deliverable
 Your `vibe-report.md`:
-1. Your team's three-question values check.
+1. Your team's `planning.md` (link it) — values check, planned prompts, and verification.
 2. What the value-test revealed: did it deliver? for whom? who's excluded or nudged?
-3. The change you made to close the biggest claim-vs-reality gap (link the commit).
-4. A link to your AI usage trace, and the course authenticity statement.
+3. **Plan vs. reality:** where the outcome differed from your planned prompts, and where the AI's defaults bent your value.
+4. The change you made to close the biggest claim-vs-reality gap (link the commit).
+5. A link to your AI usage trace, and the course authenticity statement.
 
 Your **team** also fills the *Values* half of the final project's `user-test.md`
 (from the [user-test template](../../projects/user-test-template.md)).
