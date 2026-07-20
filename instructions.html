@@ -278,10 +278,15 @@
 
         // Base folder of the doc being rendered, so relative links (which are correct
         // for GitHub) also resolve correctly inside this reader (served at site root).
+        // When rendering a student report hosted on another Pages site, LINK_BASE is
+        // that report's absolute folder URL instead.
         let LINK_BASE = '';
         function resolveHref(href) {
             href = href.trim();
             if (/^(https?:|mailto:|tel:|data:|#)/i.test(href)) return href;
+            if (/^https?:\/\//i.test(LINK_BASE)) {
+                try { return new URL(href, LINK_BASE).href; } catch (_) { return href; }
+            }
             if (href.startsWith('/')) return href.replace(/^\/+/, '');
             const trailingSlash = href.endsWith('/');
             const parts = [];
@@ -313,8 +318,18 @@
             result = result.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
             result = result.replace(/\*([^*]+)\*/g, '<em>$1</em>');
             // Images first — otherwise the link rule below would eat the ![alt](src) body.
-            result = result.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_m, alt, src) =>
-                `<img class="md-img" src="${resolveHref(src)}" alt="${alt}" loading="lazy">`);
+            result = result.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_m, alt, src) => {
+                // Reports written against the older template point at media/… while the
+                // file actually sits in code_deliverable/media/… — retry that once, then
+                // drop the image rather than showing a broken icon.
+                const primary = resolveHref(src);
+                const alt2 = /^(https?:|\/|code_deliverable\/)/i.test(src)
+                    ? '' : resolveHref('code_deliverable/' + src.replace(/^\.\//, ''));
+                const onerr = alt2
+                    ? `if(!this.dataset.retried){this.dataset.retried=1;this.src='${alt2}'}else{this.style.display='none'}`
+                    : `this.style.display='none'`;
+                return `<img class="md-img" src="${primary}" alt="${alt}" loading="lazy" onerror="${onerr}">`;
+            });
             result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, txt, href) =>
                 `<a href="${resolveHref(href)}" target="_blank" rel="noopener noreferrer">${txt}</a>`);
             result = result.replace(/@@CODE(\d+)@@/g, (_m, i) => `<code>${codeSpans[+i]}</code>`);
@@ -484,17 +499,35 @@
             const titleEl = document.getElementById('docTitle');
             const noticeEl = document.getElementById('roleNotice');
 
-            // Generic mode: render any markdown file passed via ?file=path (&title=...)
+            // Generic mode: render any markdown file passed via ?file=path (&title=...).
+            // `file` may also be an absolute URL, but ONLY on the course's own GitHub
+            // Pages host — that's how student reports (which live in their own repos)
+            // render here with their images. Anything else is rejected so this can't be
+            // used to render arbitrary remote content on the course domain.
             if (file) {
-                const safeFile = file.replace(/^\/+/, '').replace(/\.\.(\/|\\)/g, '');
+                const ALLOWED_HOST = 'cornell-tech-vibe-coding-summer-2026.github.io';
+                let remote = null;
+                if (/^https?:\/\//i.test(file)) {
+                    try {
+                        const u = new URL(file);
+                        if (u.protocol === 'https:' && u.hostname === ALLOWED_HOST && u.pathname.endsWith('.md')) remote = u;
+                    } catch (_) { /* fall through to the rejection below */ }
+                    if (!remote) {
+                        content.innerHTML = `<div class="error">That document can't be rendered here.</div><a class="back-link" href="${backHref}">${backLabel}</a>`;
+                        return;
+                    }
+                }
+                const safeFile = remote ? remote.href : file.replace(/^\/+/, '').replace(/\.\.(\/|\\)/g, '');
                 LINK_BASE = safeFile.replace(/[^/]*$/, '');
                 const pageTitle = params.get('title') || safeFile.split('/').pop();
                 titleEl.textContent = pageTitle;
-                noticeEl.innerHTML = `This page renders <strong>${escapeHtml(safeFile)}</strong>.`;
+                noticeEl.innerHTML = remote
+                    ? `This page renders a student's <strong>vibe-report.md</strong> from their own repository.`
+                    : `This page renders <strong>${escapeHtml(safeFile)}</strong>.`;
                 document.title = `${pageTitle} — Vibe Coding`;
-                meta.textContent = safeFile;
+                meta.textContent = remote ? remote.pathname.replace(/^\//, '') : safeFile;
                 try {
-                    const { markdown } = await fetchFirstAvailable([`./${safeFile}`]);
+                    const { markdown } = await fetchFirstAvailable([remote ? remote.href : `./${safeFile}`]);
                     content.innerHTML = `${renderMarkdown(markdown)}<a class="back-link" href="${backHref}">${backLabel}</a>`;
                 } catch (error) {
                     content.innerHTML = `<div class="error">${escapeHtml(error.message)}</div><a class="back-link" href="${backHref}">${backLabel}</a>`;
