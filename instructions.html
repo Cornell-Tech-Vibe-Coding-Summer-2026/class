@@ -303,7 +303,13 @@
 
         function renderInline(text) {
             let result = escapeHtml(text);
-            result = result.replace(/`([^`]+)`/g, '<code>$1</code>');
+            // Park code spans so markdown shown AS an example (e.g. ![alt](src) in
+            // backticks) is displayed literally instead of being re-rendered below.
+            const codeSpans = [];
+            result = result.replace(/`([^`]+)`/g, (_m, c) => {
+                codeSpans.push(c);
+                return `@@CODE${codeSpans.length - 1}@@`;
+            });
             result = result.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
             result = result.replace(/\*([^*]+)\*/g, '<em>$1</em>');
             // Images first — otherwise the link rule below would eat the ![alt](src) body.
@@ -311,6 +317,7 @@
                 `<img class="md-img" src="${resolveHref(src)}" alt="${alt}" loading="lazy">`);
             result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, txt, href) =>
                 `<a href="${resolveHref(href)}" target="_blank" rel="noopener noreferrer">${txt}</a>`);
+            result = result.replace(/@@CODE(\d+)@@/g, (_m, i) => `<code>${codeSpans[+i]}</code>`);
             return result;
         }
 

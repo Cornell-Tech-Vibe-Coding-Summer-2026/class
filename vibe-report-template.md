@@ -11,7 +11,9 @@ matter as much as the code; this class is about the process, not just the produc
 
 ## 📸 Showcase
 <!-- Screenshots, a GIF, or a short video of the final result. Preserves the product if the live link breaks later. -->
-![Screenshot](media/screenshot.png)
+<!-- Add your screenshot to code_deliverable/media/ and embed it here:
+     ![Screenshot](code_deliverable/media/screenshot.png)
+     That path renders on GitHub and on the course site. -->
 
 ## 🎯 The Vibe (Planning)
 <!-- What were you aiming for before you started? The intent, the user, the feeling. -->

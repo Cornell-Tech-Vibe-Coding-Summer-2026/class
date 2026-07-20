@@ -17,13 +17,14 @@ the hosted version changes later.
 
 **Challenge [A/B/C/D] — vibe vs. engineered:**
 
-![Vibe version](media/challenge-vibe.png)
-![Engineered version](media/challenge-engineered.png)
+<!-- Screenshots go in code_deliverable/media/, embedded like this:
+     ![Vibe version](code_deliverable/media/challenge-vibe.png)
+     ![Engineered version](code_deliverable/media/challenge-engineered.png) -->
 
 **The fork — 25 minutes each:**
 
-![Version: vibes only](media/version-vibe.png)
-![Version: engineering brain on](media/version-engineered.png)
+<!-- ![Version: vibes only](code_deliverable/media/version-vibe.png)
+     ![Version: engineering brain on](code_deliverable/media/version-engineered.png) -->
 
 ## ⚖️ Challenge Comparison
 

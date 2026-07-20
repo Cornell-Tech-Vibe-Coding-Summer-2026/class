@@ -34,7 +34,8 @@ Reference each image where you DISCUSS it (process, testing, the fix you shipped
 not only in a dump here. Name files for what they show: `before-mobile.png`,
 `after-mobile.png`.
 -->
-![The main screen of our app](code_deliverable/media/screenshot.png)
+<!-- Uncomment once your screenshot exists in code_deliverable/media/:
+     ![The main screen of our app](code_deliverable/media/screenshot.png) -->
 
 ## 🎯 The Vibe (Planning)
 <!-- What were you aiming for before you coded? The problem, the intended user, the feeling. Moodboards/sketches welcome. Why is this worth building? (Rubric: Good Vibes) -->
@@ -49,7 +50,7 @@ user-test.md writeup instead.
 
 Keep it concrete — what people DID, not what they said they liked.
 A photo of the acted/paper prototype earns its place here:
-![Our Wizard-of-Oz setup](code_deliverable/media/fake-it-loop.jpg)
+![Our Wizard-of-Oz setup](code_deliverable/media/fake-it-loop.jpg) (example syntax)
 -->
 
 - **What was real (AI-built):** [the parts you made interactive quickly]

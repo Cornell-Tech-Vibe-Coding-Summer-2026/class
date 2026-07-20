@@ -8,7 +8,8 @@ Make this documentation yours. Besides the mandatory elements, feel free to add 
 
 ## 📸 Showcase
 <!-- Replace with screenshots, GIFs, or a short video walkthrough of your project. This shall document the final product in case the website is not accessible in the future. -->
-![Full Project Screenshot](media/screenshot.png)
+<!-- Add your screenshot to code_deliverable/media/ and embed it here:
+     ![Full Project Screenshot](code_deliverable/media/screenshot.png) -->
 
 ## 🎯 The Vibe (Planning)
 <!-- 

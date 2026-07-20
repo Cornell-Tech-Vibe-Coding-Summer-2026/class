@@ -8,7 +8,8 @@ This activity is graded against the In-Class Activity Rubric: 40% Completion, 30
 
 ## 📸 Showcase
 <!-- Screenshot or short GIF of your hosted tool. -->
-![Tool Screenshot](media/screenshot.png)
+<!-- Add your screenshot to code_deliverable/media/ and embed it here:
+     ![Tool Screenshot](code_deliverable/media/screenshot.png) -->
 
 **Live URL:** [paste deployed link]
 

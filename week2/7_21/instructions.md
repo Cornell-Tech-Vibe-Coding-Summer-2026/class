@@ -88,10 +88,9 @@ Document the exercise in `vibe-report.md`:
 
 > [!IMPORTANT]
 > **Screenshots go in `code_deliverable/media/` and get referenced from your report.**
-> Save them there, then embed them in `vibe-report.md` with a relative path:
-> ```markdown
-> ![The pop-up the AI generated unprompted](code_deliverable/media/part1-unprompted.png)
-> ```
+> Save them there, then embed them in `vibe-report.md` with a relative path — write
+> `![The pop-up the AI generated unprompted](code_deliverable/media/part1-unprompted.png)`
+> (the `![...]` form, with the path relative to your report).
 > That exact path works **both** on GitHub and on the course website. Don't paste
 > images into the chat only — a report a reader can't *see* isn't documentation.
 > Name files after the attempt (`part1-unprompted.png`, `part3-bright-after.png`), and
