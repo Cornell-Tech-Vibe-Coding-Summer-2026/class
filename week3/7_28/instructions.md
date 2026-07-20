@@ -19,11 +19,13 @@ parts 1 and 2 as a team, **before running anything**:
 
 1. **The values check** (Discovery), one or two sentences each:
    - **What value** does this project serve? (privacy · accessibility · sustainability · fairness · dignity · honesty · care …)
+   - **Operationalize it** — what does that value actually *mean* for this project? "Privacy" can mean control, secrecy, or contextual integrity; "fairness" can mean equal access or equal outcomes. Pick your reading, then say what is concretely true of your project if the value is achieved.
    - **For whom** — who specifically benefits, and who might be excluded or harmed?
    - **How would you know** it's working — what would a user *do* or *feel* if it delivers?
 2. **The prompts you will run — verbatim** (Implementation). Each planned prompt must
-   carry the value explicitly: not *"improve the form"* but *"make the form usable by
-   screen-reader users: semantic labels, focus order, errors read aloud."*
+   carry your *operationalized* value: not *"improve the form"* but *"make the form usable by
+   screen-reader users: semantic labels, focus order, errors read aloud."* If you don't put
+   your definition in the prompt, you get the AI's default definition instead.
 
 > **Why write prompts first?** Because afterwards, your `history.md` shows what you
 > *actually* ran. The gap between plan and log — and between plan and artifact — is

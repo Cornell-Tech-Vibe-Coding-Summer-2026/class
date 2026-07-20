@@ -13,6 +13,7 @@ you meant and what the AI did measurable. Don't polish — commit honestly.
 ## 1 · The values check (Discovery)
 
 - **What value does this project serve?** [privacy · accessibility · sustainability · fairness · dignity · honesty · care · …]
+- **Operationalize it — what does this value MEAN here?** [The same word means different things in different projects. "Privacy" can mean *control* (I choose what's shared), *secrecy* (nobody sees it), or *contextual integrity* (it doesn't leak out of the context it was given in). "Fairness" can mean equal access, equal outcomes, or no disparate impact. **Which one do you mean, for this project?** Then: what is concretely true of your project if that value is achieved?]
 - **For whom — and who might be excluded or harmed?** [who benefits; who could be excluded, misled, or nudged — including people who never use it]
 - **How would you know it's working?** [the observable tell — what a user would *do* or *feel* if the value is delivered]
 
@@ -20,9 +21,11 @@ you meant and what the AI did measurable. Don't polish — commit honestly.
 
 <!--
 The exact prompts, verbatim, that you intend to run for today's iteration.
-Each prompt should carry the value explicitly — not "improve the form" but
+Each prompt should carry your OPERATIONALIZED value — not "improve the form" but
 "make the form usable by screen-reader users: semantic labels, focus order, error
-messages read aloud." After class, your history.md shows what you actually ran —
+messages read aloud." Put the definition from part 1 into the prompt itself: the AI
+has its own default reading of "privacy" or "fairness," and if you don't specify
+yours, you get its. After class, your history.md shows what you actually ran —
 drift from this list is data, not failure. Note it in Verification.
 -->
 

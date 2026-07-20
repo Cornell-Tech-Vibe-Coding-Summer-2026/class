@@ -37,12 +37,11 @@ We are deliberately **not** running the full Values at Play discovery canvas tod
 
 **Build a small tool that helps someone make a more moral decision or behave more morally.** The user can be you, a friend, a fictional persona, or a class of people. The tool can be a calculator, a comparison, a checker, a nudge, a journaling prompt, a quiz, a what-if simulator — whatever fits the value you're arguing for.
 
-Four loose rules:
+Three loose rules:
 
 1. **The tool argues for something.** It pushes the user toward a specific behaviour or framing. Name it explicitly in the UI (a "what this tool argues" line, a recommended action, a values statement — whatever works). If you don't know what your tool argues for, you don't have a tool yet.
-2. **Write your value-centered prompt *before* you run it.** Put the first prompt in your `vibe-report.md` verbatim, *then* run it. The prompt must carry the value explicitly — not *"make a habit tracker"* but *"make a habit tracker that treats a missed day with kindness, never guilt."* Afterwards, compare: did the artifact carry your value, or the tool's defaults? (This is a small preview of the full plan→run→verify loop we run in Week 3.)
-3. **The artifact is small on purpose.** A single page or screen, built and hosted in one session. The point is the *value clarification* you do while building, not the polish.
-4. **If your tool relies on numbers, cite them on the page.** Methodology is part of the design surface. Numbers without sources visible to the user are not numbers — they're vibes pretending to be numbers.
+2. **The artifact is small on purpose.** A single page or screen, built and hosted in one session. The point is the *value clarification* you do while building, not the polish.
+3. **Don't let the tool fabricate the facts people decide on.** Your AI will happily invent numbers, studies, and confident claims. If your tool shows a number or a claim that someone is meant to *act* on, it needs a real source visible to the user — or it should say plainly that it's a rough estimate. A decision aid built on made-up facts is worse than no tool at all.
 
 There is **no required topic**. Some directions students have taken or could take:
 
@@ -69,40 +68,18 @@ These are precedents, not requirements. Your tool can be much simpler. What matt
 
 ---
 
-## Validated data sources (use these if your tool needs numbers)
+## If your tool uses numbers
 
-If your tool quantifies anything, prefer citations from this list. Don't make numbers up.
+Ask your AI for sources and then **check that they exist and say what it claims** —
+fabricated citations are the most common failure here. Good starting points if you
+need them: [Our World in Data](https://ourworldindata.org/) (food, energy, climate),
+[EPA](https://www.epa.gov/) (vehicles, appliances), or
+[Epoch AI](https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use) (AI
+energy per query). The two example calculators below cite their sources inline — look
+at how they do it.
 
-### AI energy / water / carbon
-
-| Source | What it gives you |
-| --- | --- |
-| Luccioni, Jernite, Strubell. **["Power Hungry Processing: Watts Driving the Cost of AI Deployment?"](https://dl.acm.org/doi/10.1145/3630106.3658542)** *FAccT '24*. | Per-task energy benchmarks across model sizes; methodology for measuring inference cost. |
-| You, Owen et al. **["How much energy does ChatGPT use?"](https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use)** *Epoch AI* (2025). | Modern revised estimate: **~0.3 Wh per query** for GPT-4o-class models, ~10× lower than older estimates still circulating. |
-| Jegham et al. **["How Hungry is AI? Benchmarking Energy, Water, and Carbon Footprint of LLM Inference"](https://arxiv.org/abs/2505.09598)** (2025). | Energy + water + carbon by model family. |
-| Li, Yang, Islam, Ren. **["Making AI Less 'Thirsty'"](https://dl.acm.org/doi/10.1145/3724499)** *CACM* (2025; arXiv [2304.03271](https://arxiv.org/abs/2304.03271)). | Water per inference. GPT-3 ≈ 500 ml per 10–50 medium responses. Varies 2–4× by region. |
-
-### Food / meals
-
-| Source | What it gives you |
-| --- | --- |
-| Poore & Nemecek. **["Reducing food's environmental impacts through producers and consumers"](https://www.science.org/doi/10.1126/science.aaq0216)** *Science* (2018). | The canonical food LCA meta-analysis: 38,700 farms, 119 countries, 40 products. |
-| **[Our World in Data — Environmental Impacts of Food](https://ourworldindata.org/environmental-impacts-of-food)** | Per-kg / per-100g-protein / per-1000-kcal CO₂e, land, water — built on Poore & Nemecek. |
-
-### Transport, flights, household
-
-| Source | What it gives you |
-| --- | --- |
-| **[EPA — Greenhouse gas emissions, typical passenger vehicle](https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle)** | ~404 g CO₂e per mile, US average. |
-| **[ICAO Carbon Calculator](https://www.icao.int/environmental-protection/Carbonoffset/Pages/default.aspx)** | Per-passenger flight CO₂ by route. |
-| **[EPA Energy Star](https://www.energystar.gov/)** | Household appliance energy use, including washers/dryers/heating. |
-
-### Optional (credibility / context)
-
-- **[Hugging Face AI Energy Score](https://huggingface.co/spaces/AIEnergyScore/Leaderboard)** — community leaderboard with per-task numbers.
-- **[ML CO2 Impact Calculator](https://mlco2.github.io/impact/)** — Lacoste et al., for training cost.
-
-If your tool argues about something *outside* the topics above (kindness, attention, honesty, time, money), the same rule applies: cite where your framing comes from. A philosopher, a study, a specific piece of journalism — anything as long as the user can see the lineage.
+If your tool argues about something unquantifiable (kindness, attention, honesty), the
+same rule applies to your *framing*: show the user where it comes from.
 
 ---
 
@@ -116,7 +93,7 @@ If your tool argues about something *outside* the topics above (kindness, attent
 ## What to avoid
 
 - Generic "AI is bad" / "AI is great" framings. The value should be *actionable* and *specific*.
-- Made-up numbers. Use the sources above or note clearly that you're estimating and why.
+- Made-up numbers or invented citations. Check the AI's sources, or say plainly that you're estimating.
 - Hiding the methodology. If a non-technical reader can't tell where the tool's argument comes from, the tool fails on its own terms.
 
 ---
@@ -126,11 +103,10 @@ If your tool argues about something *outside* the topics above (kindness, attent
 Use [`vibe-report-template.md`](vibe-report-template.md) (in this folder). Required sections:
 
 1. **The Value Your Tool Argues For** — one or two sentences naming what your tool pushes the user toward, and why that value over a competing one.
-2. **Your Planned Prompt** — the value-centered first prompt you wrote *before* running it (verbatim), and one or two sentences on what happened: did the artifact carry your value, or the tool's defaults?
-3. **Sources & Methodology** — link every source you cited. Note any that you struggled to find, and what you fell back to. If you used a number that didn't come from the recommended sources, justify it.
-4. **The Output** — what does the tool actually show the user? A screenshot or short flow.
-5. **Did Knowing Change Anything?** — honest reflection on whether building/using the tool shifted your behavior in the day or two since, and which value tradeoff (if any) is now more salient.
-6. **AI Usage Trace** — link `log_deliverable/history.md`.
+2. **Sources & Methodology** — link every source your tool cites, and note where you checked that the AI's suggested sources were real (or where you caught it inventing one).
+3. **The Output** — what does the tool actually show the user? A screenshot or short flow.
+4. **Did Knowing Change Anything?** — honest reflection on whether building/using the tool shifted your behavior in the day or two since, and which value tradeoff (if any) is now more salient.
+5. **AI Usage Trace** — link `log_deliverable/history.md`.
 
 Graded against the [In-Class Activity Rubric](../../planning/activity_rubric.md) (40% Completion, 30% AI-Use Documentation, 30% Reflection Quality).
 
