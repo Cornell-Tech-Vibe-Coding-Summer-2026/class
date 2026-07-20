@@ -116,6 +116,16 @@
             margin-bottom: 8px;
         }
 
+        .content .md-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 18px 0;
+            border: 1px solid rgba(0, 255, 65, 0.25);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
         .notice { font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); }
         .notice strong { font-weight: 700; color: rgba(255, 255, 255, 0.8); }
         .notice a { color: var(--neon); text-decoration: underline; }
@@ -296,6 +306,9 @@
             result = result.replace(/`([^`]+)`/g, '<code>$1</code>');
             result = result.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
             result = result.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            // Images first — otherwise the link rule below would eat the ![alt](src) body.
+            result = result.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_m, alt, src) =>
+                `<img class="md-img" src="${resolveHref(src)}" alt="${alt}" loading="lazy">`);
             result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, txt, href) =>
                 `<a href="${resolveHref(href)}" target="_blank" rel="noopener noreferrer">${txt}</a>`);
             return result;

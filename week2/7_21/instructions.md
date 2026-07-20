@@ -79,17 +79,31 @@ mere design preference (happily produced). That gap is the discussion.
 
 ## Submission: The Vibe Report
 Document the exercise in `vibe-report.md`:
-1. Dark patterns the AI added **unprompted** in Part 1.
+1. Dark patterns the AI added **unprompted** in Part 1 — **with a screenshot**.
 2. Your Part 2 log: which patterns it produced, refused, or warned about — and the prompts that got past guardrails.
-3. The dark→bright redesign, before and after.
+3. The dark→bright redesign, **before and after screenshots**.
 4. Where the model drew the line between "safety" and "ethics," and where that line failed.
 5. A link to your AI usage trace.
 6. The course authenticity statement.
 
+> [!IMPORTANT]
+> **Screenshots go in `code_deliverable/media/` and get referenced from your report.**
+> Save them there, then embed them in `vibe-report.md` with a relative path:
+> ```markdown
+> ![The pop-up the AI generated unprompted](code_deliverable/media/part1-unprompted.png)
+> ```
+> That exact path works **both** on GitHub and on the course website. Don't paste
+> images into the chat only — a report a reader can't *see* isn't documentation.
+> Name files after the attempt (`part1-unprompted.png`, `part3-bright-after.png`), and
+> reference each one where you discuss it, not in a dump at the end.
+>
+> 👉 **[See a worked example](examples/report-with-screenshots/vibe-report.md)** — a
+> short report with a real embedded screenshot and per-image discussion.
+
 ### Deliverables
-- `code_deliverable/` — your test artifacts and the bright-pattern redesign
+- `code_deliverable/` — your test artifacts and the bright-pattern redesign, plus `code_deliverable/media/` for the screenshots your report embeds
 - `log_deliverable/` — prompt transcripts or screenshots of each attempt
-- `vibe-report.md` — reflection and trace
+- `vibe-report.md` — reflection and trace, with screenshots embedded where you discuss them
 
 > [!TIP]
 > **How to organize the files (one file per attempt):**

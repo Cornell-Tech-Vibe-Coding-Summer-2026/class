@@ -23,8 +23,18 @@ the process, not just the product.
 -->
 
 ## 📸 Showcase
-<!-- Screenshots, a GIF, or a short video walkthrough. This preserves the final product even if the live link breaks later. -->
-![Project screenshot](media/screenshot.png)
+<!--
+Screenshots, a GIF, or a short video walkthrough. This preserves the final product
+even if the live link breaks later.
+
+WHERE IMAGES GO: save them in `code_deliverable/media/`, then embed them with the
+relative path shown below. That exact path renders both on GitHub and on the course
+website — and because they sit in code_deliverable/, they ship with your hosted app.
+Reference each image where you DISCUSS it (process, testing, the fix you shipped),
+not only in a dump here. Name files for what they show: `before-mobile.png`,
+`after-mobile.png`.
+-->
+![The main screen of our app](code_deliverable/media/screenshot.png)
 
 ## 🎯 The Vibe (Planning)
 <!-- What were you aiming for before you coded? The problem, the intended user, the feeling. Moodboards/sketches welcome. Why is this worth building? (Rubric: Good Vibes) -->
@@ -37,7 +47,9 @@ Required for Project 1 (the one quick loop from class — no re-test needed).
 For Project 2 and the Final, summarize your testing here and link the full
 user-test.md writeup instead.
 
-Keep it concrete — what people DID, not what they said they liked:
+Keep it concrete — what people DID, not what they said they liked.
+A photo of the acted/paper prototype earns its place here:
+![Our Wizard-of-Oz setup](code_deliverable/media/fake-it-loop.jpg)
 -->
 
 - **What was real (AI-built):** [the parts you made interactive quickly]
