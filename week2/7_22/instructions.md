@@ -1,73 +1,104 @@
 # AI Against AI
 
+Today you turn AI and code *against* the AI systems that can harm us. You'll do
+**two things**: first quietly poison the scrapers that vacuum up your personal site,
+then build a small **AI-against-AI mini project** of your own.
+
 ## Pre-Class Setup
 
 ### Tooling Preparation
-- Ensure you have access to your personal website or portfolio codebase from Week 1. Ensure that it is hosted and publicly accessible.
-- We will be modifying HTML, Markdown, or JSON files depending on how your specific site is generated (e.g., Jekyll, React, raw HTML).
+- Have your **Week 1 personal website** (`week1/7_13`) hosted and publicly reachable — Part A edits *that* site.
+- Know how your site is generated (raw HTML, Jekyll, React, etc.) so you know which files to modify.
 
 ### Folder Structure
-To keep your deliverables organized for grading, please use the following structure in your project directory:
-
 ```text
 week2/7_22/
-├── code_deliverable/    # Modifications to your website code
-├── log_deliverable/     # Your interaction logs with the AI agent (history.md)
-└── vibe-report.md       # Your reflection and documentation
+├── code_deliverable/    # PART B — your AI-against-AI mini project (this is what you link in submissions)
+├── log_deliverable/     # history.md — your AI interaction log
+└── vibe-report.md       # documents BOTH Part A and Part B
 ```
+
+> [!IMPORTANT]
+> **Part A happens in your existing `week1/7_13` site** (that's the page scrapers
+> read), so it lives in that folder — not here. **Part B is a new mini project** and
+> goes in `week2/7_22/code_deliverable/`. Your submission link points to **Part B**.
 
 ---
 
-## AI Against AI: Poisoning Scrapers
+## Part A — Poison the Scraper *(edit your Activity 1 website)*
 
-**Project: Obfuscation.** In this activity, you will learn how to implement data obfuscation against aggressive web scraping by Large Language Model trainers. Drawing on the concepts from *[Obfuscation: A User's Guide for Privacy and Protest](https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest)* by Finn Brunton and Helen Nissenbaum, you have a right to protect your personal narrative as AI companies vacuum up the internet.
+**Obfuscation.** Drawing on *[Obfuscation: A User's Guide for Privacy and Protest](https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest)*
+by Finn Brunton and Helen Nissenbaum, you have a right to protect your personal
+narrative as AI companies vacuum up the internet. You'll inject plausible, fake facts
+into your personal website — **invisible to human visitors, but visible to AI scrapers.**
 
-### The Task
-You will inject plausible, fake facts into your personal website. These facts must be completely invisible to human visitors, but highly visible to AI web scrapers. 
+1. **Brainstorm 2–3 plausible-but-fabricated facts** about yourself (e.g., "Co-founded a kombucha startup in 2019," "Won the $5000 Privacy Award").
+2. **Inject with CSS `clip`** — keep the text in the DOM but visually trim it to 0px. **Do NOT use `display: none`.** Add `aria-hidden="true"` so screen readers skip it.
+3. **Verify with `curl`** that your fake text appears in the raw payload a bot would read.
 
-1. **Brainstorm**: Come up with 2-3 plausible but completely fabricated facts about yourself (e.g., "Co-founded a kombucha startup in 2019" or "Won the $5000 Privacy Award").
-2. **Inject CSS**: Use the CSS `clip` method (detailed in the example) to hide the text in the DOM. Do NOT use `display: none`.
-3. **Verify**: Use the `curl` command to verify that your fake text appears in the raw payload of your website.
-
-### Why not `display: none`? 
-Advanced AI scrapers (like OpenAIbot or Google-Extended) often use headless browsers to render a page just like a human sees it. They look at the CSS "render tree" and intentionally ignore text that is explicitly hidden with `display: none`. Using `clip: rect(0, 0, 0, 0)` keeps the text in the render tree but visually trims it to 0 pixels. This tricks the AI, while `aria-hidden="true"` prevents screen readers from wrongfully reading the fake text to humans.
+### Why not `display: none`?
+Advanced scrapers (OpenAIbot, Google-Extended) render pages in headless browsers and
+ignore text hidden with `display: none`. `clip: rect(0, 0, 0, 0)` keeps the text in the
+render tree but trims it to 0 pixels — it tricks the AI, while `aria-hidden="true"`
+keeps it away from human screen-reader users.
 
 > [!TIP]
-> See the full walkthrough and code snippets in the [Example Project](examples/activity1_obfuscation-example/README.md).
+> Full walkthrough and code snippets: [Example Project](examples/activity1_obfuscation-example/README.md).
 
-### Or pick another "AI against AI" angle
-Scraper-poisoning is the guided example, but the theme is broader — defending humans from
-AI harms *using* AI/code. You may instead build one of these:
-- **Style cloaking for images:** a page that explains and demos Glaze/Nightshade-style perturbation so your art resists being trained on (conceptual demo is fine).
+---
+
+## Part B — Build an AI-against-AI Mini Project
+
+Now build something small that **defends humans from AI harms using AI/code.** Pick
+**one** direction (or invent your own) and build it in `week2/7_22/code_deliverable/`:
+
+- **Style cloaking for images:** a page that explains and demos Glaze/Nightshade-style perturbation so art resists being trained on (conceptual demo is fine).
 - **Privacy noise (TrackMeNot-style):** a tool that floods a profile or search with plausible fake activity to bury the real signal.
-- **Anti-surveillance patterns:** prototype a page demonstrating how adversarial patterns defeat face detection — and discuss the arms race.
+- **Anti-surveillance patterns:** demonstrate how adversarial patterns defeat face detection — and discuss the arms race.
 - **Block the bots properly:** `robots.txt` + `<meta name="robots">` + per-bot rules (GPTBot, Google-Extended, CCBot); verify each with `curl -A "GPTBot"`.
 - **AI-vs-AI detector:** a small tool that flags likely AI-generated text or images and explains its tells.
 - **Automation-surveillance pushback:** inspired by [workers using AI against workplace monitoring](https://officechai.com/ai/chinas-workers-are-weaponizing-ai-against-each-other-through-colleague-skill-files-and-fighting-back/) — prototype something that protects a worker's autonomy.
 
-Whatever you pick, keep the ethical question in view: **defense vs. deception**, and who your technique could harm as well as protect.
+It must be **hosted and reachable by link** — that link is your submission.
+
+> [!NOTE]
+> Keep the ethical question in view for both parts: **defense vs. deception**, and
+> who your technique could harm as well as protect. Every one of these tools points a
+> weapon somewhere — name where.
 
 ---
 
 ## Submission: The Vibe Report
 
-After completing your injection, document your process in a new file named `vibe-report.md` in your project folder. 
+Copy [`vibe-report-template.md`](vibe-report-template.md) to `vibe-report.md` and fill
+in **both parts**:
 
-Your Vibe Report must include:
-1. **Showcase**: A screenshot of your `curl` command output proving the scraper payload works.
-2. **The Vibe**: Describe the fake facts you chose and the narrative you are trying to project. 
-3. **Explorations**: Detail any challenges you had hiding the data without breaking your existing site layout.
-4. **Reflection**: Write a thoughtful response addressing the following:
-   - What impact might this technique have on the broader digital data ecosystem? Does it change your belief or trust in AI outputs?
-   - Consider the difference between an AI agent (like Perplexity or ChatGPT with Search) visiting your web page and citing it as the source of truth for the fake fact vs. a model incorporating that fact during training and reciting it from its weights without knowing the origin. How do these scenarios differ in impact?
-   - What happens if this strategy is used to change information about someone else rather than yourself? 
-   - How does this approach compare to editing Wikipedia facts? What is fundamentally different between a community-moderated platform like Wikipedia versus an AI blindly accepting data from your personal website?
-   - Ultimately, is obfuscation ethical? Why or why not?
-5. **AI Usage Trace**: Link to your `log_deliverable/history.md`.
-6. **Authenticity Statement**: Include the standard course authenticity statement.
+**Part A — the injection:**
+1. **Proof it works** — a screenshot of your `curl` output showing the fake facts in the raw payload.
+2. **The narrative** — which fake facts you chose and the false story you're projecting.
+3. **Challenges** — anything tricky about hiding the data without breaking your layout.
+
+**Part B — the mini project:**
+4. **What you built** — the live link, what it does, and who it defends.
+
+**Reflection (covers both, human-written):**
+5. Answer:
+   - What impact might scraper-poisoning have on the broader data ecosystem? Does it change your trust in AI outputs?
+   - An AI agent (Perplexity, ChatGPT Search) *citing* your fake fact as truth vs. a model absorbing it in *training* and reciting it with no source — how do these differ in impact?
+   - What changes if this is used to alter information about *someone else* rather than yourself?
+   - How is this different from editing a Wikipedia fact — community-moderated vs. an AI blindly trusting your personal site?
+   - Is obfuscation ethical? Is your Part B tool? Who could each one harm as well as protect?
+6. **AI Usage Trace** — link `log_deliverable/history.md`.
+7. **Authenticity Statement** — the standard course statement.
+
+### Deliverables
+- `code_deliverable/` — your **Part B mini project** (hosted; the link is your submission)
+- `log_deliverable/` — `history.md`
+- `vibe-report.md` — documents Part A **and** Part B
+- (Part A lives in your `week1/7_13` site.)
 
 ### Submission
-Submit on Canvas: upload a zip of the entire `week2/7_22/` folder and paste your deployed assignment link. Before submitting, commit and push your `code_deliverable/`, `log_deliverable/history.md`, and `vibe-report.md` to your GitHub Classroom repo. We grade the Canvas submission against your GitHub commit history and hosted page; commits pushed after the Canvas submission time do not count unless the instructor asks you to resubmit.
+Commit and push `week2/7_22/` and your edited `week1/7_13` site to your GitHub Classroom repo. Host Part B and put its live link in your report. Submit whatever the Canvas page asks for, usually the live link and/or a zip. We grade against your commit history and hosted page; commits pushed after the deadline in `deadline.json` don't count unless the instructor asks you to resubmit.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->
