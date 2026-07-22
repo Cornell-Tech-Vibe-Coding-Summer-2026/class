@@ -30,6 +30,18 @@ Your app should not only talk about the value. Its features, language, defaults,
 >
 > This example names the **value** (sustainability and fairness), the **user** (renters without cars), and the **problem** (recycling access).
 
+## Deliverables at a glance
+
+Submit exactly these three things in your team repo:
+
+1. **Hosted app** — the working project in `code_deliverable/`, with its public link in `project-report.md`.
+2. **AI interaction log** — your real prompts, responses, mistakes, and revisions in `log_deliverable/history.md`.
+3. **Project report** — one completed `project-report.md`, including your framing, explored ideas, first prompt, red-team result, informal classmate test, screenshots, and reflections.
+
+For Project 2, the informal classmate test belongs **inside `project-report.md`**. You do not need a separate `user-test.md`.
+
+[View the Project 2 walkthrough slides](/projects/project2/project2-walkthrough.pptx)
+
 ## Your team must answer five questions
 
 Before building, write down:
@@ -228,136 +240,10 @@ Before the deadline:
 - check that your AI log is complete
 - push the final version to GitHub
 
-# Required files
-
-Your team repo already includes the folders you need.
-
-```text
-project2/
-├── code_deliverable/
-├── log_deliverable/
-├── project-report.md
-├── deadline.json
-└── README.md
-```
-
-# What you must turn in
-
-## 1. A hosted app
-
-- Put your code in `code_deliverable/`.
-- Host the app using GitHub Pages or Vercel.
-- Put the public link in `project-report.md`.
-- Make sure a classmate can use the main flow without your help.
-
-## 2. Your AI interaction log
-
-Save your prompts and AI responses in `log_deliverable/history.md`.
-
-The log should include:
-
-- your first value-centered prompt
-- important follow-up prompts
-- prompts that failed
-- outputs you rejected
-- safety warnings or refusals
-- moments when the AI added a feature you did not request
-- the prompts used to fix or revise the project
-
-> [!IMPORTANT]
-> A clean final prompt is not enough. We want to see the real process, including mistakes and changes.
-
-## 3. Your project report
-
-Complete `project-report.md`.
-
-Your report should clearly explain:
-
-- the value
-- the user and situation
-- the problem or decision
-- the three ideas you considered
-- why you chose the final direction
-- the first value-centered prompt
-- how the app supports the value through specific design choices
-- one tradeoff or conflict between values
-- one risk you found while red-teaming
-- what happened during the classmate test
-- what you changed after testing
-- what the AI added that helped or hurt the idea
-- what your team would improve with more time
-
-Include screenshots or short examples where they make the explanation clearer.
-
-> [!IMPORTANT]
-> The ethical reflection must be written by your team. AI may help with grammar, but it should not write the reflection for you.
-
-# How the project will be graded
-
-Project 2 uses the course project rubric from the syllabus. The five categories below add up to 100% of the project grade. fileciteturn7file0L60-L67
-
-## 1. Good Vibes — Concept and planning: 20%
-
-We are looking for: A strong project makes us understand **why this is worth building** and **why this design direction makes sense for this user**.
-
-## 2. Good Code — Functionality and execution: 20%
-
-We are looking for: A strong project works when we open it and does not depend on the team standing beside us to explain it.
-
-## 3. Live Demo and Quick User Test: 15%
-
-This is a quick informal test, not the full Week 3 user-testing process. We still expect evidence that someone outside your team tried the app and that your team learned from it.
-
-## 4. Deep Ethical Reflection: 25%
-
-This section must be written by your team. AI may be used only for grammar checking. The syllabus identifies this as the largest part of the project grade. fileciteturn7file0L62-L67
-
-## 5. Communication and Documentation: 20%
-
-We are looking for:
-
-- a complete `project-report.md`
-- a clear public link
-- screenshots or examples that show the project
-- an understandable explanation of the process
-- a complete AI interaction log
-- files organized in the correct folders
-- commit history that shows the work was completed before the deadline
-
-A strong submission lets someone understand what you built, why you built it, how you used AI, what changed, and what you learned.
-
-# Final checklist
-
-Before submitting, make sure:
-
-- [ ] We joined the team GitHub Classroom repo.
-- [ ] We named one clear human value.
-- [ ] We chose a specific user and situation.
-- [ ] We considered at least three possible ideas.
-- [ ] We explained why we selected our final idea.
-- [ ] Our first prompt includes the value and user.
-- [ ] Our app has one complete working flow.
-- [ ] The public link opens correctly in a private/incognito window.
-- [ ] We checked the AI-generated code and content.
-- [ ] We saved our prompts, responses, failures, and revisions.
-- [ ] We identified and tested at least one ethical or safety risk.
-- [ ] We tested the app with 1–2 classmates.
-- [ ] We made at least one change after testing.
-- [ ] We completed the human-written ethical reflection.
-- [ ] We completed `project-report.md`.
-- [ ] We committed and pushed everything before the deadline.
-
 # Submission
 
-Push all files to your team GitHub Classroom repo before the deadline in `deadline.json`.
+Push the hosted app, AI log, and completed report to your team GitHub Classroom repo before the deadline in `deadline.json`.
 
 Then complete the Canvas submission. Canvas may ask for the live link, a zip file, or both.
 
-We will check:
-
-- the hosted app
-- the team repo
-- `project-report.md`
-- `log_deliverable/history.md`
-- screenshots and documentation
-- the commit history
+Project 2 uses the shared [course project rubric](../rubric.md). The ethical reflection in your report must be written by your team; AI may help only with grammar checking.
