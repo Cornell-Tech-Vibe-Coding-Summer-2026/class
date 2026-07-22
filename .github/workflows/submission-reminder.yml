@@ -1,0 +1,27 @@
+name: Submission reminder
+
+# Opens/updates a single "📋 Submission checklist" issue on THIS repo listing any
+# deliverable that's missing or not showing, for activities due so far.
+# Runs end of day on class days, and can be triggered manually.
+
+on:
+  schedule:
+    - cron: '0 22 * * 1-4'   # 22:00 UTC (~6pm ET) Mon–Thu
+  workflow_dispatch:          # lets staff run it on demand ("once now")
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Check submissions and update the checklist issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/submission_reminder.py
