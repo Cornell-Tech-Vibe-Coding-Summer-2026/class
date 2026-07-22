@@ -49,17 +49,30 @@ keeps it away from human screen-reader users.
 
 ## Part B — Build an AI-against-AI Mini Project
 
-Now build something small that **defends humans from AI harms using AI/code.** Pick
-**one** direction (or invent your own) and build it in `week2/7_22/code_deliverable/`:
+Now build something small that **defends humans from AI harms using AI/code**, hosted in
+`week2/7_22/code_deliverable/`. **AI against AI is the framing** — but it doesn't have to
+be literal AI-vs-AI. Any of these three shapes counts, and the simpler ones are fair game
+if you're short on time:
+
+1. **AI against AI** — e.g. an AI-vs-AI detector that flags likely AI-generated text or images.
+2. **AI against another tech harm** — e.g. an AI-powered live recoder that rewrites a page's **dark patterns into bright patterns** as you browse.
+3. **Non-AI tech against AI** — e.g. the simple CSS text-injection from Part A, or `robots.txt` bot-blocking — plain code that defends against AI.
+
+Pick **one** direction (or invent your own):
 
 - **Style cloaking for images:** a page that explains and demos Glaze/Nightshade-style perturbation so art resists being trained on (conceptual demo is fine).
 - **Privacy noise (TrackMeNot-style):** a tool that floods a profile or search with plausible fake activity to bury the real signal.
 - **Anti-surveillance patterns:** demonstrate how adversarial patterns defeat face detection — and discuss the arms race.
 - **Block the bots properly:** `robots.txt` + `<meta name="robots">` + per-bot rules (GPTBot, Google-Extended, CCBot); verify each with `curl -A "GPTBot"`.
+- **Dark → bright recoder:** a tool that detects a manipulative UI pattern and rewrites it to serve the user instead.
 - **AI-vs-AI detector:** a small tool that flags likely AI-generated text or images and explains its tells.
 - **Automation-surveillance pushback:** inspired by [workers using AI against workplace monitoring](https://officechai.com/ai/chinas-workers-are-weaponizing-ai-against-each-other-through-colleague-skill-files-and-fighting-back/) — prototype something that protects a worker's autonomy.
 
 It must be **hosted and reachable by link** — that link is your submission.
+
+> [!TIP]
+> **Short on time?** The bar is a working slice, not a grand build — a simpler defense
+> (shape 3) still counts. Ship something that works over something ambitious that doesn't.
 
 > [!NOTE]
 > Keep the ethical question in view for both parts: **defense vs. deception**, and

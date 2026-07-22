@@ -34,7 +34,9 @@ Screenshots go in code_deliverable/media/ and embed with a relative path like
 
 **What I built:** [name + one-line pitch — e.g. "BotWall — per-bot robots.txt rules with a live curl checker"]
 
-**Which direction:** [style cloaking / privacy noise / anti-surveillance / block-the-bots / AI detector / worker autonomy / your own]
+**Which shape:** [AI against AI / AI against another tech harm (e.g. dark→bright recoder) / non-AI tech against AI (e.g. text injection, bot-blocking)]
+
+**Which direction:** [style cloaking / privacy noise / anti-surveillance / block-the-bots / dark→bright recoder / AI detector / worker autonomy / your own]
 
 ![The mini project](code_deliverable/media/project.png)
 
