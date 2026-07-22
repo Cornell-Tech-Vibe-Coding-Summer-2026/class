@@ -16,11 +16,12 @@ The daily activities use a different rubric ([activity_rubric.md](../planning/ac
 
 1. **Hosted app** — live link, source under `code_deliverable/`.
 2. **AI interaction log** — `log_deliverable/history.md` via the Vibe-Trace rule.
-3. **Project report** — `project-report.md` (from [project-report-template.md](project-report-template.md)), including the ethical reflection (human-written).
+3. **Project report** — complete the `project-report.md` preloaded in your team repo, including the human-written ethical reflection.
 
-## Additional for Project 2 & Final
+## User testing for Project 2 & Final
 
-4. **User-test writeup** — `user-test.md` (from [user-test-template.md](user-test-template.md)). Project 2 is user-tested during Week 3; the Final Project needs its own round.
+- **Project 2:** document the quick informal classmate test inside `project-report.md`; no separate `user-test.md` is required.
+- **Final Project:** complete `user-test.md` from [user-test-template.md](user-test-template.md).
 
 ## Additional for the Final Project
 
