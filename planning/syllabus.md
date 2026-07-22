@@ -32,7 +32,7 @@
 
 **Course Staff/Teaching Assistants:** Hauke Sandhaus, M.Sc. [hgs52@cornell.edu](mailto:hgs52@cornell.edu), Jonathan Segal, M.Sc. [jis62@cornell.edu](mailto:jis62@cornell.edu)
 
-**Office Hours:** Afternoons
+**Office Hours:** Lunch break
 
 **Expectations and Resources for Student Success:** [Vibe Showcase Website](https://cornell-tech-vibe-coding-summer-2026.github.io/website/), [Individual Activities](https://vibe-coding-ethics.tech.cornell.edu/), [Group Projects](https://vibe-coding-ethics.tech.cornell.edu/projects/), [GitHub Classroom Repository](https://classroom.github.com/classrooms/245015926-cornell-tech-vibe-coding-summer-2026/assignments/class-repo)
 
