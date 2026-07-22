@@ -31,9 +31,21 @@ def app_live(act):
             html = r.read().decode("utf8", "ignore") if r.status == 200 else ""
     except Exception:
         return False
+    if not html:
+        return False
     m = TITLE_RE.search(html)
     t = " ".join(m.group(1).split()) if m else ""
-    return bool(t) and not any(p in t for p in PLACEHOLDER)
+    if t and not any(p in t for p in PLACEHOLDER):
+        return True                       # a real page of its own
+    # An overview index that LINKS to the student's own pages counts too, even if they
+    # kept the starter <title>. Look for links to local .html files or subfolders.
+    for href in re.findall(r'href=["\']([^"\']+)["\']', html, re.I):
+        low = href.lower()
+        if low.startswith(("http", "#", "mailto", "//")) or "instructions" in low:
+            continue
+        if (low.endswith(".html") and low not in ("index.html", "./index.html")) or href.rstrip().endswith("/"):
+            return True
+    return False
 
 
 def main():
