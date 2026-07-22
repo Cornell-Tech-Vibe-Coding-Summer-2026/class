@@ -61,4 +61,6 @@ Do it every turn that touches a `code_deliverable/`, without being asked.
 - Keep each assignment self-contained inside its `weekN/M_DD/` folder.
 - Put all assets (images, fonts, models) inside `code_deliverable/` or reference them by URL.
 - Do not touch other students' or other assignments' folders.
+- **Keep the hosted site showing the work.** If the app is more than one page, `code_deliverable/index.html` must be an overview that links every page/file — a visitor should see the work, never a leftover "Your Submission" placeholder.
+- **The report is the student's own.** Write it into `vibe-report.md` (not a `-template.md`), but the reflection itself must be the student's writing — AI may check grammar only. Build the app and log the process; leave the reflection to them.
 - Never invent citations, data, or statistics in a `vibe-report.md`; flag assumptions.

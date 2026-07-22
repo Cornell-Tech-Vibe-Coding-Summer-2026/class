@@ -37,4 +37,6 @@ that touches a `code_deliverable/`.
 ## Working style
 - Simple, readable, well-commented code the student can explain.
 - Keep each assignment inside its own `weekN/M_DD/` folder; assets go in `code_deliverable/`.
+- If the app has multiple pages, make `code_deliverable/index.html` an overview that links them — the hosted site should show the work, not a placeholder.
+- Write the report into `vibe-report.md` (not a `-template.md`), but the reflection is the student's own writing (grammar help only).
 - Never invent citations or data in a `vibe-report.md`.
