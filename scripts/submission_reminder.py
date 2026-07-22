@@ -53,9 +53,24 @@ def main():
         all_ok = False
         miss = []
         if not app:
-            miss.append("**hosted app** not showing a real page — check `code_deliverable/index.html` "
-                        "links your work (add an overview index if it's spread across files) and that "
-                        f"Pages is deploying: {PAGES}/{act}/code_deliverable/")
+            cd = f"{act}/code_deliverable"
+            extra = []
+            if os.path.isdir(cd):
+                for root, _, files in os.walk(cd):
+                    for fn in files:
+                        rel = os.path.relpath(os.path.join(root, fn), cd)
+                        if fn.lower().endswith(".html") and rel.lower() != "index.html":
+                            extra.append(rel)
+            if extra:
+                shown = ", ".join(f"`{e}`" for e in sorted(extra)[:6])
+                miss.append(f"we can see your files ({shown}), but the page opens to the starter "
+                            f"placeholder. **Link them from `code_deliverable/index.html`** (or rename "
+                            f"your main file to `index.html`) so your work shows at "
+                            f"{PAGES}/{act}/code_deliverable/")
+            else:
+                miss.append("**hosted app** isn't showing yet — add your work to `code_deliverable/` "
+                            f"with an `index.html`, and check Pages is deploying: "
+                            f"{PAGES}/{act}/code_deliverable/")
         if not report:
             miss.append("**`vibe-report.md`** missing — fill it in at "
                         f"`{act}/vibe-report.md` (edit that file in place; don't leave it in a template).")
