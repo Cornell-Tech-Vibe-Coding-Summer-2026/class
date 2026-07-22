@@ -92,7 +92,9 @@ Project Rubric:
 **Submission & Deliverables**  
 All work — every daily activity and every project — is submitted through your **GitHub Classroom repository**. That repository is the single submission of record: we grade from your commit history and, where applicable, your deployed GitHub Pages site. We do not accept submissions by email, Google Doc, or other channels. (We were flexible in the opening days while everyone learned the tooling; that grace period has ended.)
 
-To count as submitted, your work must be **where the instructions say it is and named as the instructions specify** (e.g. `vibe-report.md`, `code_deliverable/`, `log_deliverable/history.md`). Work placed in differently-named subfolders that a grader — or the class showcase — cannot readily find may be graded as missing. **Preview your own submission before the deadline:** your report and app render on your deployed Pages site, so open them and check.
+To count as submitted, your work must be **where the instructions say it is and named as the instructions specify** (e.g. `vibe-report.md`, `code_deliverable/`, `log_deliverable/history.md`). Work placed in differently-named subfolders that a grader — or the class showcase — cannot readily find may be graded as missing.
+
+**If your work spans multiple files or subfolders, make it findable from one place.** Fill in the provided **overview templates** (your `index.html` / report showcase), and **link every important piece** — each version, page, or file we need to look at — with its **deployed site link or a direct GitHub link**. Don't make a grader hunt through folders: one page should point to everything. **Preview your own submission before the deadline** on your deployed Pages site — open every link and confirm it works.
 
 You do **not** need AI or coding ability to submit. You can edit Markdown in any text editor or directly on github.com, and you can upload individual files through the GitHub web interface. Being able to navigate the technical environment — GitHub Classroom, Canvas — on your own is a core skill of this course, distinct from coding.
 
