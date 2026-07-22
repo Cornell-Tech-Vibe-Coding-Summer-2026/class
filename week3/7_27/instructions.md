@@ -31,7 +31,7 @@ Before class ends, your team: (1) pools all testers' notes, (2) picks the **top 
 usability problems, and (3) **starts fixing** — commit at least one improvement today.
 
 ## Deliverable
-Your `vibe-report.md`:
+**Fill in the provided `vibe-report.md`** — it is already in this activity folder; edit it in place (don't make a copy or a new file). It covers:
 1. The task your team tested, and what your testers actually did.
 2. Your observation notes from testing **another** team, with the heuristic each breakdown breaks.
 3. The top usability problems on your own project, and the fix your team shipped today (link the commit).

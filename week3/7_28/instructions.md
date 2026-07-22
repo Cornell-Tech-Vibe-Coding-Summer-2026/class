@@ -49,7 +49,7 @@ the cost), and then **close the biggest gap with one commit**. This is your last
 structured feedback before the final — spend it well.
 
 ## Deliverable
-Your `vibe-report.md`:
+**Fill in the provided `vibe-report.md`** — it is already in this activity folder; edit it in place (don't make a copy or a new file). It covers:
 1. Your team's `planning.md` (link it) — values check, planned prompts, and verification.
 2. What the value-test revealed: did it deliver? for whom? who's excluded or nudged?
 3. **Plan vs. reality:** where the outcome differed from your planned prompts, and where the AI's defaults bent your value.
