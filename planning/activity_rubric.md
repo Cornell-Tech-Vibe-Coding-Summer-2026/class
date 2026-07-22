@@ -25,4 +25,6 @@ Every in-class activity submission must include:
 - Each activity is scored out of 100 against the rubric above.
 - Activities with no submission receive 0; partial submissions are graded against `Completion` only.
 - The 20% bucket is the unweighted average of all activity scores across the three weeks.
-- Late submissions: see course late policy.
+- **Submission is via your GitHub Classroom repository only.** Put files where the instructions say and name them as specified — work a grader can't readily find may be graded as missing.
+- **Late, incomplete, or improperly-formatted work does not earn full credit**, and running out of AI credits is not an accepted excuse (everything here is doable with free AI or by editing/uploading files manually). See the **Submission, Late Work & Regrades** policies in [syllabus.md](syllabus.md).
+- **Regrades:** one per activity, within 24 h of release; a different instructor regrades and that grade stands. See the syllabus.

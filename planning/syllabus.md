@@ -89,6 +89,24 @@ Project Rubric:
 | **D-** | **0.7** |
 | **F** | **0.0** |
 
+**Submission & Deliverables**  
+All work — every daily activity and every project — is submitted through your **GitHub Classroom repository**. That repository is the single submission of record: we grade from your commit history and, where applicable, your deployed GitHub Pages site. We do not accept submissions by email, Google Doc, or other channels. (We were flexible in the opening days while everyone learned the tooling; that grace period has ended.)
+
+To count as submitted, your work must be **where the instructions say it is and named as the instructions specify** (e.g. `vibe-report.md`, `code_deliverable/`, `log_deliverable/history.md`). Work placed in differently-named subfolders that a grader — or the class showcase — cannot readily find may be graded as missing. **Preview your own submission before the deadline:** your report and app render on your deployed Pages site, so open them and check.
+
+You do **not** need AI or coding ability to submit. You can edit Markdown in any text editor or directly on github.com, and you can upload individual files through the GitHub web interface. Being able to navigate the technical environment — GitHub Classroom, Canvas — on your own is a core skill of this course, distinct from coding.
+
+**A note on AI credits.** Every deliverable in this course can be completed with **free** AI tools; we have verified this end-to-end. Working within limited tokens is itself one of the course's learning objectives. "I ran out of credits" is therefore not grounds for an extension, a regrade, or restored points — you can always edit and submit your work manually.
+
+**Late & Incomplete Work**  
+Submit late rather than not at all — late work is accepted. However, **late, incomplete, or improperly-formatted submissions do not earn full credit.** This includes work placed or named such that it cannot readily be found. Consistent with Cornell's principle that a grade reflects the quality of a student's academic achievement ([University Grading Policy](https://theuniversityfaculty.cornell.edu/the-new-faculty-handbook/6-policies-and-assistance/6-1-instruction/grades/)), a submission being *accepted* is not the same as being *sufficient for a passing grade*, and never guarantees the highest grade.
+
+**Regrade Requests**  
+If you believe a grade reflects a genuine error, you may request **one regrade per activity or project, within 24 hours of grades being released** (raise it at lunch office hours, or email both instructors). A **different instructor than the one who issued the original grade** conducts the regrade, and **that second grade becomes your grade** — this is *not* "the higher of the two," and a regrade may raise, lower, or leave the grade unchanged. Regrades correct grading errors; they do not restore points lost to late, incomplete, or improperly-formatted submission. For a group project, the regrade re-scores the team's submission and applies to the whole team.
+
+**Office Hours**  
+We hold office hours over the **lunch break** — bring submission questions, GitHub trouble, or grade questions there.
+
 **Academic Integrity**  
 All students should abide by the [Cornell University Code of Academic Integrity](https://theuniversityfaculty.cornell.edu/dean/academic-integrity/code-of-academic-integrity/), and all writing submitted should be one's own writing. While discussing course concepts with other students is highly encouraged, and the course makes heavy use of AI for the vibe coding components plagiarism (including the use of unattributed AI tools such as ChatGPT for writing) will result in zero credit and/or a referral to the Office of Student & Academic Affairs. Please reach out if you have any additional questions about what is or is not permitted. 
 

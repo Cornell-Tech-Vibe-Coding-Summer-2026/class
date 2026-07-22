@@ -29,4 +29,6 @@ The daily activities use a different rubric ([activity_rubric.md](../planning/ac
 ## Notes
 
 - **Team grade with individual accountability.** A visibly one-sided prompt log or git history can move an individual's grade.
-- **Late policy:** commits after the deadline don't count — see each project's `deadline.json` and `instructions.md`.
+- **Submission is via your team's GitHub Classroom repository only** — graded from commit history and your deployed link. Put files where the instructions say and name them as specified; work a grader can't readily find may be graded as missing.
+- **Late, incomplete, or improperly-formatted work does not earn full credit** (commits after the deadline in `deadline.json` don't count), and running out of AI credits is not an accepted excuse. See the **Submission, Late Work & Regrades** policies in the [syllabus](../planning/syllabus.md).
+- **Regrades:** one per project, within 24 h of release; a different instructor regrades and that grade stands (it re-scores the team's submission). See the syllabus.
