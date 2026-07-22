@@ -69,9 +69,18 @@ A photo of the acted/paper prototype earns its place here:
 - **Co-designing with AI:** [where did the AI act as a design collaborator — proposing directions, challenging your scope — vs. just producing code you specified?]
 
 ## 👣 Process & Explorations
-<!-- The journey: versions, pathways you explored, ideas dropped, happy accidents, dead-ends, how the plan changed. Who drove which parts? -->
+<!--
+The journey: versions, pathways you explored, ideas dropped, happy accidents, dead-ends,
+how the plan changed. Who drove which parts? Show the ITERATIONS — a project that visibly
+evolved reads far stronger than one that appears in a single step.
 
-[Your process...]
+If your build has more than one part in separate `code_deliverable/` subfolders (a
+prototype, an alternate version, a component), **link each one here** so a grader can find
+them all — you're building one final thing, so link them from this report rather than
+making a separate overview page.
+-->
+
+[Your process — versions you tried, what you kept, what you dropped, and links to any extra `code_deliverable/` subfolders...]
 
 ## 🤝 The Value (Ethical Reflection)
 <!--
