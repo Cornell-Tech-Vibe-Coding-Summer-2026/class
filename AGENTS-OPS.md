@@ -15,9 +15,11 @@ steps (this happened 2026‑07‑22, after agent PRs across all repos + repeated
 + normal deploys stacked up).
 
 **Rules:**
+- **Use `[skip ci]` for pushes that don't need to go live.** Put **`[skip ci]`** (or `[ci skip]`, `[no ci]`, `[skip actions]`) anywhere in the commit message and GitHub will **not** run the deploy workflow for that push. Use it for doc/content syncs to student repos where you don't need an immediate redeploy — this is the single most effective way to sync files without a deploy storm.
+- **Redeploy on demand, deliberately.** The deploy workflow (`deploy.yml`) supports **`workflow_dispatch`**, so trigger deploys explicitly when you actually want sites live: `gh workflow run deploy.yml -R <org>/<repo>`. Pattern: sync everything with `[skip ci]`, then do **one** `workflow_dispatch` per repo. That's N deploys instead of N (from commits) + N (from re-runs).
 - **Batch, then sync once.** Make all your edits, then run a single sync sweep — not one per change. One sweep = ~23 deploys; ten sweeps = ~230.
 - **Don't re-dispatch a class-wide workflow repeatedly.** Trigger the reminder bot / a mass redeploy at most once per real need.
-- **Avoid agents that commit to every individual student repo** unless necessary. Editing shared content (e.g. Project 2 instructions) inside all 19 personal repos triggered 19+ deploys and helped exhaust the budget — change it in the template/canonical repo instead.
+- **Avoid agents that commit to every individual student repo** unless necessary. Editing shared content (e.g. Project 2 instructions) inside all 19 personal repos triggered 19+ deploys and helped exhaust the budget — change it in the template/canonical repo instead. If you must, add `[skip ci]`.
 - **One commit, not many.** When updating a file across repos, prefer a single API `PUT` per repo over a series of small commits (each commit is a deploy).
 - **Check the budget before a big sweep:** Org → Settings → Billing & licensing → Actions. If usage is near the limit, raise the budget (or wait for the monthly reset) *before* pushing.
 - **A push to the canonical `Vibe-Coding-Class/class` repo deploys only the course website** (one run) — that's fine. The cost multiplier is pushing to the 23 student/team repos.
