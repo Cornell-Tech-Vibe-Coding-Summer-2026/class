@@ -1,6 +1,6 @@
 # Project 2 — Build for a Human Value
 
-**Teams:** 3–4 students  
+**Teams:** Same teams as Project 1\
 **Worth:** 15% of your course grade  
 **Assigned:** Thursday, July 23  
 **Due:** Monday, July 27, before class  
@@ -20,8 +20,6 @@ The app should not merely describe the value. Its features, language, defaults, 
 Submit a hosted app in `code_deliverable/`, your real AI interactions in `log_deliverable/history.md`, and one completed `project-report.md` containing your planning, first prompt, screenshots, red-team result, informal classmate test, and reflections. Put the public app link in the report.
 
 The informal test belongs inside `project-report.md`; Project 2 does not require a separate `user-test.md`.
-
-[View the Project 2 walkthrough slides](/projects/project2/project2-walkthrough.pptx)
 
 ## Frame the project
 
