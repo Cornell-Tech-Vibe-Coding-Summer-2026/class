@@ -1,47 +1,84 @@
-# User Testing I — Does It Work? (Usability)
+# Usability Testing — Human & Agent (video deliverable)
 
-This week your **team drives its final project to done** by testing it with real users
-and iterating. There are two rounds:
+Today you put on the **usability researcher hat**. No coding. You take your team's
+**Project 2 prototype** (the one you deployed last Thursday) and test whether people —
+and an AI agent — can actually *use* it. Then you condense the evidence into one short,
+shareable video, the kind you'd hand a startup so they can make an informed decision.
 
-- **Today (usability):** can someone actually *use* it?
-- **Tomorrow (values):** does it do the *right thing* for that user?
+**This is an individual activity on your team's shared project.** Everyone on the team
+runs their own testing, makes their own video, and writes their own report.
 
-Both days end the same way — you **change the project** based on what you saw. Testing
-only counts if it moves the build.
+> **The scenario (setting only — we won't really send it):** imagine your team built this
+> for a real startup. They can't watch every test. Your job is to *compress hours of
+> testing into 5 minutes of evidence* they can act on.
 
-## Pre-Class Setup
-- Have your team's final project running from its **hosted link** (not localhost).
-- Set up one laptop as a "testing station."
-- Have a way to capture notes or a screen recording. Do **not** help testers mid-task.
+## What you're testing
+Your team's **deployed Project 2 prototype** — the live public link. Test the real thing
+in a browser, not the code.
 
-## Rotating peer tests
-Everyone tests, and everyone gets tested — so each team gets **several fresh users**.
+---
 
-1. **Write one task.** Your team writes a single concrete task a first-time user should be able to finish (e.g. *"sign up and log your first entry"*). Give the *task*, not instructions.
-2. **Rotate.** Go sit at another team's station and attempt their task while one of their members observes in silence — **no hints, no "just click there."** Then swap. Aim for **3+ testers** on your project.
-3. **Observe like a scientist.** The user thinks aloud; the observer records what the user *did*, not what they said they liked:
+## Part A — Human usability testing (2 real testers)
 
-   | # | Task step | What the user did | Where they got stuck | Heuristic it breaks |
-   | :- | :--- | :--- | :--- | :--- |
+Find **two real people** (classmates from *other* teams, friends, family — not your own
+teammates) and test with each one separately.
 
-4. **Name the breakdowns** against [Nielsen's 10 heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) — *visibility of system status*, *match with the real world*, *error prevention*, etc. Optionally grab a quick [UEQ](https://www.ueq-online.org/) rating for a number to compare against tomorrow.
+- **Give one concrete task**, not a tour — e.g. *"sign up and log your first entry."* Then **stay quiet**.
+- Ask them to **think aloud**: say what they see, expect, and are trying to do.
+- **Screen-record with audio** (QuickTime, Loom, or your OS recorder) — capture the screen *and* their voice.
+- **~10 minutes each** → at least **20 minutes** of human testing recorded in total.
+- Watch for: hesitation, confusion, wrong turns, misread labels, and any place they interpreted your app's *value* differently than you intended. Confusion is evidence — don't rescue them.
 
-## Then iterate
-Before class ends, your team: (1) pools all testers' notes, (2) picks the **top 2–3**
-usability problems, and (3) **starts fixing** — commit at least one improvement today.
+Frame breakdowns against [Nielsen's 10 heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) (visibility of status, match with the real world, error prevention, …).
 
-## Deliverable
-**Fill in the provided `vibe-report.md`** — it is already in this activity folder; edit it in place (don't make a copy or a new file). It covers:
-1. The task your team tested, and what your testers actually did.
-2. Your observation notes from testing **another** team, with the heuristic each breakdown breaks.
-3. The top usability problems on your own project, and the fix your team shipped today (link the commit).
-4. A link to your AI usage trace, and the course authenticity statement.
+## Part B — Agent-based usability testing
 
-Your **team** also fills the *Usability* half of the final project's `user-test.md`
-(from the [user-test template](../../projects/user-test-template.md)).
+Have an **AI agent take browser control of your deployed prototype** and attempt the same
+task(s), reporting the usability problems it hits. Screen-record the agent driving the site.
 
-### Submission
-Submit on Canvas: upload a zip of the entire `week3/7_27/` folder and paste your deployed assignment link. Before submitting, commit and push your `code_deliverable/`, `log_deliverable/history.md`, and `vibe-report.md` to your GitHub Classroom repo. We grade the Canvas submission against your GitHub commit history and hosted page; commits pushed after the Canvas submission time do not count unless the instructor asks you to resubmit.
+Pick a tool you can access (all can drive a real browser against your live URL):
+- **Antigravity** (Google) — agent-first, built-in browser control; free tier.
+- **Your AI coding tool + a browser MCP** — e.g. **Chrome DevTools MCP** or **Playwright MCP** wired into Claude / Cursor / Windsurf / Gemini, so the agent clicks through your live site.
+- **[browser-use](https://github.com/browser-use/browser-use)** or **[Vercel agent-browser](https://github.com/vercel-labs/agent-browser)** — open-source agent browser control.
+
+Prompt the agent like a tester: *"You are a first-time user. Go to <URL> and try to
+<task>. Narrate what's confusing, where you get stuck, and what you'd change."* **Log your
+prompts** in `log_deliverable/history.md`.
+
+> [!TIP]
+> The agent won't feel frustration the way a human does — but it's fast, tireless, and
+> catches broken flows, dead links, and unclear labels. Notice what it finds that your
+> humans didn't, and what it completely missed.
+
+---
+
+## The video — this is your submission
+
+Combine your recordings into **one video**:
+
+- **Raw material:** your ≥20 min of human testing + the agent session.
+- **Final length: ≤ 5 minutes.** Cut and **speed up** the slow stretches — keep the moments that show a real usability finding.
+- **Subtitles required** — auto-generated YouTube captions are fine.
+- **End with a findings summary:** a few slides presenting your **top insights**, plus an **oral summary** — speak your findings out loud (this is you presenting the reflection).
+- **Self-contained and self-explanatory** — someone at the "startup" who never saw your app should understand what you tested, what went wrong, and what to fix, from the video alone.
+- **Host it on YouTube (unlisted)** and put the link in your report.
+
+## The write-up — `vibe-report.md`
+
+Your user-testing report and reflection (fill in the provided `vibe-report.md`):
+1. What you tested (the prototype + the task(s) you gave).
+2. **Human findings** — what testers *did*, and the top usability issues, tied to heuristics.
+3. **Agent findings** — what the agent surfaced.
+4. **Human vs. agent** — what each method *gives you*, and the **strengths and weaknesses** of each. What did humans catch that the agent didn't, and vice versa?
+5. **Recommendations** — the changes you'd make (you won't build them today).
+6. The **video link**.
+
+## Deliverables
+- `vibe-report.md` — the write-up, with the video link. **(There is no `code_deliverable/` today — you're testing, not building.)**
+- `log_deliverable/history.md` — your agent-testing prompts.
+- The **video** on YouTube (unlisted), linked from the report.
+
+Everyone submits **one video + one write-up.** Due Monday (Jul 27) — see `deadline.json`.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->
