@@ -6,6 +6,11 @@
 > `.github/copilot-instructions.md`, `.cursor/rules/vibe-trace.mdc`,
 > `.windsurf/rules/vibe-trace.md`, `.agent/rules/vibe-trace.md`, and `replit.md`.
 > They all say the same thing. **If you change the rule, change it everywhere.**
+>
+> **Instructors/TAs:** if you are running an agent for *course operations* (syncing repos,
+> bulk-editing student/team repos, org changes) rather than building an app, read
+> [AGENTS-OPS.md](AGENTS-OPS.md) first — especially the note on not triggering mass GitHub
+> Actions redeploys.
 
 ## What this repo is
 

@@ -3,6 +3,11 @@
 Instructions for **Claude Code** in this repository. The full canonical version
 (with repo structure and working-style notes) is in [AGENTS.md](AGENTS.md) — read it too.
 
+**Running course-operations tasks** (syncing repos, bulk-editing student/team repos, org
+changes) rather than building an app? Read [AGENTS-OPS.md](AGENTS-OPS.md) first — above all,
+don't trigger mass GitHub Actions redeploys (it can exhaust the org's Actions budget and
+break every student site at once).
+
 ## THE VIBE-TRACE RULE (required)
 
 Whenever you create or edit files inside any `code_deliverable/` directory, you MUST
