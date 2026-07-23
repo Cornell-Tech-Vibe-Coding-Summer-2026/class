@@ -1,10 +1,12 @@
 # Project 2 — Build for a Human Value
 
-**Teams:** Same teams as Project 1\
-**Worth:** 15% of your course grade  
-**Assigned:** Thursday, July 23  
-**Due:** Monday, July 27, before class  
-**Join your team repo:** https://classroom.github.com/a/RkRB5iqO
+| **Details** | **Project 2** |
+| :--- | :--- |
+| **Teams** | Same teams as Project 1 |
+| **Worth** | 15% of your course grade |
+| **Assigned** | Thursday, July 23 |
+| **Due** | Monday, July 27, before class |
+| **Team repository** | [Join your team on GitHub Classroom](https://classroom.github.com/a/RkRB5iqO) |
 
 ## What are you making?
 
@@ -20,6 +22,8 @@ The app should not merely describe the value. Its features, language, defaults, 
 Submit a hosted app in `code_deliverable/`, your real AI interactions in `log_deliverable/history.md`, and one completed `project-report.md` containing your planning, first prompt, screenshots, red-team result, informal classmate test, and reflections. Put the public app link in the report.
 
 The informal test belongs inside `project-report.md`; Project 2 does not require a separate `user-test.md`.
+
+Use the provided [Project 2 report template](https://github.com/Cornell-Tech-Vibe-Coding-Summer-2026/cornell-tech-vibe-coding-summer-2026-group-project-2-template/blob/main/project-report.md) as your report checklist and complete every section. The instructions explain the workflow; the template shows exactly what your team must record and submit.
 
 ## Frame the project
 
@@ -59,6 +63,8 @@ Consider at least three approaches before choosing one. For each, ask how it sup
 
 Before asking AI to build, write a prompt that names the user, situation, value, main task, and one behavior or design choice to avoid. Paste the exact prompt into `project-report.md`.
 
+Give this exact prompt to the supported AI coding tool you will use to build the app, preferably in agent mode so it can inspect and edit the repository. Ask it to build only the smallest working version first. Use separate, logged prompts for later testing and revisions.
+
 > [!TIP]
 > Instead of “Build a habit tracker,” try: “Build a habit tracker for a student recovering from burnout. Support consistency without shame, and do not use guilt, lost streaks, or threatening notifications.”
 
@@ -70,6 +76,9 @@ Create one complete experience that opens from a public link and lets a classmat
 > Remove broken buttons, placeholders, and fake features. Finish the main flow before adding extras.
 
 ## Step 6 — Check the AI’s work
+
+> [!IMPORTANT]
+> Steps 6–8 are build–test–revise cycles. After each test, fix the issue yourself or ask your AI coding tool to revise the app, test the change again, and commit it. Record the red-team and classmate-test changes in `project-report.md` with commit links.
 
 Test every button, link, instruction, claim, and number. Look for invented information, unnecessary tracking, excessive data collection, manipulative language, or defaults that conflict with your value. Fix or remove anything you cannot defend.
 
