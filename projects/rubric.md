@@ -20,8 +20,12 @@ The daily activities use a different rubric ([activity_rubric.md](../planning/ac
 
 ## User testing for Project 2 & Final
 
+You build the deeper user-research skills in the **Week 3 Mon + Tue** activities
+(usability testing and value verification, on your Project 2 prototype). You then apply
+them to your own builds:
+
 - **Project 2:** document the quick informal classmate test inside `project-report.md`; no separate `user-test.md` is required.
-- **Final Project:** complete `user-test.md` from [user-test-template.md](user-test-template.md).
+- **Final Project:** document your quick user test **and the one change you made** in `project-report.md` (§4); no separate `user-test.md` is required. The "Live Demo — User Testing" credit (15%) is assessed against that section plus your live demo.
 
 ## Additional for the Final Project
 
