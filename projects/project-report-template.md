@@ -45,8 +45,8 @@ not only in a dump here. Name files for what they show: `before-mobile.png`,
 ## 🧪 The Fake-It Loop & Re-scope
 <!--
 Required for Project 1 (the one quick loop from class — no re-test needed).
-For Project 2 and the Final, summarize your testing here and link the full
-user-test.md writeup instead.
+For Project 2 and the Final, summarize your testing here (who tested, what they
+DID, and the one change you made) — no separate user-test.md writeup is required.
 
 Keep it concrete — what people DID, not what they said they liked.
 A photo of the acted/paper prototype earns its place here:

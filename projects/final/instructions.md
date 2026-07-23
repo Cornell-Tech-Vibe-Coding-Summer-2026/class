@@ -40,7 +40,7 @@ Pages deploy. Everything lives at the repo root.
 5. **Storyboard the solution.** 4–8 frames: the user → their problem → where your thing enters → what changes. Hand-drawn (photograph it) or AI-assisted. **This is your build plan** for Thursday.
 6. **Scope.** The smallest real thing you can ship *and* demo Thursday — one complete action. Split who does what.
 
-**Deliverable → `planning-report.md`** (value, beneficiary, persona + need evidence, operationalization, storyboard, scope). Due end of Wednesday. *Values lecture + guest lecture today.*
+**Deliverable → `planning-report.md`** (value, beneficiary, persona + need evidence, operationalization, storyboard, scope). Due end of Wednesday. *Open the day with the **Figma guest talk**, then plan.*
 
 ## 🛠️ Day 2 — Thu, Jul 30 · Build + pitch: *What's the solution?*  → `project-report.md`
 

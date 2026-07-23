@@ -12,6 +12,11 @@ report. **No coding today** — you're the values researcher.
 > quietly nudging, excluding, or manipulating the very person it claims to help. Monday
 > asked *"can they use it?"* Today asks *"does it do what it claims to do?"*
 
+> [!NOTE]
+> **Today's guest lecture is on accessibility** — itself one of the clearest values to
+> verify. Borrow its lens even if your team's value is something else: who does your
+> design quietly exclude?
+
 ## The idea: you can't verify a value until you operationalize it
 
 From **[Values at Play](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)**
