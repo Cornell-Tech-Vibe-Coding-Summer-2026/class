@@ -22,9 +22,24 @@
           "title": "Personal Portfolio / About Me",
           "shortDescription": "Set up GitHub Copilot + GitHub and vibe code a hosted \"about you\" page — then debate whether copying a classmate's structure counts as plagiarism when an AI did the work.",
           "readings": [
-            { "role": "primary", "cite": "Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.", "url": "https://arxiv.org/abs/2509.10652", "tag": "provided" },
-            { "role": "optional", "cite": "Sandhaus, H., Gu, Q., Parreira, M.T., Ju, W. 2025. Co-Designing with Transformers: GenAI in Interactive System Design Education. DIS '25.", "url": "https://arxiv.org/abs/2410.14048", "tag": "provided" },
-            { "role": "optional", "cite": "Xia, Q. et al. 2026. \"If you're very clever, no one knows you've used it\": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.", "url": "https://arxiv.org/abs/2602.01386", "tag": "provided" }
+            {
+              "role": "primary",
+              "cite": "Li, J. et al. 2026. Vibe coding in product teams: Reconfiguring AI-assisted workflows, prototyping, and collaboration. CHIWORK '26.",
+              "url": "https://arxiv.org/abs/2509.10652",
+              "tag": "provided"
+            },
+            {
+              "role": "optional",
+              "cite": "Sandhaus, H., Gu, Q., Parreira, M.T., Ju, W. 2025. Co-Designing with Transformers: GenAI in Interactive System Design Education. DIS '25.",
+              "url": "https://arxiv.org/abs/2410.14048",
+              "tag": "provided"
+            },
+            {
+              "role": "optional",
+              "cite": "Xia, Q. et al. 2026. \"If you're very clever, no one knows you've used it\": Social dynamics of GenAI literacy in the workplace. CHIWORK '26.",
+              "url": "https://arxiv.org/abs/2602.01386",
+              "tag": "provided"
+            }
           ]
         },
         {
@@ -33,9 +48,24 @@
           "title": "Prompts that Steer the Vibe",
           "shortDescription": "Run the same task through 2+ vibe coding tools with varied prompt strategies; document which prompting moves change the output the most and why.",
           "readings": [
-            { "role": "primary", "cite": "Zamfirescu-Pereira, J.D. et al. 2023. Why Johnny Can't Prompt. CHI '23.", "url": "https://dl.acm.org/doi/10.1145/3544548.3581388", "tag": "syllabus" },
-            { "role": "reference", "cite": "Anthropic. Prompt engineering overview.", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview", "tag": "proposed" },
-            { "role": "optional", "cite": "Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.", "url": "https://doi.org/10.1145/3808045.3808049", "tag": "provided" }
+            {
+              "role": "primary",
+              "cite": "Zamfirescu-Pereira, J.D. et al. 2023. Why Johnny Can't Prompt. CHI '23.",
+              "url": "https://dl.acm.org/doi/10.1145/3544548.3581388",
+              "tag": "syllabus"
+            },
+            {
+              "role": "reference",
+              "cite": "Anthropic. Prompt engineering overview.",
+              "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+              "tag": "proposed"
+            },
+            {
+              "role": "optional",
+              "cite": "Arun, S.K., Fischer, J.E. 2026. Encouraging thought before completion: task-specific selective friction in AI-assisted knowledge work. CHIWORK '26.",
+              "url": "https://doi.org/10.1145/3808045.3808049",
+              "tag": "provided"
+            }
           ]
         },
         {
@@ -44,12 +74,42 @@
           "title": "Bias in Vibe Coding",
           "shortDescription": "Probe several vibe coding tools for biased defaults — whose UI patterns, stock images, names, and example data show up when you don't specify?",
           "readings": [
-            { "role": "primary", "cite": "Shin, S. et al. 2026. Interrogating Design Homogenization in Web Vibe Coding.", "url": "https://arxiv.org/abs/2603.13036", "tag": "provided" },
-            { "role": "reference", "cite": "Who Controls the Conversation? User Perspectives on Generative AI (LLM) System Prompts. CHI '26.", "url": "https://doi.org/10.1145/3772318.3791726", "tag": "provided" },
-            { "role": "reference", "cite": "Neumann, A. et al. 2025. Position is Power: System Prompts as a Mechanism of Bias in Large Language Models. FAccT '25.", "url": "https://doi.org/10.1145/3715275.3732038", "tag": "provided" },
-            { "role": "reference", "cite": "Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.", "url": "https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/", "tag": "proposed" },
-            { "role": "optional", "cite": "Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).", "url": "http://gendershades.org/", "tag": "proposed" },
-            { "role": "optional", "cite": "Angwin, J. et al. 2016. Machine Bias. ProPublica.", "url": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing", "tag": "proposed" }
+            {
+              "role": "primary",
+              "cite": "Shin, S. et al. 2026. Interrogating Design Homogenization in Web Vibe Coding.",
+              "url": "https://arxiv.org/abs/2603.13036",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "Who Controls the Conversation? User Perspectives on Generative AI (LLM) System Prompts. CHI '26.",
+              "url": "https://doi.org/10.1145/3772318.3791726",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "Neumann, A. et al. 2025. Position is Power: System Prompts as a Mechanism of Bias in Large Language Models. FAccT '25.",
+              "url": "https://doi.org/10.1145/3715275.3732038",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "Hao, K. 2019. This is how AI bias really happens — and why it's so hard to fix. MIT Technology Review.",
+              "url": "https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/",
+              "tag": "proposed"
+            },
+            {
+              "role": "optional",
+              "cite": "Buolamwini, J., Gebru, T. 2018. Gender Shades (project site + short video).",
+              "url": "http://gendershades.org/",
+              "tag": "proposed"
+            },
+            {
+              "role": "optional",
+              "cite": "Angwin, J. et al. 2016. Machine Bias. ProPublica.",
+              "url": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing",
+              "tag": "proposed"
+            }
           ]
         }
       ]
@@ -65,9 +125,24 @@
           "title": "Values in Vibe Coding (Light) — AI as Moral Assistant",
           "shortDescription": "Lightweight intro to values embedded in technology, then vibe code a small tool that helps someone make a more moral decision — own the value it argues for and cite where your numbers or framing come from.",
           "readings": [
-            { "role": "primary", "cite": "Common Cause Foundation. 2023. The Values Map.", "url": "https://commoncausefoundation.org/_resources/the-values-map/", "tag": "provided" },
-            { "role": "optional", "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Ch. 1: Groundwork for Values in Games.", "url": "https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link", "tag": "syllabus" },
-            { "role": "optional", "cite": "Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).", "url": "https://doi.org/10.1016/j.isci.2021.102679", "tag": "provided" }
+            {
+              "role": "primary",
+              "cite": "Common Cause Foundation. 2023. The Values Map.",
+              "url": "https://commoncausefoundation.org/_resources/the-values-map/",
+              "tag": "provided"
+            },
+            {
+              "role": "optional",
+              "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Ch. 1: Groundwork for Values in Games.",
+              "url": "https://drive.google.com/file/d/14fTIg05HNcARYP5JrEJ87KC29D2QAgqM/view?usp=drive_link",
+              "tag": "syllabus"
+            },
+            {
+              "role": "optional",
+              "cite": "Karpus, J. et al. 2021. Algorithm exploitation: Humans are keen to exploit benevolent AI. iScience 24(6).",
+              "url": "https://doi.org/10.1016/j.isci.2021.102679",
+              "tag": "provided"
+            }
           ]
         },
         {
@@ -76,10 +151,30 @@
           "title": "Red-Teaming AI Safety: Dark Patterns On Purpose",
           "shortDescription": "Adversarially push your tools to produce dark patterns and manipulative UI; document where the guardrails kick in, where they don't, and where \"safety\" and \"ethics\" diverge.",
           "readings": [
-            { "role": "primary", "cite": "Krauß, V. et al. 2025. \"Create a fear of missing out\": ChatGPT implements unsolicited deceptive designs in generated websites without warning. CHI '25.", "url": "https://doi.org/10.1145/3706598.3713083", "tag": "provided" },
-            { "role": "reference", "cite": "Kran, E. et al. DarkBench: Benchmarking Dark Patterns in Large Language Models.", "url": "https://darkbench.ai/", "tag": "provided" },
-            { "role": "pair", "cite": "Sandhaus, H. 2023. Promoting Bright Patterns. CHI '23 Workshop (the constructive counterpoint).", "url": "https://arxiv.org/abs/2304.01157", "tag": "provided" },
-            { "role": "optional", "cite": "Bright Patterns: Strategies Towards A More Conscious Use Of Our Phones. 2025. Utrecht Univ. thesis.", "url": "https://studenttheses.uu.nl/handle/20.500.12932/50311", "tag": "provided" }
+            {
+              "role": "primary",
+              "cite": "Krauß, V. et al. 2025. \"Create a fear of missing out\": ChatGPT implements unsolicited deceptive designs in generated websites without warning. CHI '25.",
+              "url": "https://doi.org/10.1145/3706598.3713083",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "Kran, E. et al. DarkBench: Benchmarking Dark Patterns in Large Language Models.",
+              "url": "https://darkbench.ai/",
+              "tag": "provided"
+            },
+            {
+              "role": "pair",
+              "cite": "Sandhaus, H. 2023. Promoting Bright Patterns. CHI '23 Workshop (the constructive counterpoint).",
+              "url": "https://arxiv.org/abs/2304.01157",
+              "tag": "provided"
+            },
+            {
+              "role": "optional",
+              "cite": "Bright Patterns: Strategies Towards A More Conscious Use Of Our Phones. 2025. Utrecht Univ. thesis.",
+              "url": "https://studenttheses.uu.nl/handle/20.500.12932/50311",
+              "tag": "provided"
+            }
           ]
         },
         {
@@ -88,8 +183,18 @@
           "title": "AI Against AI",
           "shortDescription": "Use AI to defend against AI harms — poison scrapers with hidden facts, build privacy obfuscation, or protect against work-automation surveillance.",
           "readings": [
-            { "role": "primary", "cite": "Brunton, F., Nissenbaum, H. 2015. Obfuscation: A User's Guide for Privacy and Protest. MIT Press — Ch. 1.", "url": "https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest", "tag": "provided" },
-            { "role": "pair", "cite": "Franchi, M., Sandhaus, H. et al. 2025. Privacy of Groups in Dense Street Imagery. FAccT '25.", "url": "https://doi.org/10.1145/3715275.3732185", "tag": "provided" }
+            {
+              "role": "primary",
+              "cite": "Brunton, F., Nissenbaum, H. 2015. Obfuscation: A User's Guide for Privacy and Protest. MIT Press — Ch. 1.",
+              "url": "https://direct.mit.edu/books/book/3112/ObfuscationA-User-s-Guide-for-Privacy-and-Protest",
+              "tag": "provided"
+            },
+            {
+              "role": "pair",
+              "cite": "Franchi, M., Sandhaus, H. et al. 2025. Privacy of Groups in Dense Street Imagery. FAccT '25.",
+              "url": "https://doi.org/10.1145/3715275.3732185",
+              "tag": "provided"
+            }
           ]
         }
       ]
@@ -97,28 +202,82 @@
     {
       "id": "week3",
       "label": "Week 3",
-      "theme": "Outcomes: Designing Systems That Are Useful and Empowering",
+      "theme": "Outcomes: Evaluating What You Built, Then Building for Someone Else",
       "activities": [
         {
           "folder": "7_27",
           "date": "Mon · Jul 27",
-          "title": "User Testing I — Does It Work? (Usability)",
-          "shortDescription": "Peer-test your team's final project for usability — everyone tests other teams' projects and gets tested, so each team gets several fresh users. Watch what real users do, then iterate.",
+          "title": "Usability Testing — Human & Agent (video)",
+          "shortDescription": "Individual, on your team's deployed Project 2 prototype: run two think-aloud human usability tests plus one agent-based test (an AI drives your live site), then cut it into one ≤5-minute subtitled video with a findings summary. No coding — you're the usability researcher today.",
           "readings": [
-            { "role": "primary", "cite": "Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.", "url": "https://www.nngroup.com/articles/ten-usability-heuristics/", "tag": "proposed" },
-            { "role": "reference", "cite": "UEQ — User Experience Questionnaire (evaluation instrument).", "url": "https://www.ueq-online.org/", "tag": "provided" }
+            {
+              "role": "primary",
+              "cite": "Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.",
+              "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+              "tag": "proposed"
+            },
+            {
+              "role": "reference",
+              "cite": "UEQ — User Experience Questionnaire (evaluation instrument).",
+              "url": "https://www.ueq-online.org/",
+              "tag": "provided"
+            }
           ]
         },
         {
           "folder": "7_28",
           "date": "Tue · Jul 28",
-          "title": "User Testing II — Does It Do the Right Thing? (Values)",
-          "shortDescription": "Round two: test whether your project delivers the value it claims, for its user — a light 3-question values check, more peer testing, then iterate toward the final.",
+          "title": "Value Verification — Does It Embed the Value It Claims?",
+          "shortDescription": "Individual, on your team's Project 2 prototype: state the value your team claimed, operationalize it, then verify whether the built thing delivers it — through behavior, understanding, and affect, with a validated instrument (UEQ, an HRI/SDT scale, or the slop detector). Usability asks 'can they use it?'; value verification asks 'does it do the right thing?'",
           "readings": [
-            { "role": "primary", "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Ch. 5: Discovery (the values-discovery idea).", "url": "https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link", "tag": "syllabus" },
-            { "role": "reference", "cite": "PIT Tech Ethics — Values at Play workshop (light canvas).", "url": "https://pitechethics.github.io/", "tag": "syllabus" },
-            { "role": "reference", "cite": "Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).", "url": "https://osf.io/nw2tj/files/g2ctu", "tag": "provided" },
-            { "role": "optional", "cite": "Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.", "url": "https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link", "tag": "syllabus" }
+            {
+              "role": "primary",
+              "cite": "Flanagan, M., Nissenbaum, H. Values at Play — Verification: operationalize a value, then test whether the built thing realizes it (behavior · understanding · affect).",
+              "url": "https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link",
+              "tag": "syllabus"
+            },
+            {
+              "role": "reference",
+              "cite": "UEQ — User Experience Questionnaire: a validated scale measuring not just usability but attractiveness, novelty, and stimulation. Laugwitz, Held & Schrepp 2008.",
+              "url": "https://www.ueq-online.org/",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "HRI Scale Database (George Mason) — 'Finding the Perfect Scale': browse validated scales (trust, warmth, competence…) rated for psychometric quality, to test the value you claim.",
+              "url": "http://hriscaledatabase.psychology.gmu.edu/",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "METUX / Self-Determination Theory scales — measure autonomy, competence, and relatedness for wellbeing-oriented values. Peters, Calvo & Ryan 2018.",
+              "url": "https://selfdeterminationtheory.org/metux-scales/",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "Vibed Slop Detector (Sandhaus/Hayatt), built on the impeccable.style 'slop' rules — flag generic AI-slop design tells as a proxy for craft, care, and originality.",
+              "url": "https://github.com/HaukeCornell/Vibed-Slop-Detector",
+              "tag": "provided"
+            },
+            {
+              "role": "reference",
+              "cite": "Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).",
+              "url": "https://osf.io/nw2tj/files/g2ctu",
+              "tag": "provided"
+            },
+            {
+              "role": "optional",
+              "cite": "Romero, K., Wiese, I., Balancieri, R., Leal, G.C., Guerino, G. 2026. Usable but Conventional: An Empirical Study on the UX of AI-Generated Interface Prototypes (UEQ-S). arXiv:2605.15124.",
+              "url": "https://arxiv.org/abs/2605.15124",
+              "tag": "provided"
+            },
+            {
+              "role": "optional",
+              "cite": "Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.",
+              "url": "https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link",
+              "tag": "syllabus"
+            }
           ]
         }
       ]

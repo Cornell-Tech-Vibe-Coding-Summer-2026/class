@@ -1,40 +1,51 @@
-# Vibe Report: User Testing II — Does It Do the Right Thing? (Values)
+# Value Verification Report — Does It Embed the Value It Claims?
 
-Student Name: [Your Name]
+Student Name: [Your Name] · Team: [Team name] · Prototype tested: [live Project 2 link]
 
 <!--
-👉 THIS IS YOUR REPORT — fill it in right here, in this file (week3/7_28/vibe-report.md).
-Don't make a copy or a new file; just replace the [brackets] below.
+👉 THIS IS YOUR WRITE-UP — fill it in right here (week3/7_28/vibe-report.md).
 Graded against the In-Class Activity Rubric: 40% Completion, 30% AI-Use Documentation,
 30% Reflection Quality. AI writing is impermissible in the reflection except grammar.
-Today runs the Plan → Run → Verify loop — your planning.md holds Plan + Run; this
-report summarizes and reflects.
+No code_deliverable this time — you're verifying, not building.
 -->
 
-## 1. 📋 Our plan
-**Link to our `planning.md`:** [link] — the values check, the verbatim prompts we planned, and verification.
+## 1. The claim (operationalized)
+- **Value my team claimed:** [ ]
+- **Operationalized:** "If this product embeds [value], then a user will ___ / understands ___ / feels ___." [ ]
+- **For whom it should hold:** [ ] · **Who could be excluded / misled / harmed:** [ ]
+- **The one claim I tested today:** [ ]
 
-## 2. 🧪 What the value-test revealed
-- **Did it deliver the value, and for whom?** [ ]
-- **Who's excluded or nudged somewhere they didn't want to go?** [ ]
+## 2. Method
+- **Verification lens:** ☐ Behavior ☐ Understanding ☐ Affect/attitude — [which, and why it fits this value]
+- **Method I ran:** [observation / think-aloud / pre-post survey / A/B / interview / …]
+- **Validated instrument:** ☐ UEQ ☐ HRI-database scale (which: ___) ☐ METUX/SDT ☐ Slop detector ☐ other
+  - *Why this instrument fits the value:* [ ]
 
-## 3. ⚖️ Plan vs. reality
-<!-- Where did the outcome differ from your planned prompts — and where did the AI's defaults bend your value? -->
+## 3. Evidence
+<!-- What you OBSERVED or MEASURED, not what you hoped. Numbers, quotes, screenshots. -->
+
+| Source | What I saw / measured | Reads as (for / against the value) |
+| :- | :--- | :--- |
+|  |  |  |
+|  |  |  |
+
+**Where the AI's defaults bent the value:** [dark-pattern default, manipulative nudge, generic "slop" design that ignored the user you named…]
+
+## 4. Verdict
+<!-- REQUIRED, human-written. Be honest — a "no" with good evidence beats a hopeful "yes". -->
+
+- **Does the built thing deliver the value it claims?** [yes / partly / no — and the evidence]
+- **Who it serves well, and who it excludes or nudges:** [ ]
+- **Behavior / understanding / affect — what held up and what didn't:** [ ]
+
+## 5. The one fix
+<!-- The single change that would most close the claim-vs-reality gap. You're NOT building it today. -->
 
 [ ]
 
-## 4. 🔧 The change we shipped
-**Biggest claim-vs-reality gap, and the fix that closes it:** [what you changed] — commit: [link the commit]
-
-## 5. 💭 Reflection
-<!-- REQUIRED, human-written. What did testing the VALUE (not just usability) surface that you'd have missed? -->
-
-[Your reflection...]
-
 ## 📜 AI Usage Trace
-- Model/tool used: [e.g. GitHub Copilot, Claude, Gemini, ChatGPT]
-- [Local history log](log_deliverable/history.md)
-- External AI tools (if any): [tool/model — what it did — link/transcript]
+- Tools used (slop detector, survey drafting, etc.): [ ]
+- [Local history log](log_deliverable/history.md).
 
 ## 🙋 Authenticity Statement
-> I [Your Name] acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, code correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this project, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.
+> I [Your Name] acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this work, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.
