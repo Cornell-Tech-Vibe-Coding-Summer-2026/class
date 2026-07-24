@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Individual Activities · TECHIE 1121 Ethical Vibe Coding</title>
+    <title>Daily Activities · TECHIE 1121 Ethical Vibe Coding</title>
     <link rel="icon" type="image/png" href="assets/T-Neon-Green.png">
     <link rel="apple-touch-icon" href="assets/T-Neon-Green.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -179,6 +179,30 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--ink-soft);
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+        }
+
+        /* Most daily activities are individual; a few are team activities. */
+        .mode-chip {
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+            padding: 0.12rem 0.42rem;
+            border-radius: 999px;
+            border: 1px solid var(--ink-soft);
+            color: var(--ink-soft);
+            opacity: 0.75;
+        }
+
+        /* Neon text would be unreadable on the paper card — tint the background instead,
+           matching the .project-weight chip on the projects page. */
+        .mode-chip.team {
+            background: rgba(0, 255, 65, 0.18);
+            border-color: rgba(0, 0, 0, 0.12);
+            color: var(--ink);
+            opacity: 1;
         }
 
         .activity-title {
@@ -395,8 +419,8 @@
             </span>
         </div>
 
-        <h1 class="page-title">Individual Activities <span class="you" id="studentName"></span></h1>
-        <p class="lede">Daily in-class activities. Each card links to your hosted submission, the activity instructions, and your reflection — graded against the <a href="instructions.html?file=planning/activity_rubric.md&title=In-Class%20Activity%20Rubric" style="color:var(--neon);">In-Class Activity Rubric</a>. Each Thursday is a <a href="projects/index.html" style="color:var(--neon);">group project</a> day — the week doesn't end on Wednesday.</p>
+        <h1 class="page-title">Daily Activities <span class="you" id="studentName"></span></h1>
+        <p class="lede">Daily in-class activities. Each card links to your hosted submission, the activity instructions, and your reflection — graded against the <a href="instructions.html?file=planning/activity_rubric.md&title=In-Class%20Activity%20Rubric" style="color:var(--neon);">In-Class Activity Rubric</a>. Most are <strong>Individual</strong>; a few are marked <strong>Team</strong> — there you build one shared artifact together, but <em>everyone still writes their own reflection</em>. Each Thursday is a <a href="projects/index.html" style="color:var(--neon);">group project</a> day — the week doesn't end on Wednesday.</p>
 
         <div id="weeksContainer"></div>
 
@@ -493,8 +517,16 @@
             const instructionsHref = `instructions.html?week=${weekId}&project=${activity.folder}`;
             const reflectionHref = `instructions.html?week=${weekId}&project=${activity.folder}&doc=reflection`;
 
+            // Daily activities default to individual work; `mode: "team"` in the
+            // manifest marks the ones done as a team (e.g. value verification).
+            const isTeam = activity.mode === 'team';
+            const metaRow = el('div', { class: 'activity-meta' }, [
+                el('span', { text: activity.date }),
+                el('span', { class: isTeam ? 'mode-chip team' : 'mode-chip', text: isTeam ? 'Team' : 'Individual' }),
+            ]);
+
             const card = el('div', { class: 'activity' }, [
-                el('div', { class: 'activity-meta', text: activity.date }),
+                metaRow,
                 el('div', { class: 'activity-title', text: activity.title }),
                 el('div', { class: 'activity-desc', text: activity.shortDescription }),
                 buildReadings(activity.readings),
@@ -506,7 +538,7 @@
                     // specific link (else it falls back to the activity instructions).
                     const isVideo = activity.deliverable === 'video';
                     const primaryProps = isVideo
-                        ? { class: 'action primary', href: activity.deliverableUrl || instructionsHref, text: '🎬 Testing Video' }
+                        ? { class: 'action primary', href: activity.deliverableUrl || instructionsHref, text: 'Testing Video' }
                         : { class: 'action primary', href: submissionHref, text: 'Live Page' };
                     if (isVideo && activity.deliverableUrl) { primaryProps.target = '_blank'; primaryProps.rel = 'noreferrer'; }
                     actions.appendChild(el('a', primaryProps));
