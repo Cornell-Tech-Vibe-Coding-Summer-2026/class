@@ -48,6 +48,7 @@ across the three lenses. This **opens** the cycle the rest of the week acts on.
 
 **Deliverable →** your **team research deck** (each member owns a named slide) + your **team
 verification canvas** (each member fills their own reflection lane). Guest lecture: accessibility.
+**[→ Full Day-1 brief](verify.md)**
 
 ## 📋 Day 2 — Wed, Jul 29 · Plan: *What is the problem?*  → `planning-report.md`
 
