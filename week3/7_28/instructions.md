@@ -1,48 +1,65 @@
-# Value Verification — Does It Embed the Value It Claims?
+# Value Verification — Does the Design Actually Change Anything?
 
-Yesterday you tested whether people **can use** your team's Project 2. Today you verify
-whether it delivers the **value your team claimed** — and you do most of it on a **FigJam
-board**, then write a short reflection.
+Yesterday **closed** a cycle: usability testing found the nitty-gritty to fix in your Project 2.
+Today **opens** the next one. Value verification asks the bigger question — not *"can they use
+it?"* but ***"does this design actually produce the value change we claimed?"*** The honest
+answer is often *no, or not the way we assumed* — and that's exactly when you start
+considering other designs.
 
-**Individual, on your team's deployed Project 2 prototype.** No coding. The thinking happens
-on FigJam; your reflection goes in `vibe-report.md`.
-
-> **Usable ≠ right.** A tool can be flawless to use and still fail the value it promised —
-> quietly nudging, excluding, or manipulating the very person it claims to help. Monday
-> asked *"can they use it?"* Today asks *"does it do what it claims to do?"*
+**This is a team activity**, on your team's Project 2. **You keep your value.** You'll carry it
+forward into the final project — the goal is one sustained value commitment across the whole
+summer school, not a new theme every few days.
 
 > [!NOTE]
-> **Today's guest lecture is on accessibility** — itself one of the clearest values to
-> verify. Borrow its lens even if your team's value is something else: who does your design
-> quietly exclude? (You'll use FigJam again tomorrow with our Figma guest — today warms you up.)
+> **Today's guest lecture is on accessibility** — one of the clearest values to verify, and a
+> good model for how a value gets operationalized into concrete, testable requirements.
 
-## Step 1 — Get onto FigJam (5 min)
-1. Open the course board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**.
-2. **Duplicate it to your own drafts** so you have a copy to fill: right-click the *Value Verification* tab → **Duplicate**, or **File → Duplicate to your drafts**.
-3. New to FigJam? It's a shared whiteboard — double-click to drop a sticky, drag to move. That's all you need.
+## The idea: your *operationalization* decides the method
 
-## Step 2 — On the board: verify your value
-The board walks you through it. The shape:
-1. **Name + operationalize your value.** Which value did your team claim for Project 2? What is concretely true if it's present? Say it as **behavior / understanding / affect**.
-2. **Plan verification across the three lenses:**
-   - **Behavior** — do users *act* differently? (observation · A/B · before/after · task completion)
-   - **Understanding** — do they *grasp* the value/harm better? (think-aloud · pre/post · scenario)
-   - **Affect** — do their attitudes/feelings *shift*? (attitude survey · interview · empathy map)
-3. **Pick ONE lens and actually DO it** — this is the part that matters. Don't just plan metrics:
-   - Choose the lens that's most load-bearing for your value + one **validated instrument** — **UEQ** (beyond usability), an **[HRI-database](http://hriscaledatabase.psychology.gmu.edu/)** or **[METUX/SDT](https://selfdeterminationtheory.org/metux-scales/)** scale, or the **[Vibed Slop Detector](https://github.com/HaukeCornell/Vibed-Slop-Detector)**.
-   - Run a quick check — 2 testers, administer the instrument, or run the tool on your live page.
-   - **Drop the evidence on the board** — what you *observed or measured*, not what you hoped.
-4. **Verdict + one fix** — does it deliver the value? For whom? Who's excluded? What's the one change you'd make?
+A value is not one thing. How you read it determines what verification even means:
+
+| If you read **privacy** as… | …then verifying it looks like |
+| :-- | :-- |
+| **control** | a usability study — can users actually find and work the settings? |
+| **security** | adversarial / safety testing of the privacy features |
+| **contextual integrity** | tracing the information flows — is each one appropriate to its context? |
+
+Same value. Three completely different studies. So before you test anything, decide *which
+reading you actually designed for.*
+
+## Step 1 — Which reading did you design for? *(~15 min)*
+- Name your value, then list **3+ different readings** of it.
+- **Which one did Project 2 actually design for?** (Teams often discover they built for the *easiest* reading.)
+- Operationalize it: *if this reading is present, users will **do** ___ / **understand** ___ / **feel** ___.*
+
+## Step 2 — Research the value *(~30 min — split this across the team)*
+Before you measure anything, find out what's already known. Use **Google Scholar** (and its AI
+search) plus [Figma's design-research library](https://www.figma.com/resource-library/design-research/) for how to run a method:
+- How have others **defined and measured** this value?
+- What interventions actually produced **positive value change** — and **what failed?**
+- Bring back **2–3 real sources**, and from them: one **instrument or task design you could borrow**, and one **known failure mode to avoid**.
 
 > [!TIP]
-> Match the instrument to the value. Autonomy/empowerment → METUX/SDT · trust/safety → an HRI scale · beauty/originality/craft → UEQ + slop detector. Run the *right* one, well.
+> This is the step that stops you inventing a metric that measures nothing. Someone has almost certainly tried to move this value before — find out how it went.
+
+## Step 3 — Verify *(~30 min)*
+Run the check **your reading demands** — a usability study, an adversarial test, an
+information-flow trace, or a behavior / understanding / affect method. Capture what you
+**observed or measured**, not what you hoped.
+
+## Step 4 — Open the next cycle *(~20 min)*
+- **Verdict:** does the design produce the value change? For whom? Who's excluded?
+- **If not (or only partly): what *other designs* could achieve it?** This is the whole point — verification opens design work, it doesn't just grade it.
+- **What should the next cycle discover?** Write it down — you carry it straight into Wednesday's final-project planning.
 
 ## Deliverables
-- **Your FigJam board** — filled, with **real evidence** from the check you ran. Export it (or screenshot the board) and put the image/link in your report.
-- **`vibe-report.md`** — a short **value-centered verification reflection** (edit the provided file in place).
-- `log_deliverable/history.md` — any AI you used (running the slop detector, drafting a survey).
+- **Team FigJam board** — readings, your researched sources, evidence, verdict, and the other design options you'd consider. One board per team.
+- **`vibe-report.md`** — **each person writes their own reflection** (the work is the team's; the reflection is yours). Link the team board.
+- `log_deliverable/history.md` — any AI you used (Scholar searching, drafting an instrument, the slop detector).
 
-Everyone submits their **own board + reflection.** No `code_deliverable/` today. Due Tuesday (Jul 28) — see `deadline.json`.
+No `code_deliverable/` today. Due Tuesday (Jul 28) — see `deadline.json`.
+
+> **Carry it forward.** Keep your value and keep today's learnings — Wednesday you re-plan the design around them, and the final project is that iteration.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->

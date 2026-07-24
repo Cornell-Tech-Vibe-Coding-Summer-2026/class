@@ -8,9 +8,11 @@ build plan for Thursday — the sharper this is, the faster Thursday goes.
 Reflections in the final project are human-written; AI may help with grammar only.
 -->
 
-## 1. The value (locked in the first 30 minutes)
+## 1. The value we're carrying (from Project 2 → Tuesday's verification)
 - **Value:** [ ] · **Mode:** ☐ support ☐ defend ☐ repair
-- **Why this value, for this team:** [ ]
+- **The reading we now design for:** [e.g. privacy as contextual integrity, not just control — and why Tuesday changed it]
+- **What verification showed:** [did the old design produce the value change? evidence]
+- **What that means for this build:** [same design improved / a different design for the same value]
 
 ## 2. The beneficiary (someone outside the class)
 - **Who, specifically:** [not "students" — name the person/community and their situation]

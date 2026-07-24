@@ -49,7 +49,7 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 - **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
 
-### Tue · Jul 28 — Value Verification — Does It Embed the Value It Claims?
+### Tue · Jul 28 — Value Verification — Does the Design Actually Change Anything?
 - **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Verification: operationalize a value, then test whether the built thing realizes it (behavior · understanding · affect).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire: a validated scale measuring not just usability but attractiveness, novelty, and stimulation. Laugwitz, Held & Schrepp 2008.](https://www.ueq-online.org/)
 - **Reference** 🟢 — [HRI Scale Database (George Mason) — 'Finding the Perfect Scale': browse validated scales (trust, warmth, competence…) rated for psychometric quality, to test the value you claim.](http://hriscaledatabase.psychology.gmu.edu/)

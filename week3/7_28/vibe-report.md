@@ -1,38 +1,49 @@
 # Value Verification — Reflection
 
-Student Name: [Your Name] · Team: [Team name] · Prototype tested: [live Project 2 link]
+Student Name: [Your Name] · Team: [Team name] · Value we're carrying: [ ]
 
 <!--
-👉 Most of today's work is on the FigJam board — this is the SHORT written reflection that
-wraps it. Fill it in here (week3/7_28/vibe-report.md). Graded against the In-Class Activity
-Rubric: 40% Completion, 30% AI-Use Documentation, 30% Reflection Quality. AI writing is
-impermissible in the reflection except grammar. No code_deliverable today.
+👉 Today's WORK is your team's (one shared FigJam board). This REFLECTION is yours alone —
+write it yourself (AI may help with grammar only). Fill it in here (week3/7_28/vibe-report.md).
+Graded against the In-Class Activity Rubric: 40% Completion, 30% AI-Use Documentation,
+30% Reflection Quality. No code_deliverable today.
 -->
 
-## 🧩 My FigJam board
-**Link or exported image of my filled board:** [paste FigJam link or drop the screenshot here]
+## 🧩 Our team board
+**FigJam link (or exported image):** [paste here]
 
-## 1. The value, operationalized
-- **Value my team claimed for Project 2:** [ ]
-- **Operationalized** — if it's present, a user will **do** ___ / **understands** ___ / **feels** ___: [ ]
+## 1. The reading we designed for
+- **Our value:** [ ]
+- **Readings we listed:** [e.g. privacy as control / as security / as contextual integrity]
+- **The one Project 2 actually designed for:** [ ] — **was that the easiest one?** [honest answer]
+- **Operationalized:** if present, users will **do** ___ / **understand** ___ / **feel** ___: [ ]
 
-## 2. What I actually verified
-- **Lens I ran:** ☐ Behavior ☐ Understanding ☐ Affect — [why it's the load-bearing one for this value]
-- **Instrument / method:** ☐ UEQ ☐ HRI-database scale (which: ___) ☐ METUX/SDT ☐ Slop detector ☐ other
-- **What I did:** [2 testers / ran the scale / ran the tool — briefly]
-- **The evidence (what I observed or measured, not what I hoped):** [ ]
+## 2. What the research turned up
+<!-- 2–3 real sources your team found (Google Scholar / design-research library). Never invent a citation. -->
 
-## 3. Verdict
-<!-- REQUIRED, human-written. Be honest — a well-evidenced "no" beats a hopeful "yes." -->
-- **Does the built thing deliver the value it claims?** [yes / partly / no — and the evidence]
-- **Who it serves well, and who it excludes or nudges:** [ ]
+| Source (author, year, where) | What it measured / tried | Worked or failed? |
+| :-- | :-- | :-- |
+|  |  |  |
+|  |  |  |
 
-## 4. The one fix
-<!-- The single change that would most close the claim-vs-reality gap. You're NOT building it today. -->
-[ ]
+- **What we borrowed from it** (instrument, task design): [ ]
+- **A failure mode we now know to avoid:** [ ]
+
+## 3. What we verified, and what we found
+- **Method we ran** (and why our reading demanded it): [ ]
+- **What we observed or measured:** [ ]
+
+## 4. Verdict — does the design produce the value change?
+<!-- REQUIRED, human-written. An evidenced "no" is a better result than a hopeful "yes." -->
+[yes / partly / no — and the evidence. For whom does it work, and who is excluded?]
+
+## 5. What this opens up *(your own thinking)*
+- **Other designs that might actually achieve the value:** [ ]
+- **What the next cycle should discover** (you carry this into Wednesday): [ ]
+- **What today changed in how I see our design — or the value itself:** [ ]
 
 ## 📜 AI Usage Trace
-- Tools used (slop detector, survey drafting, etc.): [ ] · [Local history log](log_deliverable/history.md)
+- Tools used (Scholar/AI search, instrument drafting, slop detector, etc.): [ ] · [Local history log](log_deliverable/history.md)
 
 ## 🙋 Authenticity Statement
 > I [Your Name] acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this work, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.

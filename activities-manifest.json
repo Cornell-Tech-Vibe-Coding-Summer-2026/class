@@ -228,8 +228,8 @@
         {
           "folder": "7_28",
           "date": "Tue · Jul 28",
-          "title": "Value Verification — Does It Embed the Value It Claims?",
-          "shortDescription": "Individual, on your team's Project 2 prototype: state the value your team claimed, operationalize it, then verify whether the built thing delivers it — through behavior, understanding, and affect, with a validated instrument (UEQ, an HRI/SDT scale, or the slop detector). Usability asks 'can they use it?'; value verification asks 'does it do the right thing?'",
+          "title": "Value Verification — Does the Design Actually Change Anything?",
+          "shortDescription": "Team activity on your Project 2. Monday's usability test closed a cycle; value verification opens the next one. Decide which reading of your value you actually designed for (privacy as control? security? contextual integrity?) — the reading decides the method — research what's already been tried and what failed, run the check, then ask what OTHER design could achieve the value. You keep your value and carry it into the final project.",
           "readings": [
             {
               "role": "primary",

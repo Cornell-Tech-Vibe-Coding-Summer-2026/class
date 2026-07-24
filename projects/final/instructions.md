@@ -15,9 +15,14 @@ beneficiary — a community, an organization, a group of users who are not your
 classmates. It must:
 
 - **Serve someone outside the class.** Identify them specifically. "Students" is not specific; "first-year international students navigating NYC transit" is.
-- **Operationalize a value** you choose to **support, defend, or repair** (carry forward your Week 2 + Values-at-Play work).
+- **Carry your value forward.** You keep the value your team has been working with — the final is the **next iteration of that commitment**, not a new theme. Bring Tuesday's verification findings with you.
 - **Be tested with real users** and iterated on the evidence.
 - **Have a life after class.** Who keeps using or maintaining it? Give a credible answer.
+
+> [!IMPORTANT]
+> **One value, all the way through.** Monday closed the Project 2 cycle (usability), Tuesday opened
+> the next one (did the design actually produce the value change?). The final project is where you
+> act on that answer — often with a **different design for the same value**.
 
 ## Accept the assignment (once, at the start of Wednesday)
 [https://classroom.github.com/a/VTWqWkXg](https://classroom.github.com/a/VTWqWkXg) — one
@@ -31,9 +36,9 @@ Pages deploy. Everything lives at the repo root.
 
 ## 📋 Day 1 — Wed, Jul 29 · Plan: *What is the problem?*  → `planning-report.md`
 
-**Commit to a value in the first 30 minutes**, then find the real need behind it.
+**Start from Tuesday's verdict**, then find the real need behind it.
 
-1. **Value first.** Pick one value to **support, defend, or repair** — and lock it fast. Don't spend the morning hedging.
+1. **Carry the value in — with the evidence.** You already have your value. Open with Tuesday's board: which reading you designed for, what the verification actually showed, and the **other design options** you flagged. If the old design didn't produce the value change, this is where you change the design — not the value.
 2. **Beneficiary.** Someone specific outside the class. Not "students."
 3. **Elicit the need.** Talk to that person — a short interview — or realistically stand in for them. Build a **persona** (who they are, their goal, their frustration, their context) and write the need **in their words**.
 4. **Operationalize the value.** What is concretely true of a good solution if the value is present? Say it as behavior / understanding / affect (the Tuesday lens).
