@@ -1,65 +1,67 @@
-# Value Verification — Does the Design Actually Change Anything?
+# Value Verification — Your Team Research Deck
 
 Yesterday **closed** a cycle: usability testing found the nitty-gritty to fix in your Project 2.
-Today **opens** the next one. Value verification asks the bigger question — not *"can they use
-it?"* but ***"does this design actually produce the value change we claimed?"*** The honest
-answer is often *no, or not the way we assumed* — and that's exactly when you start
-considering other designs.
+Today **opens** the next one. You verify whether your design actually produces the **value
+change** you claimed — and you turn that into a short **research deck**: the artifact a team
+presents when it wants to say *"here's what we actually learned about whether this works."*
 
-**This is a team activity**, on your team's Project 2. **You keep your value.** You'll carry it
-forward into the final project — the goal is one sustained value commitment across the whole
-summer school, not a new theme every few days.
+**This is a team activity.** One deck per team; **everyone writes their own reflection.**
+**You keep your value** — you carry it into the final project.
 
 > [!NOTE]
-> **Today's guest lecture is on accessibility** — one of the clearest values to verify, and a
-> good model for how a value gets operationalized into concrete, testable requirements.
+> **Today's guest lecture is on accessibility** — a good model of how a value becomes concrete, testable requirements.
 
-## The idea: your *operationalization* decides the method
-
-A value is not one thing. How you read it determines what verification even means:
+## The core move: your *reading* of the value decides the method
 
 | If you read **privacy** as… | …then verifying it looks like |
 | :-- | :-- |
-| **control** | a usability study — can users actually find and work the settings? |
+| **control** | a usability study — can users find and work the settings? |
 | **security** | adversarial / safety testing of the privacy features |
-| **contextual integrity** | tracing the information flows — is each one appropriate to its context? |
+| **contextual integrity** | tracing the information flows — is each appropriate to its context? |
 
-Same value. Three completely different studies. So before you test anything, decide *which
-reading you actually designed for.*
+Same value. Three completely different studies. So decide **which reading you actually
+designed for** — then the method follows.
 
-## Step 1 — Which reading did you design for? *(~15 min)*
-- Name your value, then list **3+ different readings** of it.
-- **Which one did Project 2 actually design for?** (Teams often discover they built for the *easiest* reading.)
-- Operationalize it: *if this reading is present, users will **do** ___ / **understand** ___ / **feel** ___.*
+## Work on the board, present in the deck
+Do the messy thinking on the **[team FigJam board](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)** (duplicate it for your team), then distil it into the deck. Your team's deck is pre-made — open it, keep the headers, and put your content behind each one.
 
-## Step 2 — Research the value *(~30 min — split this across the team)*
-Before you measure anything, find out what's already known. Use **Google Scholar** (and its AI
-search) plus [Figma's design-research library](https://www.figma.com/resource-library/design-research/) for how to run a method:
-- How have others **defined and measured** this value?
-- What interventions actually produced **positive value change** — and **what failed?**
-- Bring back **2–3 real sources**, and from them: one **instrument or task design you could borrow**, and one **known failure mode to avoid**.
+---
 
-> [!TIP]
-> This is the step that stops you inventing a metric that measures nothing. Someone has almost certainly tried to move this value before — find out how it went.
+# The deck — 3 parts
 
-## Step 3 — Verify *(~30 min)*
-Run the check **your reading demands** — a usability study, an adversarial test, an
-information-flow trace, or a behavior / understanding / affect method. Capture what you
-**observed or measured**, not what you hoped.
+### ① The value & the reading *(opening slide)*
+Your app, the value it claims, and **which reading you designed for** — plus how you operationalized it (*if present, users will **do** / **understand** / **feel** ___*).
 
-## Step 4 — Open the next cycle *(~20 min)*
-- **Verdict:** does the design produce the value change? For whom? Who's excluded?
-- **If not (or only partly): what *other designs* could achieve it?** This is the whole point — verification opens design work, it doesn't just grade it.
-- **What should the next cycle discover?** Write it down — you carry it straight into Wednesday's final-project planning.
+### ② Part 1 — Ways to verify *(research on method)*
+How *can* this value be verified, and **which method did you choose and why?** Ground it:
+- **Google Scholar** (and its AI search): how have others **measured** this value?
+- Validated instruments — **[UEQ](https://www.ueq-online.org/)**, an **[HRI-database](http://hriscaledatabase.psychology.gmu.edu/)** or **[METUX/SDT](https://selfdeterminationtheory.org/metux-scales/)** scale, the **[Vibed Slop Detector](https://github.com/HaukeCornell/Vibed-Slop-Detector)**.
+- **[Figma's design-research library](https://www.figma.com/resource-library/design-research/)** for how to actually run it.
+
+### ③ Part 2 — Insights from *your* verification *(the heart of it)*
+Run the check your reading demands, then report honestly across the **VAP lenses**:
+- **What works** in the current prototype — with evidence.
+- **What does *not* work** — with evidence. *A well-evidenced "it doesn't" is a better result than a hopeful "it does."*
+- **Across the lenses:** behavior (do they *act* differently?) · understanding (do they *grasp* it?) · affect (do they *feel* differently?). Say which lenses you could and couldn't test — not every lens fits every value.
+
+### ④ Part 3 — Outlook: what related research found
+What have **others** tried to move this value? What **worked**, and what **failed**? Pull findings from **real papers** — 2–3 sources.
+
+> [!IMPORTANT]
+> **Never invent a citation.** Real papers, real findings, or leave it out.
+
+### ⑤ So what — our next design brief *(closing slide)*
+Verification is a **beginning, not a verdict.** If the design doesn't produce the value change, that's your next brief: **what other design could achieve it**, and what the next cycle should discover. You carry this straight into Wednesday.
+
+---
 
 ## Deliverables
-- **Team FigJam board** — readings, your researched sources, evidence, verdict, and the other design options you'd consider. One board per team.
-- **`vibe-report.md`** — **each person writes their own reflection** (the work is the team's; the reflection is yours). Link the team board.
-- `log_deliverable/history.md` — any AI you used (Scholar searching, drafting an instrument, the slop detector).
+- **Team research deck** — the pre-made deck for your team, filled in. Link it in your report.
+- **Team FigJam board** — your working surface (readings, method choice, evidence, paper findings).
+- **`vibe-report.md`** — **each person writes their own reflection.** The deck is the team's; the reflection is yours.
+- `log_deliverable/history.md` — AI you used (Scholar searching, drafting an instrument, the slop detector).
 
 No `code_deliverable/` today. Due Tuesday (Jul 28) — see `deadline.json`.
-
-> **Carry it forward.** Keep your value and keep today's learnings — Wednesday you re-plan the design around them, and the final project is that iteration.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->

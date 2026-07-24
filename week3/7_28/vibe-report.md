@@ -3,47 +3,44 @@
 Student Name: [Your Name] · Team: [Team name] · Value we're carrying: [ ]
 
 <!--
-👉 Today's WORK is your team's (one shared FigJam board). This REFLECTION is yours alone —
-write it yourself (AI may help with grammar only). Fill it in here (week3/7_28/vibe-report.md).
+👉 Today's ARTIFACT is your team's research deck. This REFLECTION is yours alone — write it
+yourself (AI may help with grammar only). Fill it in here (week3/7_28/vibe-report.md).
 Graded against the In-Class Activity Rubric: 40% Completion, 30% AI-Use Documentation,
 30% Reflection Quality. No code_deliverable today.
 -->
 
-## 🧩 Our team board
-**FigJam link (or exported image):** [paste here]
+## 🎞️ Our team research deck
+**Link:** [paste the deck link] · **Our FigJam board:** [paste link]
 
-## 1. The reading we designed for
-- **Our value:** [ ]
-- **Readings we listed:** [e.g. privacy as control / as security / as contextual integrity]
-- **The one Project 2 actually designed for:** [ ] — **was that the easiest one?** [honest answer]
+## 1. The value and the reading we designed for
+- **Value:** [ ] · **The reading we actually designed for:** [control / security / contextual integrity / …]
+- **Was it the easiest reading?** [honest answer]
 - **Operationalized:** if present, users will **do** ___ / **understand** ___ / **feel** ___: [ ]
 
-## 2. What the research turned up
-<!-- 2–3 real sources your team found (Google Scholar / design-research library). Never invent a citation. -->
+## 2. What we verified — and what it showed
+- **Method we ran, and why our reading demanded it:** [ ]
+- **What works in the prototype (evidence):** [ ]
+- **What does NOT work (evidence):** [ ]
+- **Lenses we could and couldn't test:** [behavior / understanding / affect — and which didn't fit this value, and why]
 
-| Source (author, year, where) | What it measured / tried | Worked or failed? |
+## 3. What related research told us
+<!-- Real sources only — never invent a citation. -->
+
+| Source (author, year, where) | What they tried / measured | Worked or failed? |
 | :-- | :-- | :-- |
 |  |  |  |
 |  |  |  |
 
-- **What we borrowed from it** (instrument, task design): [ ]
-- **A failure mode we now know to avoid:** [ ]
+- **What that changes about our design:** [ ]
 
-## 3. What we verified, and what we found
-- **Method we ran** (and why our reading demanded it): [ ]
-- **What we observed or measured:** [ ]
-
-## 4. Verdict — does the design produce the value change?
-<!-- REQUIRED, human-written. An evidenced "no" is a better result than a hopeful "yes." -->
-[yes / partly / no — and the evidence. For whom does it work, and who is excluded?]
-
-## 5. What this opens up *(your own thinking)*
-- **Other designs that might actually achieve the value:** [ ]
-- **What the next cycle should discover** (you carry this into Wednesday): [ ]
-- **What today changed in how I see our design — or the value itself:** [ ]
+## 4. My own take *(human-written — this is the graded reflection)*
+- **What I contributed to the verification and the deck:** [ ]
+- **What surprised me** — where did the evidence disagree with what we assumed? [ ]
+- **Does our design actually move this value?** [your own verdict, not the team's summary]
+- **What I think the next cycle should do** (you carry this into Wednesday): [ ]
 
 ## 📜 AI Usage Trace
-- Tools used (Scholar/AI search, instrument drafting, slop detector, etc.): [ ] · [Local history log](log_deliverable/history.md)
+- Tools used (Scholar/AI search, instrument drafting, slop detector, deck help): [ ] · [Local history log](log_deliverable/history.md)
 
 ## 🙋 Authenticity Statement
 > I [Your Name] acknowledge that I am the sole architect of this work. While I leveraged AI as a creative collaborator, every design choice, correction, and final output was orchestrated and approved by me. I bear full responsibility for the integrity of this work, including any errors or hallucinations I may have overlooked. I have not plagiarized or misrepresented other human and AI-generated content as my own unassisted work.
