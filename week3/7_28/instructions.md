@@ -1,12 +1,15 @@
-# Value Verification — Your Team Research Deck
+# Value Verification — Team Research Deck + Canvas
 
 Yesterday **closed** a cycle: usability testing found the nitty-gritty to fix in your Project 2.
 Today **opens** the next one. You verify whether your design actually produces the **value
-change** you claimed — and you turn that into a short **research deck**: the artifact a team
-presents when it wants to say *"here's what we actually learned about whether this works."*
+change** you claimed, and you leave with two things: a short **research deck** and a filled
+**verification canvas**.
 
-**This is a team activity.** One deck per team; **everyone writes their own reflection.**
-**You keep your value** — you carry it into the final project.
+**You work as a team — but you're graded individually.** Everyone owns a named slide and a
+named reflection lane. **You keep your value** and carry it into the final project.
+
+> [!IMPORTANT]
+> **Two deliverables. No written report today.** Your reflection lives *in the canvas*, not in a markdown file — and that's also where you document the AI you used.
 
 > [!NOTE]
 > **Today's guest lecture is on accessibility** — a good model of how a value becomes concrete, testable requirements.
@@ -22,46 +25,37 @@ presents when it wants to say *"here's what we actually learned about whether th
 Same value. Three completely different studies. So decide **which reading you actually
 designed for** — then the method follows.
 
-## Work on the board, present in the deck
-Do the messy thinking on the **[team FigJam board](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)** (duplicate it for your team), then distil it into the deck. Your team's deck is pre-made — open it, keep the headers, and put your content behind each one.
+## Set up your canvas (5 min)
+1. Open the board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**.
+2. Find the **TEMPLATE** section → **copy and paste it** on the same board → **rename your copy to your team name**. Work only in your copy.
+3. Fill blocks **01–05** together, then each person fills **their own reflection lane**.
+4. **Right-click your lane → Copy link to selection.** That deep link is your submission.
 
----
+## What goes where
 
-# The deck — 3 parts
+| Deck section | Who | What |
+| :-- | :-- | :-- |
+| **01** The value & the reading | Team | The value, which reading you designed for, how you operationalized it |
+| **02** Ways to verify | Team | How this value *can* be measured — **[Google Scholar](https://scholar.google.com/)** + validated instruments + how to run the method |
+| **03** What we found | **You, individually** | **Your own named slide:** your lens + method, your evidence, what works / what doesn't, the paper you found |
+| **04** Outlook | Team | What related research found — what worked, what **failed**. Attribute each source to whoever found it |
+| **05** So what | Team | Verification is a beginning: what **other design** could achieve the value, and what the next cycle should discover |
 
-### ① The value & the reading *(opening slide)*
-Your app, the value it claims, and **which reading you designed for** — plus how you operationalized it (*if present, users will **do** / **understand** / **feel** ___*).
-
-### ② Part 1 — Ways to verify *(research on method)*
-How *can* this value be verified, and **which method did you choose and why?** Ground it:
-- **Google Scholar** (and its AI search): how have others **measured** this value?
-- Validated instruments — **[UEQ](https://www.ueq-online.org/)**, an **[HRI-database](http://hriscaledatabase.psychology.gmu.edu/)** or **[METUX/SDT](https://selfdeterminationtheory.org/metux-scales/)** scale, the **[Vibed Slop Detector](https://github.com/HaukeCornell/Vibed-Slop-Detector)**.
-- **[Figma's design-research library](https://www.figma.com/resource-library/design-research/)** for how to actually run it.
-
-### ③ Part 2 — Insights from *your* verification *(the heart of it)*
-Run the check your reading demands, then report honestly across the **VAP lenses**:
-- **What works** in the current prototype — with evidence.
-- **What does *not* work** — with evidence. *A well-evidenced "it doesn't" is a better result than a hopeful "it does."*
-- **Across the lenses:** behavior (do they *act* differently?) · understanding (do they *grasp* it?) · affect (do they *feel* differently?). Say which lenses you could and couldn't test — not every lens fits every value.
-
-### ④ Part 3 — Outlook: what related research found
-What have **others** tried to move this value? What **worked**, and what **failed**? Pull findings from **real papers** — 2–3 sources.
+**Instruments to choose from:** **[UEQ](https://www.ueq-online.org/)** · an **[HRI-database](http://hriscaledatabase.psychology.gmu.edu/)** or **[METUX/SDT](https://selfdeterminationtheory.org/metux-scales/)** scale · the **[Vibed Slop Detector](https://github.com/HaukeCornell/Vibed-Slop-Detector)**. How to run it: **[Figma's design-research library](https://www.figma.com/resource-library/design-research/)**.
 
 > [!IMPORTANT]
-> **Never invent a citation.** Real papers, real findings, or leave it out.
+> **Never invent a citation.** Real papers, real findings, or leave the claim out.
 
-### ⑤ So what — our next design brief *(closing slide)*
-Verification is a **beginning, not a verdict.** If the design doesn't produce the value change, that's your next brief: **what other design could achieve it**, and what the next cycle should discover. You carry this straight into Wednesday.
+> [!TIP]
+> Report **what does not work** as carefully as what does. A well-evidenced *"it doesn't"* is a better result than a hopeful *"it does"* — and it's what gives you Wednesday's design brief.
 
----
+## Deliverables — two things
+1. **Team research deck** — your team's pre-made deck, filled in. Your **section 03 slide is graded individually**.
+2. **Team verification canvas** — your team's copy of the template: blocks 01–05 filled together, **plus your own reflection lane** (your verdict, what surprised you, what the next cycle should do, and the AI you used).
 
-## Deliverables
-- **Team research deck** — the pre-made deck for your team, filled in. Link it in your report.
-- **Team FigJam board** — your working surface (readings, method choice, evidence, paper findings).
-- **`vibe-report.md`** — **each person writes their own reflection.** The deck is the team's; the reflection is yours.
-- `log_deliverable/history.md` — AI you used (Scholar searching, drafting an instrument, the slop detector).
+**How to submit:** put both links in **`submission.md`** — the team deck, and the deep link to **your own** reflection lane. That's it — no `vibe-report.md`, no `code_deliverable/` today.
 
-No `code_deliverable/` today. Due Tuesday (Jul 28) — see `deadline.json`.
+Due Tuesday (Jul 28) — see `deadline.json`.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->
