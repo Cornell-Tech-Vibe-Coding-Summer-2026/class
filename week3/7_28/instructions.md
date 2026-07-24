@@ -17,7 +17,7 @@ on FigJam; your reflection goes in `vibe-report.md`.
 > quietly exclude? (You'll use FigJam again tomorrow with our Figma guest — today warms you up.)
 
 ## Step 1 — Get onto FigJam (5 min)
-1. Open the course board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values)**.
+1. Open the course board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**.
 2. **Duplicate it to your own drafts** so you have a copy to fill: right-click the *Value Verification* tab → **Duplicate**, or **File → Duplicate to your drafts**.
 3. New to FigJam? It's a shared whiteboard — double-click to drop a sticky, drag to move. That's all you need.
 
