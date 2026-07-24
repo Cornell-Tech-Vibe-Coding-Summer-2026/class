@@ -20,16 +20,21 @@ The daily activities use a different rubric ([activity_rubric.md](../planning/ac
 
 ## User testing for Project 2 & Final
 
-You build the deeper user-research skills in the **Week 3 Mon + Tue** activities
-(usability testing and value verification, on your Project 2 prototype). You then apply
-them to your own builds:
+You build the deeper user-research skills on **Monday** (usability testing, an individual
+activity) and on the **final's Day 1** (value verification — the final's Checkpoint 1). You then
+apply them to your own builds:
 
 - **Project 2:** document the quick informal classmate test inside `project-report.md`; no separate `user-test.md` is required.
 - **Final Project:** document your quick user test **and the one change you made** in `project-report.md` (§4); no separate `user-test.md` is required. The "Live Demo — User Testing" credit (15%) is assessed against that section plus your live demo.
 
-## Additional for the Final Project
+## The Final Project runs across four checkpoints
 
-5. **Presentation** — slides and/or a demo video in `final/presentation/`, presented Thu Jul 30. Graded as its own 15% (Final Presentation) on top of the 25% project grade.
+The final is graded as **four Canvas checkpoints** — Verify (Tue) · Plan (Wed) · Build (Thu) ·
+Present (Thu eve). The summary of the first three is your **25% project grade** (this rubric);
+the presentation is a separate **15%**. See **[Grading & Canvas Setup](../planning/grading.md)**
+for the full mapping, and the **[Final Project page](../final.html)** for the day-by-day briefs.
+
+5. **Presentation** — slides and a live demo, delivered Thursday evening. Graded as its own 15% (Final Presentation) on top of the 25% project grade.
 
 ## Notes
 

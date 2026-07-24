@@ -31,7 +31,7 @@ written by students — AI may help with grammar only. Graded against ../rubric.
 
 ## 6. Pitch video / showcase
 - **Link (also in `presentation/`):** [ ]
-- **Tool used:** ☐ SORA ☐ Google Veo ☐ Runway ☐ screen recording ☐ other: [ ]
+- **Tool used:** ☐ Google Veo ☐ Runway ☐ Kling ☐ Pika ☐ screen recording ☐ other: [ ]
 
 ## 7. Afterlife
 - **Who keeps using or maintaining this after the course, and how:** [ ]

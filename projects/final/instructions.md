@@ -69,7 +69,7 @@ Build in the first half; present in the evening.
 
 1. **Build** the smallest real thing from your storyboard — hosted, one complete action a stranger can finish, with the value living in the *design*, not just the copy.
 2. **Test** it quickly with a couple of real users, using the methods you practiced Mon + Tue. Change **one** thing on the evidence (commit it).
-3. **Pitch video / showcase.** Produce a short pitch that **showcases your vibe-coded artifact**: an AI-generated video (SORA / Google Veo / Runway), an animated walkthrough, or a screen-recorded demo. Put it in `presentation/` and link it in the report.
+3. **Pitch video / showcase.** Produce a short pitch that **showcases your vibe-coded artifact**: an AI-generated video (**Google Veo 3.1 · Runway · Kling · Pika** — note OpenAI retired the Sora app in April 2026), an animated walkthrough, or a screen-recorded demo. Put it in `presentation/` and link it in the report.
 
 **Deliverable → `project-report.md`** (build, first prompt, screenshots, quick test + the change, ethical + individual reflections, live link, pitch-video link) + the hosted app + the pitch in `presentation/`.
 
