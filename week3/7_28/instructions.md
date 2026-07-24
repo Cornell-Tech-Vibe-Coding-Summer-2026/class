@@ -1,12 +1,11 @@
 # Value Verification — Does It Embed the Value It Claims?
 
-Yesterday you tested whether people **can use** your team's Project 2 prototype. Today you
-test the harder thing: whether it actually **does the right thing** — whether it delivers the
-**value your team claimed**, for the person you claimed to serve.
+Yesterday you tested whether people **can use** your team's Project 2. Today you verify
+whether it delivers the **value your team claimed** — and you do most of it on a **FigJam
+board**, then write a short reflection.
 
-**This is an individual activity on your team's deployed Project 2 prototype** — the same
-live link you tested Monday. Everyone runs their own verification and writes their own
-report. **No coding today** — you're the values researcher.
+**Individual, on your team's deployed Project 2 prototype.** No coding. The thinking happens
+on FigJam; your reflection goes in `vibe-report.md`.
 
 > **Usable ≠ right.** A tool can be flawless to use and still fail the value it promised —
 > quietly nudging, excluding, or manipulating the very person it claims to help. Monday
@@ -14,63 +13,36 @@ report. **No coding today** — you're the values researcher.
 
 > [!NOTE]
 > **Today's guest lecture is on accessibility** — itself one of the clearest values to
-> verify. Borrow its lens even if your team's value is something else: who does your
-> design quietly exclude?
+> verify. Borrow its lens even if your team's value is something else: who does your design
+> quietly exclude? (You'll use FigJam again tomorrow with our Figma guest — today warms you up.)
 
-## The idea: you can't verify a value until you operationalize it
+## Step 1 — Get onto FigJam (5 min)
+1. Open the course board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values)**.
+2. **Duplicate it to your own drafts** so you have a copy to fill: right-click the *Value Verification* tab → **Duplicate**, or **File → Duplicate to your drafts**.
+3. New to FigJam? It's a shared whiteboard — double-click to drop a sticky, drag to move. That's all you need.
 
-From **[Values at Play](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)**
-(Flanagan & Nissenbaum): a value like *privacy*, *care*, or *autonomy* is too abstract to
-test directly. You first **operationalize** it — say what is concretely true of the product
-if the value is present — and then **verify** it three ways:
-
-- **Behavior** — do people *act* / decide differently in line with the value?
-- **Understanding** — do people *understand* the value (or the harm) better?
-- **Affect / attitude** — do people *feel*, judge, or empathize differently because of it?
-
-## Step 1 — State & operationalize the claim
-Pull the value your team claimed in your Project 2 report, then make it testable:
-- **The value:** [name it]
-- **Operationalized:** complete — *"If this product embeds [value], then a user will* ___ */ understands* ___ */ feels* ___*."* Be concrete: "privacy" can mean control, secrecy, or contextual integrity — pick your reading.
-- **For whom** it should hold — and **who could be excluded, misled, or harmed.**
-- **The one claim you'll test today:** the single most important thing that must be true.
-
-## Step 2 — Pick your verification lens + a method
-Choose the **lens** that best fits your value, and at least one concrete method under it:
-
-| Lens | The question | Methods you can run today |
-| :-- | :-- | :-- |
-| **Behavior** | Do users' actions/decisions align with the value? | Task-completion observation · A/B two versions · before/after choice · usage trace |
-| **Understanding** | Do users understand the value / harm better? | Think-aloud · pre/post question · scenario question · knowledge-transfer task |
-| **Affect / attitude** | Do attitudes, empathy, or feelings shift? | Attitude survey (pre/post) · short interview · empathy map · choice under pressure |
-
-## Step 3 — Add a validated instrument (don't just eyeball it)
-Pick **at least one**, matched to your value — a real instrument beats questions you invented:
-- **[UEQ](https://www.ueq-online.org/)** — measures UX *beyond* usability: attractiveness, novelty, stimulation, dependability. Use it when your value is about delight, trust, or craft.
-- **A validated scale for your specific value** — browse the **[HRI Scale Database](http://hriscaledatabase.psychology.gmu.edu/)** (trust, warmth, competence, safety…) or the **[METUX / Self-Determination scales](https://selfdeterminationtheory.org/metux-scales/)** (autonomy, competence, relatedness) for wellbeing/empowerment values.
-- **[The Vibed Slop Detector](https://github.com/HaukeCornell/Vibed-Slop-Detector)** (built on the [impeccable.style](https://impeccable.style/slop/) slop rules) — run it on your deployed page. Generic **AI "slop"** is evidence that craft, care, and originality did *not* get embedded; a clean result is weak evidence they did.
+## Step 2 — On the board: verify your value
+The board walks you through it. The shape:
+1. **Name + operationalize your value.** Which value did your team claim for Project 2? What is concretely true if it's present? Say it as **behavior / understanding / affect**.
+2. **Plan verification across the three lenses:**
+   - **Behavior** — do users *act* differently? (observation · A/B · before/after · task completion)
+   - **Understanding** — do they *grasp* the value/harm better? (think-aloud · pre/post · scenario)
+   - **Affect** — do their attitudes/feelings *shift*? (attitude survey · interview · empathy map)
+3. **Pick ONE lens and actually DO it** — this is the part that matters. Don't just plan metrics:
+   - Choose the lens that's most load-bearing for your value + one **validated instrument** — **UEQ** (beyond usability), an **[HRI-database](http://hriscaledatabase.psychology.gmu.edu/)** or **[METUX/SDT](https://selfdeterminationtheory.org/metux-scales/)** scale, or the **[Vibed Slop Detector](https://github.com/HaukeCornell/Vibed-Slop-Detector)**.
+   - Run a quick check — 2 testers, administer the instrument, or run the tool on your live page.
+   - **Drop the evidence on the board** — what you *observed or measured*, not what you hoped.
+4. **Verdict + one fix** — does it deliver the value? For whom? Who's excluded? What's the one change you'd make?
 
 > [!TIP]
-> Match the instrument to the value. Autonomy/empowerment → METUX/SDT. Trust/safety → an HRI trust scale. Beauty/originality/craft → UEQ + slop detector. Don't run all of them — run the *right* one, well.
+> Match the instrument to the value. Autonomy/empowerment → METUX/SDT · trust/safety → an HRI scale · beauty/originality/craft → UEQ + slop detector. Run the *right* one, well.
 
-## Step 4 — Run a small verification
-Gather **real evidence**, not opinion:
-- Test with 2–3 people (can be yesterday's testers), **or** administer the scale, **or** run the instrument/tool.
-- Record what you *observed or measured* — not what you hoped.
-- Note where the **AI's defaults bent your value**: a dark-patterny default, a manipulative nudge, a generic slop design that ignores the specific user you named.
+## Deliverables
+- **Your FigJam board** — filled, with **real evidence** from the check you ran. Export it (or screenshot the board) and put the image/link in your report.
+- **`vibe-report.md`** — a short **value-centered verification reflection** (edit the provided file in place).
+- `log_deliverable/history.md` — any AI you used (running the slop detector, drafting a survey).
 
-## Step 5 — Verdict
-Answer honestly: **does the built thing deliver the value it claims?**
-- Behavior / understanding / affect evidence — for *and* against.
-- Who it serves well, and who it excludes or nudges.
-- The **one change** you'd make to close the biggest claim-vs-reality gap. (You won't build it today — Wednesday and Thursday are for the final project.)
-
-## Deliverable
-Fill in the provided **`vibe-report.md`** (edit it in place — don't make a copy). **No `code_deliverable/` today** — you're verifying, not building.
-- `vibe-report.md` — your value-verification report: claim, operationalization, method + instrument, evidence, verdict, and the fix.
-- `log_deliverable/history.md` — any AI you used (running the slop detector, help drafting a survey, etc.).
-
-Everyone submits **one write-up.** Due Tuesday (Jul 28) — see `deadline.json`.
+Everyone submits their **own board + reflection.** No `code_deliverable/` today. Due Tuesday (Jul 28) — see `deadline.json`.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->
