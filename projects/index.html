@@ -123,7 +123,7 @@
                 <span>TECHIE 1121 Ethical Vibe Coding <span class="term">· Cornell Tech 2026SU</span></span>
             </a>
             <div class="nav-links">
-                <a class="top-link" href="../index.html">Daily activities →</a>
+                <a class="top-link" href="../index.html">Individual activities →</a>
                 <a class="top-link" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" target="_blank" rel="noopener noreferrer">Course site →</a>
             </div>
         </div>
@@ -164,11 +164,13 @@
             },
             {
                 folder: 'final',
-                meta: 'Day 1 — plan Wed · Jul 29   ·   Day 2 — build + present Thu · Jul 30',
+                meta: 'Tue Jul 28 → Thu Jul 30   ·   4 checkpoints graded on Canvas',
                 title: 'Final Project — Benefit Someone Outside the Class',
                 weight: '25% + 15%',
-                desc: 'The iteration: keep your value, act on what Tuesday\'s verification showed, and build for a real beneficiary outside the class — something that keeps benefiting society after the course ends. Two briefs, two reports.',
-                classroomHref: 'https://classroom.github.com/a/VTWqWkXg'
+                desc: 'The capstone, across four days: verify (Tue) → plan (Wed) → build (Thu) → present (Thu eve). You keep your value the whole way. Each day is a graded checkpoint on Canvas; the summary is your project grade.',
+                classroomHref: 'https://classroom.github.com/a/VTWqWkXg',
+                briefHref: 'final.html',
+                briefLabel: 'Open the final →'
             }
         ];
 
@@ -184,9 +186,10 @@
         }
 
         function buildCard(p) {
-            const briefHref = `../instructions.html?week=projects&project=${p.folder}`;
+            // Most projects open their markdown brief; the final has its own multi-day page.
+            const briefHref = p.briefHref || `../instructions.html?week=projects&project=${p.folder}`;
             const actions = el('div', { class: 'actions' }, [
-                el('a', { class: 'action primary', href: briefHref, text: 'Brief' }),
+                el('a', { class: 'action primary', href: briefHref, text: p.briefLabel || 'Brief' }),
                 el('a', { class: 'action', href: p.classroomHref, target: '_blank', rel: 'noopener noreferrer', text: 'GitHub Classroom' }),
             ]);
             return el('div', { class: 'project' }, [

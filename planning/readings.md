@@ -48,13 +48,3 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 ### Mon · Jul 27 — Usability Testing — Human & Agent (video)
 - **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
-
-### Tue · Jul 28 — Value Verification — Does the Design Actually Change Anything?
-- **Primary** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play — Verification: operationalize a value, then test whether the built thing realizes it (behavior · understanding · affect).](https://drive.google.com/file/d/1FGbCVYgsKt9kW_sH0R2_B-LFcTmJum04/view?usp=share_link)
-- **Reference** 🟢 — [UEQ — User Experience Questionnaire: a validated scale measuring not just usability but attractiveness, novelty, and stimulation. Laugwitz, Held & Schrepp 2008.](https://www.ueq-online.org/)
-- **Reference** 🟢 — [HRI Scale Database (George Mason) — 'Finding the Perfect Scale': browse validated scales (trust, warmth, competence…) rated for psychometric quality, to test the value you claim.](http://hriscaledatabase.psychology.gmu.edu/)
-- **Reference** 🟢 — [METUX / Self-Determination Theory scales — measure autonomy, competence, and relatedness for wellbeing-oriented values. Peters, Calvo & Ryan 2018.](https://selfdeterminationtheory.org/metux-scales/)
-- **Reference** 🟢 — [Vibed Slop Detector (Sandhaus/Hayatt), built on the impeccable.style 'slop' rules — flag generic AI-slop design tells as a proxy for craft, care, and originality.](https://github.com/HaukeCornell/Vibed-Slop-Detector)
-- **Reference** 🟢 — [Sandhaus, H., Rhomberg, D.M., Nissenbaum, H. 2026. Making Indecent Persuasion Visible: How Evaluation Metrics Shape UX Designers' Ethical Reasoning. CHIWORK '26 (LBW, preprint).](https://osf.io/nw2tj/files/g2ctu)
-- **Optional** 🟢 — [Romero, K., Wiese, I., Balancieri, R., Leal, G.C., Guerino, G. 2026. Usable but Conventional: An Empirical Study on the UX of AI-Generated Interface Prototypes (UEQ-S). arXiv:2605.15124.](https://arxiv.org/abs/2605.15124)
-- **Optional** 🔵 — [Flanagan, M., Nissenbaum, H. Values at Play in Digital Games — full digital book.](https://drive.google.com/drive/folders/1qZ8x8MXbJaex-7LnnrBUVR0_H87oBz24?usp=share_link)
