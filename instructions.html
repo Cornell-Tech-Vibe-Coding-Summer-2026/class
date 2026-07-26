@@ -456,12 +456,8 @@
             },
             reflection: {
                 title: 'Reflection (Vibe Report)',
-                notice: "This page renders the student's <strong>vibe-report.md</strong> reflection. If the student hasn't started one yet, the activity template is shown instead.",
-                paths: (week, project) => [
-                    `./${week}/${project}/vibe-report.md`,
-                    `./${week}/${project}/vibe-report-template.md`,
-                    `./vibe-report-template.md`,
-                ],
+                notice: "This page renders the student's editable <strong>vibe-report.md</strong> reflection.",
+                paths: (week, project) => [`./${week}/${project}/vibe-report.md`],
             },
         };
 

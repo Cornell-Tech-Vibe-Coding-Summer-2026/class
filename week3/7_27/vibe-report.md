@@ -1,10 +1,10 @@
 # Vibe Report: Usability Testing — Human + Agent
 
-Student Name: [Your Name]  
+Student Name: [Your Name]
 Team: [Team Name]
 
 <!--
-Copy this file to vibe-report.md and complete it.
+Complete this file directly. Do not make a separate copy.
 Graded with the In-Class Activity Rubric: 40% Completion, 30% AI-Use
 Documentation, 30% Reflection Quality. The reflection must be your own writing;
 AI may only check grammar.
@@ -26,7 +26,7 @@ Choose two ideas from
 - **Heuristic 1:** [name it and explain it in your own words]
 - **Heuristic 2:** [name it and explain it in your own words]
 
-**Which heuristic best explained something you saw in a test? Why?**  
+**Which heuristic best explained something you saw in a test? Why?**
 [Use one specific moment from your recording.]
 
 ## 🔎 Evidence
@@ -61,6 +61,12 @@ Record what happened, not just whether a tester liked the site.
 What did the reading help you notice that you might otherwise have called
 “just confusing”? What did a real person reveal that the agent could not? If the
 human and agent evidence disagreed, which evidence would you act on first, and why?
+
+**What exact prompt did you give the AI agent?**
+[Paste the prompt here.]
+
+**How did the wording of your prompt shape what the agent tested or reported?**
+[Use one specific example from the agent test.]
 
 [Write your reflection here.]
 

@@ -503,12 +503,16 @@
                     const actions = el('div', { class: 'actions' });
                     // Most activities deliver a hosted page; some (e.g. usability testing)
                     // deliver a testing VIDEO instead. `deliverable: "video"` in the manifest
-                    // relabels the primary action; an optional `deliverableUrl` points it at a
-                    // specific link (else it falls back to the activity instructions).
+                    // relabels the primary action. Its URL stays blank until the student adds
+                    // their submitted video link.
                     const isVideo = activity.deliverable === 'video';
                     const primaryProps = isVideo
-                        ? { class: 'action primary', href: activity.deliverableUrl || instructionsHref, text: activity.deliverableLabel || 'Testing Video' }
+                        ? { class: 'action primary', href: activity.deliverableUrl || '#', text: activity.deliverableLabel || 'Testing Video' }
                         : { class: 'action primary', href: submissionHref, text: 'Live Page' };
+                    if (isVideo && !activity.deliverableUrl) {
+                        primaryProps['aria-disabled'] = 'true';
+                        primaryProps.onClick = (event) => event.preventDefault();
+                    }
                     if (isVideo && activity.deliverableUrl) { primaryProps.target = '_blank'; primaryProps.rel = 'noreferrer'; }
                     actions.appendChild(el('a', primaryProps));
                     actions.appendChild(el('a', { class: 'action', href: instructionsHref, text: 'Instructions' }));

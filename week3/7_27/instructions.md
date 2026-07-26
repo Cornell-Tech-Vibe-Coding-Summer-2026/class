@@ -19,7 +19,7 @@ Open these four things:
 1. Your team’s deployed Project 2 site
 2. A screen recorder that captures the screen and microphone
 3. An AI tool that can control a browser
-4. [`vibe-report-template.md`](vibe-report-template.md) — copy it to `vibe-report.md`
+4. [`vibe-report.md`](vibe-report.md) — type directly into this file
 
 Ask two classmates from other teams to be your testers. Test them one at a time.
 
