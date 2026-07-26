@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course at a Glance · Ethical Vibe Coding (TECHIE 1121)</title>
+    <meta name="description" content="Three weeks of Ethical Vibe Coding at Cornell Tech — daily lectures, individual activities, group projects, and guest speakers.">
+    <link rel="icon" type="image/png" href="assets/T-Neon-Green.png">
+    <link rel="apple-touch-icon" href="assets/T-Neon-Green.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505; --paper: #f4e4bc; --paper-soft: #faf3df;
+            --ink: #1a1a1a; --ink-soft: #4b4b4b; --neon: #00ff41; --neon-soft: #00ff4126;
+            --amber: #ffb020; --rule: rgba(255,255,255,0.08); --rule-paper: rgba(0,0,0,0.12);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { background: var(--bg); color: rgba(255,255,255,0.92); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; }
+        body { min-height: 100vh; padding: 28px 20px 90px; background: radial-gradient(1200px 600px at 80% -10%, rgba(0,255,65,0.07), transparent 60%), radial-gradient(900px 500px at -10% 110%, rgba(0,255,65,0.04), transparent 60%), var(--bg); }
+        .container { max-width: 1180px; margin: 0 auto; }
+        a { color: var(--neon); text-decoration: none; }
+
+        .top-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 34px; gap: 16px; flex-wrap: wrap; }
+        .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
+        .brand:hover { color: var(--neon); }
+        .brand img { width: 24px; height: 24px; }
+        .brand .term { color: rgba(255,255,255,0.45); font-weight: 500; }
+        .nav-links { display: inline-flex; gap: 10px; flex-wrap: wrap; }
+        .top-link { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--neon); border: 1px solid rgba(0,255,65,0.35); padding: 6px 12px; border-radius: 999px; transition: all 0.2s ease; }
+        .top-link:hover { background: var(--neon-soft); border-color: var(--neon); }
+
+        .kicker { font-family: 'JetBrains Mono', monospace; color: var(--neon); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
+        h1 { font-size: clamp(2rem, 4.6vw, 3.1rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.04; margin: 10px 0 12px; }
+        h1 .accent { color: var(--neon); }
+        .lede { color: rgba(255,255,255,0.66); max-width: 70ch; font-size: 1.06rem; }
+
+        .legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 22px 0 44px; font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+        .legend span { display: inline-flex; align-items: center; gap: 7px; }
+        .dot { width: 12px; height: 12px; border-radius: 3px; }
+        .dot.ind { background: var(--neon); }
+        .dot.grp { border: 1.5px dashed var(--neon); }
+        .dot.guest { background: var(--amber); border-radius: 50%; }
+
+        .week { margin-bottom: 40px; }
+        .week-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+        .week-n { font-family: 'JetBrains Mono', monospace; color: var(--neon); font-weight: 600; font-size: 0.95rem; }
+        .week-theme { color: rgba(255,255,255,0.9); font-weight: 700; font-size: 1.05rem; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+        .day { border-radius: 13px; padding: 15px 15px 14px; display: flex; flex-direction: column; gap: 7px; min-height: 172px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+        .day:hover { transform: translateY(-2px); }
+        .day.ind { background: var(--paper); color: var(--ink); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 8px 22px rgba(0,0,0,0.32); }
+        .day.ind:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.42), 0 0 0 1px rgba(0,255,65,0.4); }
+        .day.grp { background: rgba(0,255,65,0.05); border: 1.5px dashed rgba(0,255,65,0.55); color: rgba(255,255,255,0.92); }
+        .day.grp:hover { background: rgba(0,255,65,0.09); }
+
+        .day .date { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+        .day.ind .date { color: var(--ink-soft); }
+        .day.grp .date { color: rgba(255,255,255,0.55); }
+        .day .topic { font-weight: 700; font-size: 0.98rem; line-height: 1.22; }
+        .day.grp .topic { color: #fff; }
+        .day .desc { font-size: 0.82rem; line-height: 1.4; flex: 1; }
+        .day.ind .desc { color: var(--ink-soft); }
+        .day.grp .desc { color: rgba(255,255,255,0.66); }
+        .chip { align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+        .chip.ind { background: rgba(0,255,65,0.85); color: var(--ink); }
+        .chip.grp { background: transparent; border: 1px dashed rgba(0,255,65,0.6); color: var(--neon); }
+        .guest { font-size: 0.74rem; display: inline-flex; align-items: center; gap: 6px; }
+        .guest::before { content: '★'; color: var(--amber); }
+        .day.ind .guest { color: var(--ink-soft); }
+        .day.grp .guest { color: rgba(255,255,255,0.7); }
+
+        footer { margin-top: 56px; text-align: center; color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+        footer a { color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(0,255,65,0.4); }
+        @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <a class="brand" href="index.html">
+                <img src="assets/T-Neon-Green.png" alt="Cornell T">
+                <span>TECHIE 1121 Ethical Vibe Coding <span class="term">· Cornell Tech 2026SU</span></span>
+            </a>
+            <div class="nav-links">
+                <a class="top-link" href="index.html">Activities</a>
+                <a class="top-link" href="projects/index.html">Projects</a>
+                <a class="top-link" href="https://cornell-tech-vibe-coding-summer-2026.github.io/website/" target="_blank" rel="noopener noreferrer">Course site ↗</a>
+            </div>
+        </div>
+
+        <div class="kicker">Cornell Tech · Summer 2026 · 3-week intensive</div>
+        <h1>Ethical Vibe Coding — <span class="accent">course at a glance</span></h1>
+        <p class="lede">Learn to build real software with AI — fast, and <em>right</em>. Every day pairs a short lecture with a hands-on build; each week ends in a group project; and the final week ships something that benefits a real person outside the class.</p>
+
+        <div class="legend">
+            <span><span class="dot ind"></span> Individual activity</span>
+            <span><span class="dot grp"></span> Group project day</span>
+            <span><span class="dot guest"></span> Guest speaker</span>
+        </div>
+
+        <div id="weeks"></div>
+
+        <footer>
+            <p>TECHIE 1121 · Cornell Tech · <a href="index.html">daily activities</a> · <a href="projects/index.html">group projects</a> · <a href="projects/final.html">final project</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const WEEKS = [
+            { n: 1, theme: "Vibe Coding: Gaining Control", days: [
+                { date: "Mon · Jul 13", topic: "What is Vibe Coding?", type: "ind", desc: "Build & host a personal “about you” page from your GitHub repo.", href: "instructions.html?week=week1&project=7_13" },
+                { date: "Tue · Jul 14", topic: "Prompt Engineering", type: "ind", desc: "Test different prompts and compare the outcomes.", href: "instructions.html?week=week1&project=7_14" },
+                { date: "Wed · Jul 15", topic: "Bias in Vibe Coding", type: "ind", desc: "Compare vibe-coding tools and where they diverge.", href: "instructions.html?week=week1&project=7_15" },
+                { date: "Thu · Jul 16", topic: "Project 1 — Project Day", type: "grp", desc: "Vibe code something your team actually wants or needs.", href: "projects/index.html" },
+            ]},
+            { n: 2, theme: "Ethics: Doing the Right Thing", days: [
+                { date: "Mon · Jul 20", topic: "Values in Vibe Coding — AI as Moral Assistant", type: "ind", desc: "Build a Vibe Coding Footprint Calculator (CO₂, energy, water).", href: "instructions.html?week=week2&project=7_20" },
+                { date: "Tue · Jul 21", topic: "AI Safety: Red-Teaming", type: "ind", guest: "Heonjun Park · CityDogs", desc: "Red-team dark patterns — where does “safety” blur into design?", href: "instructions.html?week=week2&project=7_21" },
+                { date: "Wed · Jul 22", topic: "AI Against AI", type: "ind", desc: "Turn AI against AI harms — obfuscation for privacy protection.", href: "instructions.html?week=week2&project=7_22" },
+                { date: "Thu · Jul 23", topic: "Project 2 — Project Day", type: "grp", guest: "Remy Stewart · Figma AI", desc: "Build something that purposefully supports a human value.", href: "projects/index.html" },
+            ]},
+            { n: 3, theme: "Outcomes: Useful & Empowering Systems", days: [
+                { date: "Mon · Jul 27", topic: "Usability Testing — Human & Agent", type: "ind", desc: "Human + AI-agent testing of your prototype, cut into a ≤5-min video.", href: "instructions.html?week=week3&project=7_27" },
+                { date: "Tue · Jul 28", topic: "Final · Day 1 — Value Verification", type: "grp", guest: "Ria Gualano · accessibility", desc: "Does the design actually produce the value change? Research deck + canvas.", href: "projects/final.html" },
+                { date: "Wed · Jul 29", topic: "Final · Day 2 — Planning", type: "grp", guest: "Figma guest talk", desc: "Value-centered need finding (interview → persona) + storyboard.", href: "projects/final.html" },
+                { date: "Thu · Jul 30", topic: "Final · Day 3–4 — Build + Demo Night", type: "grp", desc: "Build from the storyboard, then present live on the monitors in the evening.", href: "projects/final.html" },
+            ]},
+        ];
+
+        const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
+
+        const weeksEl = document.getElementById('weeks');
+        WEEKS.forEach(w => {
+            const sec = el('div', 'week');
+            const head = el('div', 'week-head');
+            head.appendChild(el('span', 'week-n', 'WEEK ' + w.n));
+            head.appendChild(el('span', 'week-theme', w.theme));
+            sec.appendChild(head);
+            const grid = el('div', 'grid');
+            w.days.forEach(d => {
+                const card = el('a', 'day ' + d.type);
+                card.href = d.href;
+                card.appendChild(el('div', 'date', d.date));
+                card.appendChild(el('span', 'chip ' + d.type, d.type === 'ind' ? 'Individual' : 'Group project'));
+                card.appendChild(el('div', 'topic', d.topic));
+                card.appendChild(el('div', 'desc', d.desc));
+                if (d.guest) card.appendChild(el('div', 'guest', d.guest));
+                grid.appendChild(card);
+            });
+            sec.appendChild(grid);
+            weeksEl.appendChild(sec);
+        });
+    </script>
+</body>
+</html>
