@@ -507,7 +507,7 @@
                     // specific link (else it falls back to the activity instructions).
                     const isVideo = activity.deliverable === 'video';
                     const primaryProps = isVideo
-                        ? { class: 'action primary', href: activity.deliverableUrl || instructionsHref, text: 'Testing Video' }
+                        ? { class: 'action primary', href: activity.deliverableUrl || instructionsHref, text: activity.deliverableLabel || 'Testing Video' }
                         : { class: 'action primary', href: submissionHref, text: 'Live Page' };
                     if (isVideo && activity.deliverableUrl) { primaryProps.target = '_blank'; primaryProps.rel = 'noreferrer'; }
                     actions.appendChild(el('a', primaryProps));

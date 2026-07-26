@@ -46,5 +46,5 @@ Legend: 🟢 Suggested by the instructors  ·  🔵 Already listed in the syllab
 ## Week 3 — Outcomes: Evaluating What You Built, Then Building for Someone Else
 
 ### Mon · Jul 27 — Usability Testing — Human & Agent (video)
-- **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
+- **Primary** 🟢 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)

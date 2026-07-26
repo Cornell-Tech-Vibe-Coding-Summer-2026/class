@@ -214,7 +214,7 @@
               "role": "primary",
               "cite": "Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.",
               "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
-              "tag": "proposed"
+              "tag": "provided"
             },
             {
               "role": "reference",
@@ -223,7 +223,9 @@
               "tag": "provided"
             }
           ],
-          "deliverable": "video"
+          "deliverable": "video",
+          "deliverableLabel": "Watch Testing Demo",
+          "deliverableUrl": "https://www.youtube.com/watch?v=EH7Fx9rpC0c"
         }
       ]
     }

@@ -1,91 +1,127 @@
-# Usability Testing — Human & Agent (video deliverable)
+# Usability Testing — Human + Agent
 
-Today you put on the **usability researcher hat**. No coding. You take your team's
-**Project 2 prototype** (the one you deployed last Thursday) and test whether people —
-and an AI agent — can actually *use* it. Then you condense the evidence into one short,
-shareable video, the kind you'd hand a startup so they can make an informed decision.
+Today you are a usability researcher. Test your team’s **live Project 2 site** with
+two people and one AI agent, then turn the strongest evidence into one short video.
 
-**This is an individual activity on your team's shared project.** Everyone on the team
-runs their own testing, makes their own video, and writes their own report.
+This is an **individual activity**. Do not change the code today. Each
+student runs their own tests, makes their own video, and writes their own reflection.
 
-> **The scenario (setting only — we won't really send it):** imagine your team built this
-> for a real startup. They can't watch every test. Your job is to *compress hours of
-> testing into 5 minutes of evidence* they can act on.
+## What you will submit
 
-## What you're testing
-Your team's **deployed Project 2 prototype** — the live public link. Test the real thing
-in a browser, not the code.
+- One **unlisted YouTube video**, no longer than 5 minutes, with captions
+- One completed `vibe-report.md`
+- Your agent-testing prompts in `log_deliverable/history.md`
 
----
+## Before you start
 
-## Part A — Human usability testing (2 real testers)
+Open these four things:
 
-Find **two real people** (classmates from *other* teams, friends, family — not your own
-teammates) and test with each one separately.
+1. Your team’s deployed Project 2 site
+2. A screen recorder that captures the screen and microphone
+3. An AI tool that can control a browser
+4. [`vibe-report-template.md`](vibe-report-template.md) — copy it to `vibe-report.md`
 
-- **Give one concrete task**, not a tour — e.g. *"sign up and log your first entry."* Then **stay quiet**.
-- Ask them to **think aloud**: say what they see, expect, and are trying to do.
-- **Screen-record with audio** (QuickTime, Loom, or your OS recorder) — capture the screen *and* their voice.
-- **~10 minutes each** → at least **20 minutes** of human testing recorded in total.
-- Watch for: hesitation, confusion, wrong turns, misread labels, and any place they interpreted your app's *value* differently than you intended. Confusion is evidence — don't rescue them.
+Ask two classmates from other teams to be your testers. Test them one at a time.
 
-Frame breakdowns against [Nielsen's 10 heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) (visibility of status, match with the real world, error prevention, …).
+## Assignment Instructions
 
-## Part B — Agent-based usability testing
+### Do the reading
 
-Have an **AI agent take browser control of your deployed prototype** and attempt the same
-task(s), reporting the usability problems it hits. Screen-record the agent driving the site.
+Read [Nielsen’s 10 Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/).
+In your report, choose **two heuristics** and explain each one in your own words.
+You will use them to name what goes wrong during testing.
 
-Pick a tool you can access (all can drive a real browser against your live URL):
-- **Antigravity** (Google) — agent-first, built-in browser control; free tier.
-- **Your AI coding tool + a browser MCP** — e.g. **Chrome DevTools MCP** or **Playwright MCP** wired into Claude / Cursor / Windsurf / Gemini, so the agent clicks through your live site.
-- **[browser-use](https://github.com/browser-use/browser-use)** or **[Vercel agent-browser](https://github.com/vercel-labs/agent-browser)** — open-source agent browser control.
+### Write one test task
 
-Prompt the agent like a tester: *"You are a first-time user. Go to <URL> and try to
-<task>. Narrate what's confusing, where you get stuck, and what you'd change."* **Log your
-prompts** in `log_deliverable/history.md`.
+Choose one important action a first-time user should be able to finish.
 
-> [!TIP]
-> The agent won't feel frustration the way a human does — but it's fast, tireless, and
-> catches broken flows, dead links, and unclear labels. Notice what it finds that your
-> humans didn't, and what it completely missed.
+Good: “Add one study session for tomorrow at 4:00.”
 
----
+Too vague: “Explore the app and tell me what you think.”
 
-## The video — this is your submission
+Write the exact task in your report. Use the same task for all three tests so
+you can compare the results.
 
-Combine your recordings into **one video**:
+### Run two human tests
 
-- **Raw material:** your ≥20 min of human testing + the agent session.
-- **Final length: ≤ 5 minutes.** Cut and **speed up** the slow stretches — keep the moments that show a real usability finding.
-- **Subtitles required** — auto-generated YouTube captions are fine.
-- **End with a findings summary:** a few slides presenting your **top insights**, plus an **oral summary** — speak your findings out loud (this is you presenting the reflection).
-- **Self-contained and self-explanatory** — someone at the "startup" who never saw your app should understand what you tested, what went wrong, and what to fix, from the video alone.
-- **Host it on YouTube (unlisted)** and put the link in your report.
+Give each tester 10 minutes. Record the screen and their voice.
 
-## The write-up — `vibe-report.md`
+Read this script:
 
-Your user-testing report and reflection (fill in the provided `vibe-report.md`):
-1. What you tested (the prototype + the task(s) you gave).
-2. **Human findings** — what testers *did*, and the top usability issues, tied to heuristics.
-3. **Agent findings** — what the agent surfaced.
-4. **Human vs. agent** — what each method *gives you*, and the **strengths and weaknesses** of each. What did humans catch that the agent didn't, and vice versa?
-5. **Recommendations** — the changes you'd make (you won't build them today).
-6. The **video link**.
+> I am testing the website, not you. Please try to complete this task: **[read
+> your task]**. Think out loud: say what you notice, what you expect, and what
+> you are trying to do. I may stay quiet so I do not influence you.
 
-## Deliverables
-- `vibe-report.md` — the write-up, with the video link. **(There is no `code_deliverable/` today — you're testing, not building.)**
-- `log_deliverable/history.md` — your agent-testing prompts.
-- The **video** on YouTube (unlisted), linked from the report.
+While they work:
 
-Everyone submits **one video + one write-up.** Due Monday (Jul 27) — see `deadline.json`.
+- Do not give a tour or point at buttons.
+- If they go quiet, ask, “What are you thinking?”
+- If something surprises them, ask, “What did you expect to happen?”
+- Only stop the test if they are about to enter private information.
+- Write down the time of every hesitation, wrong turn, error, or workaround.
+
+### Run one agent test
+
+Give a browser-controlling AI the same live URL and task. You may use your coding
+tool with browser control, Chrome DevTools MCP, Playwright MCP, browser-use, or
+Vercel agent-browser.
+
+Use this prompt:
+
+> You are a first-time user. Open **[LIVE URL]** and complete this task:
+> **[TASK]**. Narrate each step. Do not inspect the source code. Report every
+> confusing label, broken control, dead end, missing response, and step you
+> cannot finish.
+
+Screen-record the session. Paste your exact prompts and the agent’s final report
+into `log_deliverable/history.md`.
+
+### Find the evidence and edit
+
+Review the three recordings. Choose **three strong moments**:
+
+- at least one moment from a human test;
+- at least one moment from the agent test; and
+- one moment that shows a useful difference between the two methods.
+
+For each moment, record what happened, the time in the recording, and the Nielsen
+heuristic it connects to. Cut long pauses and repeated footage.
+
+### Finish the video
+
+Keep the final video at **5 minutes or less**:
+
+1. **Context:** show the site and state the task.
+2. **Human evidence:** show the clearest moments from both testers.
+3. **Agent evidence:** show what the agent found or failed to notice.
+4. **Findings:** end on 2–3 simple slides listing your top issues and the first
+   change you recommend.
+5. **Spoken reflection:** explain what the reading helped you see and what human
+   testing revealed that the agent could not.
+
+Add captions. YouTube’s edited auto-captions are acceptable. Upload the video as
+**Unlisted**, not Private.
+
+### Write the reflection
+
+Complete `vibe-report.md`. Use specific evidence from your recordings and answer
+the reading question. The reflection must be your own writing; AI may only check
+grammar.
+
+### Submit and check
+
+- Open the unlisted YouTube link in a private/incognito window.
+- Paste the link into `vibe-report.md`.
+- Confirm the video is no longer than 5 minutes and captions are on.
+- Confirm `log_deliverable/history.md` contains your agent prompts.
+- Commit and push the report and log, then complete the Canvas submission.
 
 
 <!-- READINGS:START (generated by scripts/sync_readings.py — edit activities-manifest.json instead) -->
 
 ## 📖 Reading
 
-- **Primary** 🟡 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
+- **Primary** 🟢 — [Nielsen, J. 1994. 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - **Reference** 🟢 — [UEQ — User Experience Questionnaire (evaluation instrument).](https://www.ueq-online.org/)
 
 **Full course reading list:** [Course readings — all sessions](https://vibe-coding-ethics.tech.cornell.edu/instructions.html?file=planning/readings.md&title=Course%20Readings)
