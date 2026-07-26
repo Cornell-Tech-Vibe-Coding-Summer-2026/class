@@ -507,7 +507,7 @@
                     // their submitted video link.
                     const isVideo = activity.deliverable === 'video';
                     const primaryProps = isVideo
-                        ? { class: 'action primary', href: activity.deliverableUrl || '#', text: activity.deliverableLabel || 'Testing Video' }
+                        ? { class: 'action primary', href: activity.deliverableUrl || '#', text: activity.deliverableLabel || 'Your Video' }
                         : { class: 'action primary', href: submissionHref, text: 'Live Page' };
                     if (isVideo && !activity.deliverableUrl) {
                         primaryProps['aria-disabled'] = 'true';
