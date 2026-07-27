@@ -29,11 +29,14 @@ classmates. It must:
 > the next one (did the design actually produce the value change?). The final project is where you
 > act on that answer — often with a **different design for the same value**.
 
-## Accept the assignment (once, at the start of Tuesday)
-[https://classroom.github.com/a/VTWqWkXg](https://classroom.github.com/a/VTWqWkXg) — one
-member creates the team, the others **join that same team**. The repo comes pre-seeded:
-structure, **both report templates**, a `presentation/` folder, Vibe-Trace configs, and a
-Pages deploy. Everything lives at the repo root.
+## Accept the assignment — join the team named for your value
+[https://classroom.github.com/a/VTWqWkXg](https://classroom.github.com/a/VTWqWkXg). Your team
+is **named after the value you carry** (Security · Safety & Autonomy · Sustainability & Trust ·
+Care & Wellbeing · Productivity · Sustainability & Transparency). **One member creates the team
+with that exact name; everyone else joins it** — don't create a duplicate. See the
+[join table on the Final Project page](../final.html) for who's on which team. The repo comes
+pre-seeded: structure, **both report templates**, a `presentation/` folder, Vibe-Trace configs,
+and a Pages deploy — everything at the repo root.
 
 ---
 

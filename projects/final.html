@@ -56,6 +56,17 @@
         .carry { margin: 30px 0 44px; padding: 16px 18px; border-radius: 12px; border: 1px solid rgba(0,255,65,0.3); background: rgba(0,255,65,0.06); color: rgba(255,255,255,0.85); font-size: 0.98rem; }
         .carry b { color: var(--neon); }
 
+        /* join-your-team table */
+        .join-intro { color: rgba(255,255,255,0.66); max-width: 68ch; margin-bottom: 14px; }
+        .join-intro b { color: #fff; }
+        .join { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+        .join th { text-align: left; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); padding: 6px 12px; border-bottom: 1px solid var(--rule); }
+        .join td { padding: 11px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+        .join .team { font-weight: 700; color: var(--neon); white-space: nowrap; }
+        .join .mem { color: rgba(255,255,255,0.82); }
+        .join-note { color: rgba(255,255,255,0.62); font-size: 0.9rem; margin-top: 12px; }
+        .join-note b { color: #fff; }
+
         /* grading strip */
         .section-label { font-family: 'JetBrains Mono', ui-monospace, monospace; color: var(--neon); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.82rem; margin: 46px 0 14px; }
         .grade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 8px; }
@@ -124,6 +135,22 @@
         <div class="carry">
             <b>One value, all the way through.</b> Monday closed the Project 2 cycle (usability). Tuesday opens the next one (does the design actually produce the value change?). Wednesday and Thursday are where you act on that answer — often with a <b>different design for the same value</b>.
         </div>
+
+        <!-- JOIN YOUR TEAM -->
+        <div class="section-label">Join your final team — named for the value you carry</div>
+        <p class="join-intro">You keep your Project 2 team and its value. <b>One person</b> accepts the assignment first and creates the team using the <b>exact name below</b>; everyone else accepts and <b>joins that same team</b> — please don't create a second one.</p>
+        <table class="join">
+            <thead><tr><th>Team — your value</th><th>Who joins</th></tr></thead>
+            <tbody>
+                <tr><td class="team">Security</td><td class="mem">Isa Offengenden · Om Ravula · Jason Chen</td></tr>
+                <tr><td class="team">Safety &amp; Autonomy</td><td class="mem">John Maida · Ajin Yohannan</td></tr>
+                <tr><td class="team">Sustainability &amp; Trust</td><td class="mem">Emily Tai · Kylie Cheung · Aria Sharma</td></tr>
+                <tr><td class="team">Care &amp; Wellbeing</td><td class="mem">Elaine Huang · Winnie Monroe · Vienna Carew</td></tr>
+                <tr><td class="team">Productivity</td><td class="mem">Liam Allen · Justin Ou · Sebastien Gournay</td></tr>
+                <tr><td class="team">Sustainability &amp; Transparency</td><td class="mem">Evan Birnbaum · Derin Sezgin · Magnes Dugan · +1</td></tr>
+            </tbody>
+        </table>
+        <p class="join-note">⚠ Two "Sustainability" teams — check the <b>second word</b> (Trust vs. Transparency). Not listed, or unsure which team? <b>Ask an instructor before creating a team.</b></p>
 
         <!-- GRADING -->
         <div class="section-label">How it's graded — four checkpoints, one grade</div>
