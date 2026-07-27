@@ -1,31 +1,25 @@
 # Final Teams — the team name *is* the value
 
 For the final week, each team is referred to by **the value it committed to** in Project 2 and
-carries through the final. The GitHub team/repo slug stays the same (it's load-bearing for
-deployment) — only the *display name* becomes the value.
+carries through the final. The GitHub team/repo slug stays the same (load-bearing for deployment) —
+only the *display name* becomes the value. Values below are pulled from each team's Project 2
+`project-report.md` (due Mon Jul 27).
 
-**Status:** values come from each team's Project 2 `project-report.md`, due **Mon Jul 27**. Only
-teams that have already declared are named below; the rest fill in Monday (a one-line edit in
-[`build_team_decks.py`](../../website/slides/build/build_team_decks.py) → rebuild → re-share).
+| GitHub team | Members | Project 2 app | Value | Final display name |
+| :--- | :--- | :--- | :--- | :--- |
+| Super Duper Amazing Team | Isa Offengenden · Om Ravula · Jason Chen | safety app for minors on social media | **security** | **The Security Team** |
+| Jamin's 2nd Team | John Maida · Ajin Yohannan | **Vault Notes** (locking journal) | **safety** (+autonomy) | **The Safety Team** |
+| Chezborgar | Emily Tai · Kylie Cheung · Aria Sharma | **Borrow Board** (borrow, don't buy) | **sustainability & trust** | **The Sustainability & Trust Team** |
+| We're Always Two Steps Ahead | Elaine Huang · Winnie Monroe · Vienna Carew | **MyPace** (elderly health + family) | **care** (+wellbeing/health) | **The Care Team** |
+| The Professor's Favorites | Sebastien Gournay · Justin Ou | **Justina** (focus app) | **productivity** | **The Productivity Team** ⚠ |
+| Liam Justin Sebastien | Liam Allen · Justin Ou · Sebastien Gournay | **Justina** (focus app) | **productivity** | **The Productivity Team** ⚠ |
+| Guantanamo Bay Wendy's | Evan Birnbaum · Derin Sezgin · Magnes Dugan · `oc233-1`(?) | **Fixr Findr** | *not declared yet* | — |
 
-| GitHub team | Members | Committed value | Final display name |
-| :--- | :--- | :--- | :--- |
-| Super Duper Amazing Team | Isa Offengenden · Om Ravula · Jason Chen | **security** (flag suspicious accounts so minors are safer) | **The Security Team** |
-| Jamin's 2nd Team | John Maida · Ajin Yohannan | **safety** | **The Safety Team** |
-| Chezborgar | Emily Tai · Kylie Cheung · Aria Sharma | *TBD — declares with Project 2 (Mon)* | — |
-| Guantanamo Bay Wendy's | Evan Birnbaum · Derin Sezgin · Magnes Dugan · `oc233-1`(?) | *TBD (Mon)* | — |
-| We're Always Two Steps Ahead | Elaine Huang · Winnie Monroe · Vienna Carew | *TBD (Mon)* | — |
-| The Professor's Favorites | Sebastien Gournay · Justin Ou | *TBD (Mon)* | — |
-| Liam Justin Sebastien | Liam Allen *(only member?)* | *TBD (Mon)* | — |
+## ⚠ Roster tangles to resolve
+- **Two "Justina" repos = one team.** `the-professors-favorites` (Sebastien + Justin) and `liam-justin-sebastien` (Liam) are both the **Justina / productivity** project. **Consolidate to one repo + team** (Liam · Justin · Sebastien) for the final; decide which repo is canonical.
+- **Guantanamo Bay Wendy's** hasn't declared a value in its report yet, and **`oc233-1`** on that team doesn't map to a roster NetID — confirm who it is.
+- **Jamin Rose** isn't on any Project 2 team.
 
 ## Where the value-name shows up
-- **Team research decks** (`website/slides/build/build_team_decks.py` → `team-decks/`) — the cover leads with *"The &lt;Value&gt; Team"*; the GitHub team name stays small on the cover for mapping.
-- Teams also name their **FigJam canvas copy** and their **`overview.html`** after their value.
-
-## Roster issues to resolve Monday
-- **Liam Allen** is the only member of `liam-justin-sebastien` — Sebastien + Justin are on *The Professor's Favorites*.
-- **Jamin Rose** and **Oliver Chung** aren't on any Project 2 team.
-- **`oc233-1`** (on Guantanamo Bay Wendy's) doesn't map to a roster NetID — confirm who it is.
-
-> To finish Monday: set each team's `value=` in `build_team_decks.py`, rerun it, re-share the decks;
-> update this table; and use it to name the Canvas Final-Project group set.
+- **Team research decks** (`website/slides/build/build_team_decks.py` → `team-decks/`) — cover leads with *"The ‹Value› Team"*, shows the **Project 2 app**, keeps the GitHub team name small for mapping. Re-run the script after any value/roster change and re-share.
+- Teams also name their **FigJam canvas copy** and **`overview.html`** after their value.
