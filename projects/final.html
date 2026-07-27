@@ -66,6 +66,13 @@
         .join .mem { color: rgba(255,255,255,0.82); }
         .join-note { color: rgba(255,255,255,0.62); font-size: 0.9rem; margin-top: 12px; }
         .join-note b { color: #fff; }
+        /* foldable join block — keeps the page a clean showcase by default */
+        .join-fold { margin: 46px 0 14px; border-top: 1px solid var(--rule); padding-top: 16px; }
+        .join-fold > summary { font-family: 'JetBrains Mono', ui-monospace, monospace; color: var(--neon); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.82rem; cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; }
+        .join-fold > summary::-webkit-details-marker { display: none; }
+        .join-fold > summary::before { content: '▸'; display: inline-block; transition: transform 0.15s ease; }
+        .join-fold[open] > summary::before { transform: rotate(90deg); }
+        .join-fold > *:not(summary) { margin-top: 14px; }
 
         /* grading strip */
         .section-label { font-family: 'JetBrains Mono', ui-monospace, monospace; color: var(--neon); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.82rem; margin: 46px 0 14px; }
@@ -136,8 +143,9 @@
             <b>One value, all the way through.</b> Monday closed the Project 2 cycle (usability). Tuesday opens the next one (does the design actually produce the value change?). Wednesday and Thursday are where you act on that answer — often with a <b>different design for the same value</b>.
         </div>
 
-        <!-- JOIN YOUR TEAM -->
-        <div class="section-label">Join your final team — named for the value you carry</div>
+        <!-- JOIN YOUR TEAM (foldable — keeps the showcase page clean) -->
+        <details class="join-fold">
+        <summary>Value &amp; GitHub Classroom join — link + instructions</summary>
         <p class="join-intro"><b>Commit to a value at the start of class — your team name is that value.</b> We suggest carrying your Project 2 value through the final, but it's not required: you may switch to another key value or add a secondary one (the teams below are the suggested defaults). <b>One person</b> accepts first and creates the team with the <b>exact name</b> you choose; everyone else <b>joins that same team</b> — please don't create a duplicate.</p>
         <table class="join">
             <thead><tr><th>Team — your value</th><th>Who joins</th></tr></thead>
@@ -151,6 +159,7 @@
             </tbody>
         </table>
         <p class="join-note">⚠ Two "Sustainability" teams — check the <b>second word</b> (Trust vs. Transparency). Not listed, or unsure which team? <b>Ask an instructor before creating a team.</b></p>
+        </details>
 
         <!-- GRADING -->
         <div class="section-label">How it's graded — four checkpoints, one grade</div>
