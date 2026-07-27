@@ -13,11 +13,12 @@ only the *display name* becomes the value. Values below are pulled from each tea
 | We're Always Two Steps Ahead | Elaine Huang · Winnie Monroe · Vienna Carew | **MyPace** (elderly health + family) | **care** (+wellbeing/health) | **The Care Team** |
 | The Professor's Favorites | Sebastien Gournay · Justin Ou | **Justina** (focus app) | **productivity** | **The Productivity Team** ⚠ |
 | Liam Justin Sebastien | Liam Allen · Justin Ou · Sebastien Gournay | **Justina** (focus app) | **productivity** | **The Productivity Team** ⚠ |
-| Guantanamo Bay Wendy's | Evan Birnbaum · Derin Sezgin · Magnes Dugan · `oc233-1`(?) | **Fixr Findr** | *not declared yet* | — |
+| Guantanamo Bay Wendy's | Evan Birnbaum · Derin Sezgin · Magnes Dugan · `oc233-1`(?) | **Fixr Findr** | **sustainability & transparency** | **The Sustainability & Transparency Team** |
 
 ## ⚠ Roster tangles to resolve
 - **Two "Justina" repos = one team.** `the-professors-favorites` (Sebastien + Justin) and `liam-justin-sebastien` (Liam) are both the **Justina / productivity** project. **Consolidate to one repo + team** (Liam · Justin · Sebastien) for the final; decide which repo is canonical.
-- **Guantanamo Bay Wendy's** hasn't declared a value in its report yet, and **`oc233-1`** on that team doesn't map to a roster NetID — confirm who it is.
+- **Guantanamo Bay Wendy's** (Fixr Findr) states its value — **sustainability & transparency** — in the ethical-reflection section, not the value field. **`oc233-1`** on that team doesn't map to a roster NetID — confirm who it is.
+- **Deployment gotchas (fixed in the gallery, but tell the teams):** Super Duper's `code_deliverable/index.html` only links to the *dummy* feed — their real app is `fake_finder.html`. Fixr Findr's real build is at the **repo root**, not `code_deliverable/` (unbuilt Vite index). Both should make `code_deliverable/index.html` their actual app.
 - **Jamin Rose** isn't on any Project 2 team.
 
 ## Where the value-name shows up
