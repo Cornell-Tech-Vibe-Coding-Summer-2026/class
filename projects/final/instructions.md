@@ -56,7 +56,7 @@ verification canvas** (each member fills their own reflection lane). Guest lectu
 
 1. **Carry the value in — with the evidence.** You already have your value. Open with Tuesday's board: which reading you designed for, what the verification actually showed, and the **other design options** you flagged. If the old design didn't produce the value change, this is where you change the design — not the value.
 2. **Beneficiary.** Someone specific outside the class. Not "students."
-3. **Elicit the need.** Talk to that person — a short interview — or realistically stand in for them. Build a **persona** (who they are, their goal, their frustration, their context) and write the need **in their words**.
+3. **Elicit the need.** Talk to that person — a short interview — or realistically stand in for them. Build a **persona** (who they are, their goal, their frustration, their context) and write the need **in their words**. *(Comparing an AI-generated persona to a real one? See [NN/g — Synthetic Users](https://www.nngroup.com/articles/synthetic-users/).)*
 4. **Operationalize the value.** What is concretely true of a good solution if the value is present? Say it as behavior / understanding / affect (the Tuesday lens).
 5. **Storyboard the solution.** 4–8 frames: the user → their problem → where your thing enters → what changes. Hand-drawn (photograph it) or AI-assisted. **This is your build plan** for Thursday.
 6. **Scope.** The smallest real thing you can ship *and* demo Thursday — one complete action. Split who does what.
