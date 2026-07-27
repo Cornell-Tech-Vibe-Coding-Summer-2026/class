@@ -13,6 +13,12 @@ through the rest of the final.
 > [!NOTE]
 > **Today's guest lecture is on accessibility** — a good model of how a value becomes concrete, testable requirements.
 
+## First — commit to your value and name your team
+Your **team name is your value.** We *suggest* carrying the value from your Project 2 through the
+final — but it's **not mandatory**: you may **switch to another key value**, or **add a secondary**
+one. Just make sure the commitment is in your **team name** (and this deck), and accept the final
+under that name — see the [join table](../final.html).
+
 ## The core move: how you *operationalize* the value decides the method
 
 Values at Play calls this **Discovery II — defining an abstract value in operational terms.**
@@ -26,10 +32,10 @@ Values at Play calls this **Discovery II — defining an abstract value in opera
 Same value. Three completely different studies. Decide **how you operationalize the value** —
 then the method follows.
 
-## Set up your canvas (5 min)
-1. Open the board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**.
-2. Find the **TEMPLATE** section → **copy and paste it** on the board → **rename your copy to your team**. Work only in your copy.
-3. Fill blocks **01–04** together; each person fills **their own reflection lane** (06). Right-click your lane → *Copy link to selection* — that deep link is how your reflection is found.
+## Set up (5 min)
+**Your research deck** is in the **[team-decks Google Slides folder](https://drive.google.com/drive/folders/1-NG7Hvk8pdqQqCphLD76IEXZ4bzVEe_R?usp=share_link)** — open the one named for your team. **Restyle it to match your app's aesthetic if you like — and add interesting pictures and figures, not just text.**
+
+**Your canvas** — open **[Vibing Values](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**, find the **TEMPLATE** section, **copy + paste it**, and **rename your copy to your team**. Then fill blocks **01–04** together; each person fills **their own reflection lane** (06) → right-click → *Copy link to selection* (that's how your reflection is found).
 
 ## The deck — four parts (your value-centered user research deck)
 
