@@ -48,9 +48,9 @@ then the method follows.
 
 ## Deliverables (Checkpoint 1)
 1. **Team research deck** — filled in; each member owns their section 03 slide.
-2. **Team verification canvas** — your copy of the template, blocks 01–05 + each member's reflection lane (verdict · what surprised me · **AI I used**).
+2. **Team verification canvas** — your copy of the template, blocks 01–05 + each member's reflection lane (does it deliver the value? · what surprised me · **AI I used**).
 
-Carry the verdict into **[Day 2 — Plan](instructions.md)**.
+Carry what you found into **[Day 2 — Plan](instructions.md)**.
 
 ## Reading
 - **Values at Play — Verification** (Flanagan & Nissenbaum): operationalize a value, then test whether the built thing realizes it (behavior · understanding · affect).

@@ -51,7 +51,7 @@ designed for** — then the method follows.
 
 ## Deliverables — two things
 1. **Team research deck** — your team's pre-made deck, filled in. Your **section 03 slide is graded individually**.
-2. **Team verification canvas** — your team's copy of the template: blocks 01–05 filled together, **plus your own reflection lane** (your verdict, what surprised you, what the next cycle should do, and the AI you used).
+2. **Team verification canvas** — your team's copy of the template: blocks 01–05 filled together, **plus your own reflection lane** (whether it delivers the value, what surprised you, what the next cycle should do, and the AI you used).
 
 **How to submit:** put both links in **`submission.md`** — the team deck, and the deep link to **your own** reflection lane. That's it — no `vibe-report.md`, no `code_deliverable/` today.
 

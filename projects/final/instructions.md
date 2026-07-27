@@ -52,7 +52,7 @@ verification canvas** (each member fills their own reflection lane). Guest lectu
 
 ## 📋 Day 2 — Wed, Jul 29 · Plan: *What is the problem?*  → `planning-report.md`
 
-**Start from Tuesday's verdict**, then find the real need behind it.
+**Start from what Tuesday's verification showed**, then find the real need behind it.
 
 1. **Carry the value in — with the evidence.** You already have your value. Open with Tuesday's board: which reading you designed for, what the verification actually showed, and the **other design options** you flagged. If the old design didn't produce the value change, this is where you change the design — not the value.
 2. **Beneficiary.** Someone specific outside the class. Not "students."
