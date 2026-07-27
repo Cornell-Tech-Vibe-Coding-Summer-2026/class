@@ -29,16 +29,19 @@ then the method follows.
 ## Set up your canvas (5 min)
 1. Open the board: **[Vibing Values — Value Verification](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**.
 2. Find the **TEMPLATE** section → **copy and paste it** on the board → **rename your copy to your team**. Work only in your copy.
-3. Fill blocks **01–05** together; each person fills **their own reflection lane** (06). Right-click your lane → *Copy link to selection* — that deep link is how your reflection is found.
+3. Fill blocks **01–04** together; each person fills **their own reflection lane** (06). Right-click your lane → *Copy link to selection* — that deep link is how your reflection is found.
 
-## The deck — three parts (your team's pre-made deck)
+## The deck — four parts (your value-centered user research deck)
+
+> [!IMPORTANT]
+> **We're short on time — you won't run full user tests today.** So you **plan the methods** and **research** whether your design direction holds up. **Behavior** is hardest to test in class → **research it** (what do studies show?). **Understanding** and **affect** you *could* check quickly with fellow students.
+
 | Section | Who | What |
 | :-- | :-- | :-- |
-| **01** The value & how we define it | Team | The value, and how you operationalize it (behavior · understanding · affect) |
-| **02** Ways to verify | Team | How this value *can* be measured — **[Google Scholar](https://scholar.google.com/)** + validated instruments + how to run the method |
-| **03** What we found | **Each member, individually** | Your own named slide: your lens + method, your evidence, what works / what doesn't, the paper you found |
-| **04** Outlook | Team | What related research found — what worked, what **failed** (attribute each source) |
-| **05** So what | Team | What **other design** could achieve the value, and what the next cycle should discover |
+| **01** The value & how we define it | Team | The value, and how you **operationalize** it (behavior · understanding · affect) — VAP *Discovery II* |
+| **02** How would we verify it? | Team | Pick a method per lens (using **[Google Scholar](https://scholar.google.com/)** + the instruments below). Behavior → **research it**; understanding + affect → a quick student check is possible. |
+| **03** Design interventions that moved this value | **Each member, individually** | Your own named slide: a real design intervention tried for this value, its result (**worked / mixed / failed**), the source, and whether it supports our direction. |
+| **04** Our design directions | Team | 2–3 directions the evidence points to — **generative**, you carry these into Wednesday. |
 
 **Pick an instrument that fits *your* value — these are only examples, and they must match what you're analyzing:**
 
@@ -58,8 +61,8 @@ Don't default to UEQ for everything — the instrument has to measure *your* val
 > Report **what does not work** as carefully as what does — a well-evidenced *"it doesn't"* is a better result than a hopeful *"it does,"* and it's what gives you Wednesday's design brief.
 
 ## Deliverables (Checkpoint 1) — two things
-1. **A value-centered user research deck** — your team's pre-made deck, filled in; each member owns their section-03 slide.
-2. **A reflection on the FigJam canvas** — your team's copy of the template: blocks 01–05 filled together, **plus each member's own reflection lane** (does it deliver the value? · what surprised me · the AI I used).
+1. **A value-centered user research deck** — your team's pre-made deck, filled in; each member owns their **section-03 design-intervention slide**.
+2. **A reflection on the FigJam canvas** — your team's copy of the template: blocks 01–04 filled together, **plus each member's own reflection lane** (does it deliver the value? · what surprised me · the AI I used).
 
 Carry what you found into **[Day 2 — Plan](instructions.md)**.
 
