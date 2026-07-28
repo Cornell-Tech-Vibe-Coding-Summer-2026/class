@@ -21,6 +21,12 @@ only the *display name* becomes the value. Values below are pulled from each tea
 - **Deployment gotchas (fixed in the gallery, but tell the teams):** Super Duper's `code_deliverable/index.html` only links to the *dummy* feed — their real app is `fake_finder.html`. Fixr Findr's real build is at the **repo root**, not `code_deliverable/` (unbuilt Vite index). Both should make `code_deliverable/index.html` their actual app.
 - **Benjamin ("Jamin") Rose** helped **remotely** on Project 2 (away for a wedding) — confirm which final team he joins.
 
+## Class timers (instructor — project the wall clock)
+The `final.html` course page was retired (the per-team **[template showcase](https://cornell-tech-vibe-coding-summer-2026.github.io/cornell-tech-vibe-coding-summer-2026-final-project-template/)** is now the canonical Final Project page). The 9:00–12:00 run-of-show timers live on and are directly navigable:
+- **Tue** — [timer-tue.html](../projects/final/timer-tue.html) · https://vibe-coding-ethics.tech.cornell.edu/projects/final/timer-tue.html
+- **Wed** — [timer-wed.html](../projects/final/timer-wed.html) · https://vibe-coding-ethics.tech.cornell.edu/projects/final/timer-wed.html
+- **Thu** — [timer-thu.html](../projects/final/timer-thu.html) · https://vibe-coding-ethics.tech.cornell.edu/projects/final/timer-thu.html
+
 ## Where the value-name shows up
 - **Team research decks** (`website/slides/build/build_team_decks.py` → `team-decks/`) — cover leads with *"The ‹Value› Team"*, shows the **Project 2 app**, keeps the GitHub team name small for mapping. Re-run the script after any value/roster change and re-share.
 - Teams also name their **FigJam canvas copy** and **`overview.html`** after their value.

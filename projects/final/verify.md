@@ -1,6 +1,6 @@
 # Final Project · Day 1 (Tue Jul 28) — Value Verification
 
-> Part of the [Final Project](../final.html). This is **Checkpoint 1** of four — a group deliverable.
+> Part of the [Final Project](https://cornell-tech-vibe-coding-summer-2026.github.io/cornell-tech-vibe-coding-summer-2026-final-project-template/). This is **Checkpoint 1** of four — a group deliverable.
 
 Monday **closed** the Project 2 cycle (usability found the nitty-gritty to fix). Today **opens**
 the next one: you verify whether your design actually produces the **value change** you claimed,
@@ -17,7 +17,7 @@ through the rest of the final.
 Your **team name is your value.** We *suggest* carrying the value from your Project 2 through the
 final — but it's **not mandatory**: you may **switch to another key value**, or **add a secondary**
 one. Just make sure the commitment is in your **team name** (and this deck), and accept the final
-under that name — see the [join table](../final.html).
+under that name — see the [join table](https://cornell-tech-vibe-coding-summer-2026.github.io/cornell-tech-vibe-coding-summer-2026-final-project-template/).
 
 ## The core move: how you *operationalize* the value decides the method
 

@@ -32,7 +32,7 @@ apply them to your own builds:
 The final is graded as **four Canvas checkpoints** — Verify (Tue) · Plan (Wed) · Build (Thu) ·
 Present (Thu 3–5 showcase). The summary of the first three is your **25% project grade** (this rubric);
 the presentation is a separate **15%**. See **[Grading & Canvas Setup](../planning/grading.md)**
-for the full mapping, and the **[Final Project page](../final.html)** for the day-by-day briefs.
+for the full mapping, and the **[Final Project page](https://cornell-tech-vibe-coding-summer-2026.github.io/cornell-tech-vibe-coding-summer-2026-final-project-template/)** for the day-by-day briefs.
 
 5. **Presentation** — slides and a live demo, delivered at the Thursday 3–5 PM showcase. Graded as its own 15% (Final Presentation) on top of the 25% project grade.
 

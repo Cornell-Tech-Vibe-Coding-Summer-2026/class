@@ -1,6 +1,6 @@
 # Final Project — Build Something That Benefits Someone Outside the Class
 
-> **📄 This is the full brief.** The day-by-day overview lives on the [Final Project page](../final.html).
+> **📄 This is the full brief.** The day-by-day overview lives on the [Final Project page](https://cornell-tech-vibe-coding-summer-2026.github.io/cornell-tech-vibe-coding-summer-2026-final-project-template/).
 
 **Type:** Group project (your stable teams) · **Weight:** 25% project + 15% presentation
 **Runs Tue → Thu, graded as four Canvas checkpoints — the summary is your project grade:**
@@ -35,7 +35,7 @@ classmates. It must:
 value — Security · Safety & Autonomy · Sustainability & Trust · Care & Wellbeing · Productivity ·
 Sustainability & Transparency — but you may switch or add a secondary value). **One member creates
 the team with that exact name; everyone else joins it** — don't create a duplicate. See the
-[join table on the Final Project page](../final.html) for who's on which team. The repo comes
+[join table on the Final Project page](https://cornell-tech-vibe-coding-summer-2026.github.io/cornell-tech-vibe-coding-summer-2026-final-project-template/) for who's on which team. The repo comes
 pre-seeded: structure, **both report templates**, a `presentation/` folder, Vibe-Trace configs,
 and a Pages deploy — everything at the repo root.
 
