@@ -50,7 +50,7 @@ designed for** (privacy as control vs. security vs. contextual integrity — the
 method), research what's already been tried, run the check, and report what works and what doesn't
 across the three lenses. This **opens** the cycle the rest of the week acts on.
 
-**Deliverable →** your **team research deck** (each member owns a named slide) + your **team
+**Deliverable →** your **[team research deck](https://drive.google.com/drive/folders/1-NG7Hvk8pdqQqCphLD76IEXZ4bzVEe_R?usp=share_link)** (from the shared Slides folder; each member owns a named slide) + your **team
 verification canvas** (each member fills their own reflection lane). Guest lecture: accessibility.
 **[→ Full Day-1 brief](verify.md)**
 
