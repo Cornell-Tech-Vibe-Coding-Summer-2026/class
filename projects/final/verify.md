@@ -45,9 +45,18 @@ then the method follows.
 | Section | Who | What |
 | :-- | :-- | :-- |
 | **01** The value & how we define it | Team | The value, and how you **operationalize** it (behavior · understanding · affect) — VAP *Discovery II* |
-| **02** How would we verify it? | Team | Pick a method per lens (using **[Google Scholar](https://scholar.google.com/)** + the instruments below). Behavior → **research it**; understanding + affect → a quick student check is possible. |
-| **03** Design interventions that moved this value | **Each member, individually** | Your own named slide: a real design intervention tried for this value, its result (**worked / mixed / failed**), the source, and whether it supports our direction. |
+| **02** How would we verify it? | Team | Pick a method per lens — search with the **AI academic tools below** + the instruments below. Behavior → **research it**; understanding + affect → a quick student check is possible. |
+| **03** Design interventions that moved this value | **Each member, individually** | **Find one real paper** (AI academic search — see below), **read it** in the protected reading time, then put on your named slide: the design intervention it tried, its result (**worked / mixed / failed**), the source, and whether it supports our direction. |
 | **04** Our design directions | Team | 2–3 directions the evidence points to — **generative**, you carry these into Wednesday. |
+
+### Find + read your paper (each person, for section 03)
+Section 03 is **individual**: each of you finds **one real paper** on a design intervention for your value, and **reads it** — there is **protected, quiet reading time** in class to do exactly that. Search with an **AI academic tool**:
+
+- **Claude / ChatGPT** — ask for real, citable papers on interventions for your value, then **open each one and check it actually says what you think** (they can hallucinate cites).
+- **[Elicit](https://elicit.com/)** · **[Semantic Scholar](https://www.semanticscholar.org/)** — literature search over real papers, with summaries.
+- **[Google Scholar](https://scholar.google.com/)** — and its new **Scholar Labs** AI search.
+
+Then, in the reading block: **read the paper you found**, pull out the intervention + its result, and write it onto your named section-03 slide. Reading beats skimming an abstract — the finding you can defend is worth more than five you can't.
 
 **Pick an instrument that fits *your* value — these are only examples, and they must match what you're analyzing:**
 
