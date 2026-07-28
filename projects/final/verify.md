@@ -37,26 +37,31 @@ then the method follows.
 
 **Your canvas** — open **[Vibing Values](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790)**, find the **TEMPLATE** section, **copy + paste it**, and **rename your copy to your team**. Then fill blocks **01–04** together; each person fills **their own reflection lane** (06) → right-click → *Copy link to selection* (that's how your reflection is found).
 
-## The deck — four parts (your value-centered user research deck)
+## The deck — five parts (your value-centered user research deck)
+
+The deck **mirrors the [Vibing Values FigJam canvas](https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=328-3736)** — the canvas is where your team works it out; the deck is where you present it. **Same blocks, same order.**
 
 > [!IMPORTANT]
-> **We're short on time — you won't run full user tests today.** So you **plan the methods** and **research** whether your design direction holds up. **Behavior** is hardest to test in class → **research it** (what do studies show?). **Understanding** and **affect** you *could* check quickly with fellow students.
+> **We're short on time — you won't run a full user study today.** For **03 What we found**, apply your metrics **with a partner** — it's fine to **speculate** (real verification takes time). For **04**, each person **finds and reads one real paper**. **Behavior** is hardest to check → lean on research; **understanding** and **affect** you *can* sanity-check with fellow students.
 
-| Section | Who | What |
-| :-- | :-- | :-- |
-| **01** The value & how we define it | Team | The value, and how you **operationalize** it (behavior · understanding · affect) — VAP *Discovery II* |
-| **02** How would we verify it? | Team | Pick a method per lens — search with the **AI academic tools below** + the instruments below. Behavior → **research it**; understanding + affect → a quick student check is possible. |
-| **03** Design interventions that moved this value | **Each member, individually** | **Find one real paper** (AI academic search — see below), **read it** in the protected reading time, then put on your named slide: the design intervention it tried, its result (**worked / mixed / failed**), the source, and whether it supports our direction. |
-| **04** Our design directions | Team | 2–3 directions the evidence points to — **generative**, you carry these into Wednesday. |
+| Section | Who | What | FigJam block |
+| :-- | :-- | :-- | :-- |
+| **01** The value & how we define it | Team | The value, and how you **operationalize** it (behavior · understanding · affect) — VAP *Discovery II* | Value Definition |
+| **02** How would we verify it? | Team | A method per lens + **how others measure it** (search with the AI academic tools below); pick an **instrument** that fits your value | Brainstorm 1·2·3 + 02 |
+| **03** What we found | Team | Apply the metrics with a partner (speculating is OK): do users **ACT** / **GRASP** / **FEEL** differently? Green = works, red = doesn't | 03 |
+| **04** What related research found | **Each member** | **Find + read one real paper** (AI search — below): source · what **worked** · what **failed**. This is your named slide | 04 Outlook |
+| **05** So what — our next design direction | Team | If the design doesn't move the value, what would? 2–3 directions — **generative**, carry into Wednesday | 05 |
 
-### Find + read your paper (each person, for section 03)
-Section 03 is **individual**: each of you finds **one real paper** on a design intervention for your value, and **reads it** — there is **protected, quiet reading time** in class to do exactly that. Search with an **AI academic tool**:
+Your **individual reflection** is **not** a deck slide — it goes in **your own lane on the FigJam canvas** (block **06**): *does it deliver the value?* · *what surprised me* · *the AI I used*.
+
+### Find + read your paper (each person, for section 04)
+Section 04 is **individual**: each of you finds **one real paper** on a design intervention for your value, and **reads it** — there is **protected, quiet reading time** in class to do exactly that (the FigJam sticky says it too: *read one paper per member, not just an AI summary*). Search with an **AI academic tool**:
 
 - **Claude / ChatGPT** — ask for real, citable papers on interventions for your value, then **open each one and check it actually says what you think** (they can hallucinate cites).
 - **[Elicit](https://elicit.com/)** · **[Semantic Scholar](https://www.semanticscholar.org/)** — literature search over real papers, with summaries.
 - **[Google Scholar](https://scholar.google.com/)** — and its new **Scholar Labs** AI search.
 
-Then, in the reading block: **read the paper you found**, pull out the intervention + its result, and write it onto your named section-03 slide. Reading beats skimming an abstract — the finding you can defend is worth more than five you can't.
+Then, in the reading block: **read the paper you found**, pull out the intervention + its result (what **worked** · what **failed**), and write it onto your named **section-04** slide. Reading beats skimming an abstract — the finding you can defend is worth more than five you can't.
 
 **Pick an instrument that fits *your* value — these are only examples, and they must match what you're analyzing:**
 
@@ -76,8 +81,8 @@ Don't default to UEQ for everything — the instrument has to measure *your* val
 > Report **what does not work** as carefully as what does — a well-evidenced *"it doesn't"* is a better result than a hopeful *"it does,"* and it's what gives you Wednesday's design brief.
 
 ## Deliverables (Checkpoint 1) — two things
-1. **A value-centered user research deck** — your team's pre-made deck, filled in; each member owns their **section-03 design-intervention slide**.
-2. **A reflection on the FigJam canvas** — your team's copy of the template: blocks 01–04 filled together, **plus each member's own reflection lane** (does it deliver the value? · what surprised me · the AI I used).
+1. **A value-centered user research deck** — your team's pre-made deck, filled in; each member owns their **section-04 paper slide** (the paper they found + read).
+2. **A reflection on the FigJam canvas** — your team's copy of the template: blocks **01–05 filled together**, **plus each member's own reflection lane** (**06**: does it deliver the value? · what surprised me · the AI I used).
 
 Carry what you found into **[Day 2 — Plan](instructions.md)**.
 
