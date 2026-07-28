@@ -89,6 +89,8 @@
         .day-rail { position: relative; }
         .day-tag { font-family: 'JetBrains Mono', ui-monospace, monospace; color: var(--neon); font-weight: 600; font-size: 0.8rem; }
         .day-date { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 4px; }
+        .day-timer { display: inline-block; margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.68rem; color: rgba(0,255,65,0.75); border: 1px solid rgba(0,255,65,0.28); border-radius: 999px; padding: 3px 9px; }
+        .day-timer:hover { background: var(--neon-soft); }
         .card { background: var(--paper); color: var(--ink); border-radius: 14px; padding: 20px 20px 18px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
         .card .phase { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
         .card h3 { font-size: 1.32rem; font-weight: 800; letter-spacing: -0.01em; margin: 4px 0 8px; }
@@ -175,7 +177,7 @@
         <div class="section-label">The four days — a brief and a deliverable each</div>
 
         <div class="day">
-            <div class="day-rail"><div class="day-tag">DAY 1 · VERIFY</div><div class="day-date">Tue · Jul 28</div></div>
+            <div class="day-rail"><div class="day-tag">DAY 1 · VERIFY</div><div class="day-date">Tue · Jul 28</div><a class="day-timer" href="final/timer-tue.html">▶ class timer</a></div>
             <div class="card">
                 <div class="phase">What's wrong with what we have?</div>
                 <h3>Value verification</h3>
@@ -189,12 +191,12 @@
         </div>
 
         <div class="day">
-            <div class="day-rail"><div class="day-tag">DAY 2 · PLAN</div><div class="day-date">Wed · Jul 29</div></div>
+            <div class="day-rail"><div class="day-tag">DAY 2 · PLAN</div><div class="day-date">Wed · Jul 29</div><a class="day-timer" href="final/timer-wed.html">▶ class timer</a></div>
             <div class="card">
                 <div class="phase">What's the problem to solve next?</div>
                 <h3>Value-centered planning</h3>
                 <div class="q">Who is this for, and what do they actually need?</div>
-                <p>Open with Remy Stewart's Figma guest talk. Elicit a real need from someone outside the class (interview → persona), operationalize the value into requirements, and storyboard the solution — the tree bottoms out in the prompts you'll build from tomorrow.</p>
+                <p>Open with Remy Stewart's Figma guest talk, then a short planning lecture (personas + storyboards, with and without AI). Elicit a real need from someone outside the class (interview → persona), operationalize the value, and storyboard the solution. <b>Spend the last 30 minutes vibe coding</b> — get a head start on Thursday.</p>
                 <div class="deliv">
                     <div class="deliv-item"><div class="lbl">Deliverable</div><div class="val"><a href="../instructions.html?file=projects/final/planning-report.md&title=Planning%20Report">Planning report</a></div><div class="slot">planning-report.md in your repo →</div></div>
                 </div>
@@ -202,12 +204,12 @@
         </div>
 
         <div class="day">
-            <div class="day-rail"><div class="day-tag">DAY 3 · BUILD</div><div class="day-date">Thu · Jul 30</div></div>
+            <div class="day-rail"><div class="day-tag">DAY 3 · BUILD</div><div class="day-date">Thu · Jul 30</div><a class="day-timer" href="final/timer-thu.html">▶ build timer</a></div>
             <div class="card">
                 <div class="phase">What's the solution?</div>
                 <h3>Vibe-code + pitch</h3>
                 <div class="q">Can a stranger complete one real action, and does the value live in the design?</div>
-                <p>Build the smallest real thing from your storyboard, test it quickly and change one thing on the evidence, then make an AI-generated pitch video that showcases the artifact.</p>
+                <p><b>No lecture, no new test</b> — a full heads-down build day (you tested Mon + Tue already). Build the smallest real thing from your storyboard, then make a short pitch video that shows the idea of your app — <b>it needn't be AI</b>; screen-recorded, acted, or animated all work, whatever feels authentic. Embed it in your slides.</p>
                 <div class="deliv">
                     <div class="deliv-item"><div class="lbl">Deliverable</div><div class="val">Hosted app</div><div class="slot">live link →</div></div>
                     <div class="deliv-item"><div class="lbl">Deliverable</div><div class="val"><a href="../instructions.html?file=projects/final/project-report.md&title=Project%20Report">Project report</a></div><div class="slot">project-report.md →</div></div>
@@ -217,12 +219,12 @@
         </div>
 
         <div class="day">
-            <div class="day-rail"><div class="day-tag">DAY 4 · PRESENT</div><div class="day-date">Thu · evening</div></div>
+            <div class="day-rail"><div class="day-tag">DAY 4 · PRESENT</div><div class="day-date">Thu · 3–5 PM</div></div>
             <div class="card">
                 <div class="phase">Show the world</div>
-                <h3>Demo night</h3>
-                <div class="q">The artifact, the value, the evidence, and who keeps it alive.</div>
-                <p>Present live — prototype and slides on the monitors. Show the artifact, the value it operationalizes and for whom, the evidence from your testing, your pitch, and the afterlife (who keeps using or maintaining it).</p>
+                <h3>The showcase</h3>
+                <div class="q">The arc of your value — artifact, journey, and who keeps it alive.</div>
+                <p>A shared afternoon showcase (alongside other classes, with a family keynote). Present live — prototype and slides on the monitors, <b>pitch video embedded</b>. Tell the whole story: the artifact, who it's for (persona + storyboard), your research findings, the <b>design alternatives you considered</b> and how the design progressed, your pitch, and the afterlife.</p>
                 <div class="deliv">
                     <div class="deliv-item"><div class="lbl">Deliverable</div><div class="val">Live presentation</div><div class="slot">slides + demo on the monitor →</div></div>
                 </div>

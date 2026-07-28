@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final · Tue — Class Timer</title>
+<style>
+  :root{ --bg:#0B0E14; --panel:#151B26; --neon:#00ff41; --ink:#F5F7FA; --muted:#8A94A6; --amber:#ffb020; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);
+    color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    padding:28px 24px;gap:22px}
+  .kicker{font-family:'Courier New',monospace;color:var(--neon);letter-spacing:.18em;
+    font-weight:700;font-size:clamp(12px,1.4vw,16px);text-transform:uppercase}
+  h1{font-size:clamp(20px,2.7vw,34px);text-align:center}
+  .setup{width:min(1100px,92vw);background:var(--panel);border:1px solid rgba(0,255,65,.3);
+    border-radius:10px;padding:12px 18px;font-size:clamp(13px,1.45vw,17px)}
+  .setup .h{color:var(--neon);font-family:'Courier New',monospace;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;font-size:.82em}
+  .setup ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:6px;width:auto}
+  .setup li{background:none;border:0;padding:0;display:list-item;color:var(--ink)}
+  .setup b{color:var(--neon)} .setup a{color:var(--neon)}
+  .remind{width:min(1100px,92vw);background:rgba(0,255,65,.10);border:1px solid rgba(0,255,65,.4);
+    border-radius:10px;padding:9px 16px;color:var(--neon);font-size:clamp(13px,1.5vw,17px);
+    text-align:center;font-weight:600}
+  #phase{font-size:clamp(26px,4.6vw,60px);font-weight:800;text-align:center;color:var(--neon)}
+  #detail{font-size:clamp(15px,1.8vw,22px);color:var(--muted);text-align:center;max-width:960px;line-height:1.5}
+  #clock{font-family:'Courier New',monospace;font-size:clamp(56px,12vw,150px);font-weight:700;
+    line-height:1;font-variant-numeric:tabular-nums}
+  #clock.warn{color:var(--amber)}#clock.crit{color:#ff4141;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:.35}}
+  .bar{width:min(1100px,92vw);height:10px;background:var(--panel);border-radius:5px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--neon);width:0%}
+  ol{list-style:none;width:min(1100px,92vw);display:flex;flex-direction:column;gap:7px}
+  li{display:flex;gap:14px;align-items:baseline;background:var(--panel);border-radius:10px;
+    padding:11px 18px;font-size:clamp(13px,1.5vw,19px);border-left:4px solid transparent}
+  li .t{font-family:'Courier New',monospace;color:var(--muted);min-width:8.5em}
+  li.done{opacity:.38}li.done .name{text-decoration:line-through}
+  li.now{border-left-color:var(--neon)}li.now .name{color:var(--neon);font-weight:700}
+  li.brk.now{border-left-color:var(--amber)}li.brk.now .name{color:var(--amber)}
+  li .hint{color:var(--muted);font-size:.85em;margin-left:auto;text-align:right}
+  footer{color:var(--muted);font-family:'Courier New',monospace;font-size:13px;margin-top:auto}
+</style>
+</head>
+<body>
+  <div>
+    <div class="kicker" style="text-align:center">Final · Day 1 · Tue Jul 28 · Verify</div>
+    <h1>Does the design actually produce the value change? — research it today</h1>
+  </div>
+  <div class="setup">
+    <span class="h">Get set up — first few minutes</span>
+    <ol>
+      <li><b>1.</b> <b>Commit to your value</b> — name your team that value on the <a href="https://classroom.github.com/a/VTWqWkXg">final GitHub Classroom</a> (one person creates, everyone else joins).</li>
+      <li><b>2.</b> Open your <a href="https://drive.google.com/drive/folders/1-NG7Hvk8pdqQqCphLD76IEXZ4bzVEe_R?usp=share_link">team research deck</a> and the <a href="https://www.figma.com/board/RWdakXFHiSfqF66IgMlV1k/Vibing-Values?node-id=315-4790">Vibing Values canvas</a>.</li>
+      <li><b>3.</b> On the canvas: copy the <b>TEMPLATE</b>, rename it to your team.</li>
+    </ol>
+  </div>
+  <div class="remind">🔬 You won't run full tests today — you <b>plan the method</b> and <b>research</b> whether your design direction holds up. Never invent a citation.</div>
+  <div id="phase">—</div>
+  <div id="detail"></div>
+  <div id="clock">--:--</div>
+  <div class="bar"><i id="fill"></i></div>
+  <ol id="plan"></ol>
+  <footer>TECHIE 1121 · Cornell Tech · Checkpoint 1 due today · timer runs on wall-clock time — reloading is safe</footer>
+
+<script>
+const PHASES = [
+  {end:"09:15", name:"0 · Arrive · commit to your value",
+   detail:"Pick the value your team commits to, name your team that value, and join it on GitHub Classroom — one person creates the team, everyone else joins the same one. Open your deck + the Vibing Values canvas."},
+  {end:"09:50", name:"★ Guest lecture — accessibility",
+   detail:"Ria Gualano on accessibility — a working model of how a value becomes concrete, testable requirements. Watch for how an abstract value gets operationalized."},
+  {end:"10:35", name:"1 · Values at Play — the whole framework",
+   detail:"Discovery → Implementation → Verification. Today's move is Discovery II: how you OPERATIONALIZE your value (as control? security? contextual integrity?) decides the method you'd use to verify it."},
+  {end:"10:55", name:"2 · Quiet reading — VAP Verification",
+   detail:"20 minutes, phones away. Read the Verification piece yourself. Mark one place where a value gets operationalized, and one line that fits YOUR value — you'll pair-share after."},
+  {end:"11:05", name:"☕ Break", break:true,
+   detail:"Stretch, water, back in 10."},
+  {end:"11:15", name:"3 · Set up the activity",
+   detail:"As a team: open your pre-made research deck and your renamed canvas copy. Skim the four deck sections and the canvas lanes so everyone knows what they own."},
+  {end:"11:55", name:"4 · Team work — deck + canvas",
+   detail:"Fill deck 01 (operationalize the value) + 02 (a method per lens — behavior → research it). Each person owns a section-03 design-intervention slide + their own reflection lane on the canvas."},
+  {end:"12:00", name:"5 · Wrap · what's due",
+   detail:"Two deliverables: your value-centered research deck + a reflection on the FigJam canvas (each member's lane linked). Carry what you found into Wednesday's planning."},
+];
+const START = "09:00";
+
+const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
+const planEl = document.getElementById("plan");
+PHASES.forEach((p,i) => {
+  const from = i === 0 ? START : PHASES[i-1].end;
+  const li = document.createElement("li");
+  if (p.break) li.classList.add("brk");
+  li.innerHTML = `<span class="t">${from}–${p.end}</span><span class="name">${p.name}</span>` +
+                 `<span class="hint">${toMin(p.end)-toMin(from)} min</span>`;
+  planEl.appendChild(li);
+});
+
+let lastPhase = -1;
+function beep(){ try{
+  const c = new (window.AudioContext||window.webkitAudioContext)();
+  const o = c.createOscillator(), g = c.createGain();
+  o.connect(g); g.connect(c.destination); o.frequency.value = 880; g.gain.value = .12;
+  o.start(); o.stop(c.currentTime + .35);
+}catch(e){} }
+
+function tick(){
+  const now = new Date();
+  const nowMin = now.getHours()*60 + now.getMinutes() + now.getSeconds()/60;
+  const idx = PHASES.findIndex(p => nowMin < toMin(p.end));
+  const items = planEl.children;
+  for (let i=0;i<items.length;i++){
+    const base = items[i].classList.contains("brk") ? "brk " : "";
+    items[i].className = base + (idx === -1 || i < idx ? "done" : (i === idx ? "now" : ""));
+  }
+  const phaseEl = document.getElementById("phase"), detailEl = document.getElementById("detail"),
+        clockEl = document.getElementById("clock"), fill = document.getElementById("fill");
+  if (idx === -1){
+    phaseEl.textContent = "✅ That's a wrap";
+    detailEl.textContent = "Deck + canvas submitted. Tomorrow: planning — bring your findings.";
+    clockEl.textContent = "00:00"; clockEl.className = ""; fill.style.width = "100%";
+    return;
+  }
+  if (idx !== lastPhase && lastPhase !== -1) beep();
+  lastPhase = idx;
+  const p = PHASES[idx];
+  const from = idx === 0 ? toMin(START) : toMin(PHASES[idx-1].end);
+  const left = toMin(p.end) - nowMin;
+  const mm = Math.floor(left), ss = Math.floor((left-mm)*60);
+  phaseEl.textContent = p.name;
+  detailEl.textContent = p.detail;
+  clockEl.textContent = String(mm).padStart(2,"0") + ":" + String(ss).padStart(2,"0");
+  clockEl.className = left <= 1 ? "crit" : (left <= 3 ? "warn" : "");
+  fill.style.width = Math.min(100, Math.max(0, (nowMin-from)/(toMin(p.end)-from)*100)) + "%";
+}
+tick(); setInterval(tick, 250);
+</script>
+</body>
+</html>

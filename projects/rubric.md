@@ -8,7 +8,7 @@ The daily activities use a different rubric ([activity_rubric.md](../planning/ac
 | :--- | :--- | :--- |
 | **Good Vibes — Concept & Planning** | 20% | Novel concept and real exploration of the design space. A convincing argument for *why* this should be built, with planning that came before the coding. |
 | **Good Code — Functionality & Execution** | 20% | The system works and is technically well executed. Hosted and runnable; not a placeholder or a broken demo. |
-| **Live Demo — User Testing** | 15% | You planned, ran, and documented an iterative test of the design and system **with real users** (classmates count), and used what you learned to understand the system's limits and broader impacts. |
+| **Live Demo — User Testing** | 15% | You planned, ran, and documented testing of the design **with real users** (classmates count) — the Monday usability test and Tuesday value verification — and used what you learned to understand the system's limits and broader impacts. |
 | **Deep Ethical Reflection** | 25% | Genuine engagement with the values, tensions, stakeholders, and harms your project touches. **AI writing is impermissible here except for grammar checking.** |
 | **Communication & Documentation** | 20% | Text, video, and photos that clearly show what the system does and document the plan and process. A reader who never saw the demo understands it. |
 
@@ -25,16 +25,16 @@ activity) and on the **final's Day 1** (value verification — the final's Check
 apply them to your own builds:
 
 - **Project 2:** document the quick informal classmate test inside `project-report.md`; no separate `user-test.md` is required.
-- **Final Project:** document your quick user test **and the one change you made** in `project-report.md` (§4); no separate `user-test.md` is required. The "Live Demo — User Testing" credit (15%) is assessed against that section plus your live demo.
+- **Final Project:** your testing evidence comes from **Monday's usability test** and **Tuesday's value verification** (the final's Checkpoint 1) — there is **no separate Thursday test**. Document what you learned and what it changed in `project-report.md`; no separate `user-test.md` is required. The "Live Demo — User Testing" credit (15%) is assessed against that evidence plus your live demo.
 
 ## The Final Project runs across four checkpoints
 
 The final is graded as **four Canvas checkpoints** — Verify (Tue) · Plan (Wed) · Build (Thu) ·
-Present (Thu eve). The summary of the first three is your **25% project grade** (this rubric);
+Present (Thu 3–5 showcase). The summary of the first three is your **25% project grade** (this rubric);
 the presentation is a separate **15%**. See **[Grading & Canvas Setup](../planning/grading.md)**
 for the full mapping, and the **[Final Project page](../final.html)** for the day-by-day briefs.
 
-5. **Presentation** — slides and a live demo, delivered Thursday evening. Graded as its own 15% (Final Presentation) on top of the 25% project grade.
+5. **Presentation** — slides and a live demo, delivered at the Thursday 3–5 PM showcase. Graded as its own 15% (Final Presentation) on top of the 25% project grade.
 
 ## Notes
 

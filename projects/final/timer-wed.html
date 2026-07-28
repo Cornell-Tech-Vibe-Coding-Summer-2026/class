@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final · Wed — Class Timer</title>
+<style>
+  :root{ --bg:#0B0E14; --panel:#151B26; --neon:#00ff41; --ink:#F5F7FA; --muted:#8A94A6; --amber:#ffb020; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);
+    color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    padding:28px 24px;gap:22px}
+  .kicker{font-family:'Courier New',monospace;color:var(--neon);letter-spacing:.18em;
+    font-weight:700;font-size:clamp(12px,1.4vw,16px);text-transform:uppercase}
+  h1{font-size:clamp(20px,2.7vw,34px);text-align:center}
+  .setup{width:min(1100px,92vw);background:var(--panel);border:1px solid rgba(0,255,65,.3);
+    border-radius:10px;padding:12px 18px;font-size:clamp(13px,1.45vw,17px)}
+  .setup .h{color:var(--neon);font-family:'Courier New',monospace;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;font-size:.82em}
+  .setup ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:6px;width:auto}
+  .setup li{background:none;border:0;padding:0;display:list-item;color:var(--ink)}
+  .setup b{color:var(--neon)} .setup a{color:var(--neon)}
+  .remind{width:min(1100px,92vw);background:rgba(0,255,65,.10);border:1px solid rgba(0,255,65,.4);
+    border-radius:10px;padding:9px 16px;color:var(--neon);font-size:clamp(13px,1.5vw,17px);
+    text-align:center;font-weight:600}
+  #phase{font-size:clamp(26px,4.6vw,60px);font-weight:800;text-align:center;color:var(--neon)}
+  #detail{font-size:clamp(15px,1.8vw,22px);color:var(--muted);text-align:center;max-width:960px;line-height:1.5}
+  #clock{font-family:'Courier New',monospace;font-size:clamp(56px,12vw,150px);font-weight:700;
+    line-height:1;font-variant-numeric:tabular-nums}
+  #clock.warn{color:var(--amber)}#clock.crit{color:#ff4141;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:.35}}
+  .bar{width:min(1100px,92vw);height:10px;background:var(--panel);border-radius:5px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--neon);width:0%}
+  ol{list-style:none;width:min(1100px,92vw);display:flex;flex-direction:column;gap:7px}
+  li{display:flex;gap:14px;align-items:baseline;background:var(--panel);border-radius:10px;
+    padding:11px 18px;font-size:clamp(13px,1.5vw,19px);border-left:4px solid transparent}
+  li .t{font-family:'Courier New',monospace;color:var(--muted);min-width:8.5em}
+  li.done{opacity:.38}li.done .name{text-decoration:line-through}
+  li.now{border-left-color:var(--neon)}li.now .name{color:var(--neon);font-weight:700}
+  li.brk.now{border-left-color:var(--amber)}li.brk.now .name{color:var(--amber)}
+  li.code.now{border-left-color:var(--amber)}li.code.now .name{color:var(--amber)}
+  li .hint{color:var(--muted);font-size:.85em;margin-left:auto;text-align:right}
+  footer{color:var(--muted);font-family:'Courier New',monospace;font-size:13px;margin-top:auto}
+</style>
+</head>
+<body>
+  <div>
+    <div class="kicker" style="text-align:center">Final · Day 2 · Wed Jul 29 · Plan</div>
+    <h1>Who is this for, and what do they actually need?</h1>
+  </div>
+  <div class="setup">
+    <span class="h">Get set up — first few minutes</span>
+    <ol>
+      <li><b>1.</b> Open <b>planning-report.md</b> in your team repo.</li>
+      <li><b>2.</b> Have your Tuesday findings handy — which value reading you designed for, what verification showed.</li>
+      <li><b>3.</b> Line up <b>one real person outside the class</b> to interview.</li>
+    </ol>
+  </div>
+  <div class="remind">🚀 Keep the value in the foreground — persona + storyboard both show where the value is met or lost. Last 30 min: <b>start vibe coding</b>.</div>
+  <div id="phase">—</div>
+  <div id="detail"></div>
+  <div id="clock">--:--</div>
+  <div class="bar"><i id="fill"></i></div>
+  <ol id="plan"></ol>
+  <footer>TECHIE 1121 · Cornell Tech · Checkpoint 2 due end of today · timer runs on wall-clock time — reloading is safe</footer>
+
+<script>
+const PHASES = [
+  {end:"09:10", name:"0 · Arrive · today's arc",
+   detail:"Tuesday told you IF it works. Today you decide what to build — for a real person outside this class. Open planning-report.md."},
+  {end:"09:45", name:"★ Guest lecture — Remy Stewart (Figma)",
+   detail:"Figma AI, design + prototyping. Bring your questions — this feeds straight into your planning and Thursday's build."},
+  {end:"10:10", name:"1 · Planning mini-lecture",
+   detail:"What personas + storyboards are, and how to make them WITH and WITHOUT AI. AI is a co-designer, not the author — compare an AI persona to one real human's words."},
+  {end:"10:20", name:"☕ Break", break:true,
+   detail:"Stretch, water, back in 10."},
+  {end:"11:05", name:"2 · Find the need → persona → value tree",
+   detail:"Interview a real person outside the class; build a persona + the need in their words. Then operationalize: value → norms → requirements → features → the prompts you'll build."},
+  {end:"11:30", name:"3 · Storyboard + scope",
+   detail:"4–8 frames: the user, their problem, where your thing enters, what changes — the value living in each frame. Scope the smallest real thing you can ship + demo Thursday."},
+  {end:"12:00", name:"🚀 Start vibe coding — head start", code:true,
+   detail:"Last 30 minutes: open the repo, run the FIRST prompt from your value tree, get ANYTHING on screen. Thursday has no lecture, so every minute now is a minute you keep tomorrow."},
+];
+const START = "09:00";
+
+const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
+const planEl = document.getElementById("plan");
+PHASES.forEach((p,i) => {
+  const from = i === 0 ? START : PHASES[i-1].end;
+  const li = document.createElement("li");
+  if (p.break) li.classList.add("brk");
+  if (p.code) li.classList.add("code");
+  li.innerHTML = `<span class="t">${from}–${p.end}</span><span class="name">${p.name}</span>` +
+                 `<span class="hint">${toMin(p.end)-toMin(from)} min</span>`;
+  planEl.appendChild(li);
+});
+
+let lastPhase = -1;
+function beep(){ try{
+  const c = new (window.AudioContext||window.webkitAudioContext)();
+  const o = c.createOscillator(), g = c.createGain();
+  o.connect(g); g.connect(c.destination); o.frequency.value = 880; g.gain.value = .12;
+  o.start(); o.stop(c.currentTime + .35);
+}catch(e){} }
+
+function tick(){
+  const now = new Date();
+  const nowMin = now.getHours()*60 + now.getMinutes() + now.getSeconds()/60;
+  const idx = PHASES.findIndex(p => nowMin < toMin(p.end));
+  const items = planEl.children;
+  for (let i=0;i<items.length;i++){
+    const cls = items[i];
+    let base = "";
+    if (cls.classList.contains("brk")) base = "brk ";
+    else if (cls.classList.contains("code")) base = "code ";
+    cls.className = base + (idx === -1 || i < idx ? "done" : (i === idx ? "now" : ""));
+  }
+  const phaseEl = document.getElementById("phase"), detailEl = document.getElementById("detail"),
+        clockEl = document.getElementById("clock"), fill = document.getElementById("fill");
+  if (idx === -1){
+    phaseEl.textContent = "✅ That's a wrap";
+    detailEl.textContent = "planning-report.md submitted. Tomorrow: build all morning, showcase at 3–5.";
+    clockEl.textContent = "00:00"; clockEl.className = ""; fill.style.width = "100%";
+    return;
+  }
+  if (idx !== lastPhase && lastPhase !== -1) beep();
+  lastPhase = idx;
+  const p = PHASES[idx];
+  const from = idx === 0 ? toMin(START) : toMin(PHASES[idx-1].end);
+  const left = toMin(p.end) - nowMin;
+  const mm = Math.floor(left), ss = Math.floor((left-mm)*60);
+  phaseEl.textContent = p.name;
+  detailEl.textContent = p.detail;
+  clockEl.textContent = String(mm).padStart(2,"0") + ":" + String(ss).padStart(2,"0");
+  clockEl.className = left <= 1 ? "crit" : (left <= 3 ? "warn" : "");
+  fill.style.width = Math.min(100, Math.max(0, (nowMin-from)/(toMin(p.end)-from)*100)) + "%";
+}
+tick(); setInterval(tick, 250);
+</script>
+</body>
+</html>
