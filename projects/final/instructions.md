@@ -20,14 +20,14 @@ beneficiary — a community, an organization, a group of users who are not your
 classmates. It must:
 
 - **Serve someone outside the class.** Identify them specifically. "Students" is not specific; "first-year international students navigating NYC transit" is.
-- **Carry your value forward.** You keep the value your team has been working with — the final is the **next iteration of that commitment**, not a new theme. Bring Tuesday's verification findings with you.
+- **Carry your value forward — the project can be new.** Your team's **value is fixed**; the project isn't. The final can be the next iteration of your Project 2, **or a brand-new idea for the same value**. Bring the useful learnings from Tuesday's verification either way.
 - **Be tested with real users** and iterated on the evidence.
 - **Have a life after class.** Who keeps using or maintaining it? Give a credible answer.
 
 > [!IMPORTANT]
-> **One value, all the way through.** Monday closed the Project 2 cycle (usability), Tuesday opened
-> the next one (did the design actually produce the value change?). The final project is where you
-> act on that answer — often with a **different design for the same value**.
+> **One value, all the way through — the project can change.** Your **value is fixed**; the project
+> need not be. Monday closed the Project 2 usability cycle, Tuesday asked whether the design produced
+> the value. Carry those learnings into the final — **a brand-new idea for the same value is completely fine.**
 
 ## Accept the assignment — join the team named for your value
 [https://classroom.github.com/a/VTWqWkXg](https://classroom.github.com/a/VTWqWkXg). Your team is
@@ -58,7 +58,7 @@ verification canvas** (each member fills their own reflection lane). Guest lectu
 
 **Start from what Tuesday's verification showed**, then find the real need behind it.
 
-1. **Carry the value in — with the evidence.** You already have your value. Open with Tuesday's board: which reading you designed for, what the verification actually showed, and the **other design options** you flagged. If the old design didn't produce the value change, this is where you change the design — not the value.
+1. **Carry the value in — with the evidence.** You already have your value (it's fixed). Open with Tuesday's board: which reading you designed for, what the verification showed, and the **other design options** you flagged. If the old design didn't move the value, change the design — **or start a new idea for the same value.** Keep the value, not necessarily the project.
 2. **Beneficiary.** Someone specific outside the class. Not "students."
 3. **Build a persona, then interview it as an AI chatbot.** Build a detailed **persona** of a specific beneficiary — name, situation, goal, frustration, context — using the **[Figma persona template](https://www.figma.com/community/file/1335748909887675654/user-persona-template-set)** or a Google Slides deck. Then turn that persona into an **AI chatbot** (Claude / ChatGPT), give it rich detail, and run a **short interview** about *its* problem (ask about the problem, not your idea). Write the need **in its words**, and **paste the setup prompt + the conversation into `planning-report.md`** — that's your elicitation evidence. Treat what it says as a **hypothesis, not proof**: it's an AI voiced by your own assumptions and tends to agree with you (skeptical read: [NN/g — Synthetic Users](https://www.nngroup.com/articles/synthetic-users/)).
 4. **Operationalize the value.** What is concretely true of a good solution if the value is present? Say it as behavior / understanding / affect (the Tuesday lens).
