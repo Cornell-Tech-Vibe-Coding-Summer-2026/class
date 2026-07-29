@@ -85,7 +85,8 @@ real and telling its story well.
 ## 🎤 Day 4 — Thu, 3–5 PM · Present: the showcase
 
 A **shared afternoon showcase** — you present alongside other classes' work, with a **keynote for
-families**. Present live — **prototype and slides on the monitors, with your pitch video embedded**.
+families**. Your team's **showcase deck** is in the **[Final Deck Slides folder](https://drive.google.com/drive/folders/1dW-uHPByTMhZEDBBCbETWg8K8jgmanPL?usp=share_link)** — open the one named for your team and fill it in.
+Present live — **prototype and slides on the monitors, with your pitch video embedded**.
 Tell the **whole arc of your value**, not a test report: the artifact, who it's for (persona +
 storyboard), your research findings, the **design alternatives you considered** and how the design
 **progressed** from Project 2, your pitch, and the afterlife. Final tweaks + submission can come
